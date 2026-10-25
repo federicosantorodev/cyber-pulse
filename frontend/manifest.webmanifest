@@ -1,0 +1,35 @@
+{
+  "name": "Cyber Pulse",
+  "short_name": "Cyber Pulse",
+  "description": "Aggregatore di notizie e hub personale: news, sport, giochi, libreria e musica.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "it",
+  "dir": "ltr",
+  "background_color": "#f8f9fa",
+  "theme_color": "#f8f9fa",
+  "categories": ["news", "entertainment", "lifestyle"],
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

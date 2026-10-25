@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="it" data-mode="day" data-theme="google-1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fa">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Cyber Pulse: il tuo spazio personale per notizie e contenuti.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Cyber Pulse">
+  <title>Cyber Pulse</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/logo.svg">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./assets/css/themes_styles.css">
+  <style>
+    :root {
+      --header-height: 112px;
+      --content-width: 1120px;
+      --radius: 16px;
+      font-family: Roboto, "Google Sans", Arial, sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      min-height: 100%;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 16px);
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .app-header {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      width: min(100%, var(--content-width));
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+
+    .top-row {
+      display: flex;
+      min-height: 60px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .icon-button:hover:not(:disabled) { background: var(--surface-muted); }
+    .icon-button:disabled { cursor: not-allowed; opacity: .45; }
+    .icon { display: block; width: 24px; height: 24px; fill: currentColor; }
+
+    .brand {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 10px;
+      margin-right: auto;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .brand-mark img { display: block; width: 100%; height: 100%; }
+    .brand-name { overflow: hidden; font-size: 18px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+    .top-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 2px; }
+
+    .search-box {
+      display: flex;
+      width: min(280px, 36vw);
+      height: 42px;
+      align-items: center;
+      gap: 8px;
+      padding-inline: 12px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface-muted);
+    }
+
+    .search-box[hidden] { display: none; }
+    .search-box .icon { width: 20px; height: 20px; color: var(--text-muted); }
+    .search-input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+    .search-input:focus-visible { outline: 0; }
+
+    .second-row {
+      display: flex;
+      min-height: 52px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-strip {
+      display: flex;
+      min-width: 0;
+      flex: 1 1 auto;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-width: none;
+    }
+
+    .category-strip::-webkit-scrollbar { display: none; }
+    @media (hover: hover) and (pointer: fine) {
+      .category-strip { cursor: grab; }
+      .category-strip.dragging { cursor: grabbing; user-select: none; }
+    }
+
+    .category-button {
+      min-height: 36px;
+      flex: 0 0 auto;
+      padding: 0 13px;
+      border: 0;
+      border-radius: 18px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .category-button:hover { background: var(--surface-muted); }
+    .category-button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+    .dashboard-button { display: inline-flex; width: 36px; align-items: center; justify-content: center; padding: 0; border-radius: 50%; }
+
+    .content {
+      width: min(100%, var(--content-width));
+      min-height: calc(100vh - var(--header-height));
+      margin-inline: auto;
+      padding: 32px 24px 64px;
+    }
+
+    .feed-heading { margin: 0 0 8px; font-size: clamp(22px, 4vw, 28px); font-weight: 600; letter-spacing: -.3px; }
+    .cp-older { margin-top: 32px; }
+    .cp-older-title { margin: 0; font-size: 20px; font-weight: 600; }
+    .feed-description { margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+    .feed {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .empty-state {
+      display: grid;
+      min-height: 260px;
+      justify-items: center;
+      align-content: center;
+      padding: 32px 20px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .empty-icon {
+      display: grid;
+      width: 56px;
+      height: 56px;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .empty-icon .icon { width: 28px; height: 28px; }
+    .empty-title { margin: 0 0 8px; font-size: 18px; font-weight: 600; }
+    .empty-copy { max-width: 440px; margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    .feed-status { min-height: 1.5em; margin: 0; color: var(--text-muted); font-size: 14px; }
+    .feed-meta { min-height: 1.5em; margin: 8px 0 0; color: var(--text-muted); font-size: 12px; }
+    .news-card {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .news-card-body { min-width: 0; flex: 1; }
+    .news-card-meta { margin: 0 0 6px; color: var(--text-muted); font-size: 12px; }
+    .news-card-title { margin: 0 0 8px; font-size: 17px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+    .news-card-title a { color: inherit; text-decoration: none; }
+    .news-card-title a:hover { color: var(--accent); text-decoration: underline; }
+    .news-card-summary { margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+    .news-card-thumb { flex: 0 0 auto; width: 132px; height: 96px; border-radius: 12px; background: var(--surface-muted); object-fit: cover; }
+    .load-more {
+      display: block;
+      min-height: 44px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .load-more:hover:not(:disabled) { background: var(--accent-soft); }
+    .load-more:disabled { cursor: progress; opacity: .6; }
+    [hidden] { display: none !important; }
+
+    .launcher {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: min(360px, calc(100vw - 48px));
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 12px 0 40px rgb(0 0 0 / 16%);
+    }
+
+    .launcher[open] { animation: launcher-in 450ms cubic-bezier(.6, .04, .3, 1) both; }
+    .launcher.closing { animation: launcher-out 380ms cubic-bezier(.6, .04, .3, 1) both; }
+    .launcher::backdrop { background: rgb(0 0 0 / 42%); }
+    .launcher[open]::backdrop { animation: launcher-fade-in 450ms ease-out both; }
+    .launcher.closing::backdrop { animation: launcher-fade-out 380ms ease-in both; }
+
+    @keyframes launcher-in { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+    @keyframes launcher-out { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+    @keyframes launcher-fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes launcher-fade-out { from { opacity: 1; } to { opacity: 0; } }
+    .launcher-content { display: flex; height: 100%; flex-direction: column; overflow-y: auto; }
+    .launcher-heading { display: flex; min-height: 64px; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+    .launcher-title { margin: 0 auto 0 0; font-size: 18px; font-weight: 600; }
+    .launcher-nav { display: grid; gap: 4px; padding: 12px; }
+    .launcher-link {
+      display: flex;
+      min-height: 48px;
+      align-items: center;
+      gap: 16px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 24px;
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .launcher-link .icon { color: var(--text-muted); }
+    .launcher-link:not(:disabled) { cursor: pointer; }
+    .launcher-link:not(:disabled):hover { background: var(--surface-muted); }
+    .launcher-link:disabled { cursor: not-allowed; opacity: .55; }
+    .launcher-link.current { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+    .launcher-link.current .icon { color: var(--accent); }
+    .availability { margin-left: auto; color: var(--text-muted); font-size: 11px; font-weight: 400; }
+    .launcher-divider { height: 1px; margin: 4px 20px; border: 0; background: var(--border); }
+    .section-label { padding: 10px 16px 2px; color: var(--text-muted); font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; }
+    .quick-actions { display: grid; gap: 4px; padding: 8px 12px 20px; }
+
+    @media (max-width: 600px) {
+      :root { --header-height: 104px; }
+      .header-inner { padding-inline: 8px; }
+      .top-row { min-height: 56px; gap: 4px; }
+      .icon-button { width: 42px; height: 42px; }
+      .brand { gap: 8px; }
+      .brand-name { font-size: 16px; }
+      .brand-mark { width: 30px; height: 30px; }
+      .search-box { position: absolute; z-index: 1; inset: 7px 104px auto 56px; width: auto; }
+      .second-row { min-height: 48px; gap: 4px; }
+      .category-button { min-height: 34px; padding-inline: 11px; font-size: 13px; }
+      .dashboard-button { width: 34px; }
+      .content { padding: 24px 16px 48px; }
+      .empty-state { min-height: 230px; }
+      .news-card { flex-direction: column-reverse; gap: 12px; padding: 14px; }
+      .news-card-thumb { width: 100%; height: 180px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *:not(.gm-motion .gm-page, .gm-motion .gm-page *), *:not(.gm-motion .gm-page, .gm-motion .gm-page *)::before, *:not(.gm-motion .gm-page, .gm-motion .gm-page *)::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .launcher[open], .launcher[open]::backdrop { animation-duration: 450ms !important; }
+      .launcher.closing, .launcher.closing::backdrop { animation-duration: 380ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="top-row">
+        <button class="icon-button" id="open-launcher-menu" type="button" aria-label="Apri il menu di navigazione" aria-haspopup="dialog" aria-controls="launcher">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+        <a class="brand" href="#home" aria-label="Cyber Pulse, home">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="./assets/icons/logo.svg" alt="" width="34" height="34">
+          </span>
+          <span class="brand-name">Cyber Pulse</span>
+        </a>
+        <div class="top-actions">
+          <label class="search-box" id="search-box" hidden>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.71.71l.27.28v.78l5 4.99L20.49 19l-4.99-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/></svg>
+            <input class="search-input" id="news-search" type="search" placeholder="Cerca nel feed" autocomplete="off" aria-label="Cerca notizie">
+          </label>
+          <button class="icon-button" id="toggle-search" type="button" aria-label="Apri la ricerca" aria-expanded="false" aria-controls="search-box">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.71.71l.27.28v.78l5 4.99L20.49 19l-4.99-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="second-row" aria-label="Categorie del feed">
+        <button class="category-button dashboard-button" type="button" data-category="all" aria-label="Tutte le notizie" aria-pressed="true">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        </button>
+        <div class="category-strip" id="category-strip"></div>
+        <button class="icon-button" id="source-filter-button" type="button" aria-label="Apri il filtro fonti" aria-expanded="false" aria-controls="source-filter-popover">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content" id="home">
+    <div id="home-page">
+    <h1 class="feed-heading">Il tuo feed</h1>
+    <p class="feed-description">Notizie in ordine di pubblicazione, senza classifiche algoritmiche.</p>
+    <p class="feed-meta" id="feed-meta" role="status" aria-live="polite"></p>
+
+    <section class="feed" id="news-feed" aria-label="Notizie" aria-live="polite">
+      <div class="empty-state" id="empty-state">
+        <span class="empty-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 3H7v6h5V6zm5 0h-3v2h3V6zm0 4h-3v2h3v-2zm-10 3h10v2H7v-2zm0 4h10v2H7v-2z"/></svg>
+        </span>
+        <h2 class="empty-title">Caricamento delle notizie…</h2>
+        <p class="empty-copy">Sto leggendo le ultime notizie dal backend.</p>
+      </div>
+      <p class="feed-status" id="feed-status" role="status" aria-live="polite"></p>
+    </section>
+    <button class="load-more" id="load-more" type="button" hidden>Carica altre notizie</button>
+    </div>
+  </main>
+
+  <dialog class="launcher" id="launcher" aria-labelledby="launcher-title">
+    <div class="launcher-content">
+      <div class="launcher-heading">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="./assets/icons/logo.svg" alt="" width="34" height="34">
+        </span>
+        <h2 class="launcher-title" id="launcher-title">Cyber Pulse</h2>
+        <button class="icon-button" id="close-launcher" type="button" aria-label="Chiudi il launcher">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <nav class="launcher-nav" aria-label="Launcher">
+        <button class="launcher-link current" type="button" data-launcher-home>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="launcher-link" id="open-arena" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.57 14.86 22 13.43l-1.41-1.41-1.42 1.42-2.12-2.12 1.42-1.42-1.41-1.41-1.43 1.43A9.94 9.94 0 0 0 5.55 5.66L4.12 4.24 2.71 5.66l1.41 1.41L2.7 8.49l-1.41-1.41L-.12 9.9l1.42 1.42A10 10 0 1 0 20.57 14.86zM12 20a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm3.5-8 1.5 1.5-4 4-2-2-1.5 1.5-2.5-2.5L11 9l2 2 2.5-2.5 1.5 1.5z"/></svg>
+          <span>Arena</span>
+        </button>
+        <button class="launcher-link" id="open-games" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 6H3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+          <span>Giochi</span>
+        </button>
+        <button class="launcher-link" id="open-library" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 18H6V4h12v16zM8 6h8v2H8zm0 4h8v2H8zm0 4h5v2H8z"/></svg>
+          <span>Libreria</span>
+        </button>
+        <button class="launcher-link" id="open-music" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12.26A4 4 0 1 0 14 19V7h6V3h-8z"/></svg>
+          <span>Musica</span>
+        </button>
+      </nav>
+
+      <hr class="launcher-divider">
+      <nav class="launcher-nav" aria-label="Impostazioni">
+        <button class="launcher-link" id="open-theme-settings" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1a3 3 0 0 0 2.4-4.8 1 1 0 0 1 .8-1.6H18a3 3 0 0 0 3-3c0-4.75-4.03-8.6-9-8.6zM6.5 13A1.5 1.5 0 1 1 8 11.5 1.5 1.5 0 0 1 6.5 13zm3-4A1.5 1.5 0 1 1 11 7.5 1.5 1.5 0 0 1 9.5 9zm5 0A1.5 1.5 0 1 1 16 7.5 1.5 1.5 0 0 1 14.5 9zm3 4A1.5 1.5 0 1 1 19 11.5 1.5 1.5 0 0 1 17.5 13z"/></svg>
+          <span>Aspetto</span><span class="availability">In arrivo</span>
+        </button>
+        <button class="launcher-link" id="open-settings" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94a7.5 7.5 0 0 0 .05-.94 7.5 7.5 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.28 7.28 0 0 0-1.63-.94l-.36-2.54A.49.49 0 0 0 13.89 2h-3.78a.49.49 0 0 0-.49.42L9.26 4.96a7.28 7.28 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.71 8.48a.5.5 0 0 0 .12.64l2.03 1.58a7.5 7.5 0 0 0-.05.94c0 .32.02.63.05.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.12.21.37.3.61.22l2.39-.96c.5.39 1.05.71 1.63.94l.36 2.54c.04.24.24.42.49.42h3.78c.25 0 .45-.18.49-.42l.36-2.54c.58-.23 1.13-.55 1.63-.94l2.39.96c.24.08.49-.01.61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+          <span>Impostazioni</span>
+        </button>
+      </nav>
+
+      <hr class="launcher-divider">
+      <p class="section-label">Scorciatoie</p>
+      <div class="quick-actions" id="shortcut-list" aria-label="Scorciatoie">
+        <button class="launcher-link" id="launcher-sync" type="button" disabled>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V1L8 5l4 4V6a6 6 0 0 1 5.65 4h2.1A8 8 0 0 0 12 4zm6 8a6 6 0 0 1-11.65 2h-2.1A8 8 0 0 0 16 19v3l4-4-4-4v3a6 6 0 0 1-2 1.94V12h4z"/></svg>
+          <span>Sincronizza</span>
+        </button>
+        <button class="launcher-link" type="button" disabled aria-label="Secondo Cervello: non ancora disponibile">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-4 12.74V19a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.26A7 7 0 0 0 12 3zm2 11.6-.8.58V19h-2.4v-3.82l-.8-.58a5 5 0 1 1 4 0zM9 22h6v-1H9z"/></svg>
+          <span>Secondo Cervello</span><span class="availability">In arrivo</span>
+        </button>
+        <button class="launcher-link" type="button" disabled aria-label="Lab Fonti: non ancora disponibile">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6h-8l-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm0 12H4V8h16v10zM6 10h12v2H6zm0 4h8v2H6z"/></svg>
+          <span>Lab Fonti</span><span class="availability">In arrivo</span>
+        </button>
+      </div>
+
+      <div class="launcher-account" id="launcher-account" hidden>
+        <hr class="launcher-divider">
+        <p class="launcher-account-email" id="account-email"></p>
+        <button class="launcher-link" id="sign-out" type="button">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+          <span>Esci</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="./assets/js/backdrops.js"></script>
+  <script src="./assets/js/ui.js"></script>
+  <script src="./assets/js/onboarding.js"></script>
+  <script src="./assets/js/config.js"></script>
+  <script src="./assets/js/api.js"></script>
+  <script src="./assets/js/cards.js"></script>
+  <script src="./assets/js/settings.js"></script>
+  <script src="./assets/js/translate.js"></script>
+  <script src="./assets/js/shortcuts.js"></script>
+  <script src="./assets/js/sync.js"></script>
+  <script src="./assets/js/frontpage.js"></script>
+  <script src="./assets/js/modules/sports.js"></script>
+  <script src="./assets/js/modules/arena.js"></script>
+  <script src="./assets/js/modules/music.js"></script>
+  <script src="./assets/js/modules/games-more.js"></script>
+  <script src="./assets/js/modules/games.js"></script>
+  <script src="./assets/js/modules/library.js"></script>
+  <script src="./assets/js/foryou.js"></script>
+  <script src="./assets/js/cache.js"></script>
+  <script src="./assets/js/auth.js"></script>
+  <script src="./assets/js/ai.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/feed.js"></script>
+</body>
+</html>

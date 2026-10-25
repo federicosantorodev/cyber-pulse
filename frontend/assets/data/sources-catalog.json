@@ -1,0 +1,5490 @@
+{
+  "version": 1,
+  "updated": "2026-10-23",
+  "categories": [
+    {
+      "id": "attualita",
+      "name": "Attualità e Politica",
+      "short": "Attualità",
+      "sources": [
+        {
+          "id": "attualita-ansa",
+          "name": "ANSA",
+          "feedUrl": "https://www.ansa.it/sito/ansait_rss.xml",
+          "siteUrl": "https://www.ansa.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-corriere-della-sera",
+          "name": "Corriere della Sera",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/homepage.xml",
+          "siteUrl": "https://www.corriere.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-la-repubblica",
+          "name": "la Repubblica",
+          "feedUrl": "https://www.repubblica.it/rss/homepage/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-rai-news",
+          "name": "Rai News",
+          "feedUrl": "https://www.rainews.it/rss/tutti",
+          "siteUrl": "https://www.rainews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-sky-tg24",
+          "name": "Sky TG24",
+          "feedUrl": "https://tg24.sky.it/rss/tg24.xml",
+          "siteUrl": "https://tg24.sky.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-il-fatto-quotidiano",
+          "name": "Il Fatto Quotidiano",
+          "feedUrl": "https://www.ilfattoquotidiano.it/feed/",
+          "siteUrl": "https://www.ilfattoquotidiano.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-adnkronos",
+          "name": "Adnkronos",
+          "feedUrl": "https://www.adnkronos.com/RSS_Ultimora.xml",
+          "siteUrl": "https://www.adnkronos.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-il-sole-24-ore-italia",
+          "name": "Il Sole 24 Ore Italia",
+          "feedUrl": "https://www.ilsole24ore.com/rss/italia.xml",
+          "siteUrl": "https://www.ilsole24ore.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-il-messaggero",
+          "name": "Il Messaggero",
+          "feedUrl": "https://www.ilmessaggero.it/rss/home.xml",
+          "siteUrl": "https://www.ilmessaggero.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-libero",
+          "name": "Libero",
+          "feedUrl": "https://www.liberoquotidiano.it/rss.xml",
+          "siteUrl": "https://www.liberoquotidiano.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "attualita-open",
+          "name": "Open",
+          "feedUrl": "https://www.open.online/feed/",
+          "siteUrl": "https://www.open.online",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-tgcom24",
+          "name": "Tgcom24",
+          "feedUrl": "https://www.tgcom24.mediaset.it/rss/homepage.xml",
+          "siteUrl": "https://www.tgcom24.mediaset.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-il-manifesto",
+          "name": "Il Manifesto",
+          "feedUrl": "https://ilmanifesto.it/feed",
+          "siteUrl": "https://ilmanifesto.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-quotidiano-net",
+          "name": "Quotidiano.net",
+          "feedUrl": "https://www.quotidiano.net/rss",
+          "siteUrl": "https://www.quotidiano.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-il-gazzettino",
+          "name": "Il Gazzettino",
+          "feedUrl": "https://www.ilgazzettino.it/rss/home.xml",
+          "siteUrl": "https://www.ilgazzettino.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-il-mattino",
+          "name": "Il Mattino",
+          "feedUrl": "https://www.ilmattino.it/rss/home.xml",
+          "siteUrl": "https://www.ilmattino.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-leggo",
+          "name": "Leggo",
+          "feedUrl": "https://www.leggo.it/rss/home.xml",
+          "siteUrl": "https://www.leggo.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-la-verita",
+          "name": "La Verità",
+          "feedUrl": "https://www.laverita.info/feed",
+          "siteUrl": "https://www.laverita.info",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-panorama",
+          "name": "Panorama",
+          "feedUrl": "https://www.panorama.it/feed",
+          "siteUrl": "https://www.panorama.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-linkiesta",
+          "name": "Linkiesta",
+          "feedUrl": "https://www.linkiesta.it/feed/",
+          "siteUrl": "https://www.linkiesta.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-formiche",
+          "name": "Formiche",
+          "feedUrl": "https://formiche.net/feed/",
+          "siteUrl": "https://formiche.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-eunews",
+          "name": "Eunews",
+          "feedUrl": "https://www.eunews.it/feed/",
+          "siteUrl": "https://www.eunews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-dire",
+          "name": "Dire",
+          "feedUrl": "https://www.dire.it/feed/",
+          "siteUrl": "https://www.dire.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-askanews",
+          "name": "Askanews",
+          "feedUrl": "https://www.askanews.it/feed/",
+          "siteUrl": "https://www.askanews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-italpress",
+          "name": "Italpress",
+          "feedUrl": "https://www.italpress.com/feed/",
+          "siteUrl": "https://www.italpress.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-tpi",
+          "name": "TPI",
+          "feedUrl": "https://www.tpi.it/feed/",
+          "siteUrl": "https://www.tpi.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-today-it",
+          "name": "Today.it",
+          "feedUrl": "https://www.today.it/rss",
+          "siteUrl": "https://www.today.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-vatican-news",
+          "name": "Vatican News",
+          "feedUrl": "https://www.vaticannews.va/it.rss.xml",
+          "siteUrl": "https://www.vaticannews.va",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-la-nazione",
+          "name": "La Nazione",
+          "feedUrl": "https://www.lanazione.it/rss",
+          "siteUrl": "https://www.lanazione.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-il-resto-del-carlino",
+          "name": "Il Resto del Carlino",
+          "feedUrl": "https://www.ilrestodelcarlino.it/rss",
+          "siteUrl": "https://www.ilrestodelcarlino.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "attualita-bbc-news-world",
+          "name": "BBC News World",
+          "feedUrl": "http://feeds.bbci.co.uk/news/world/rss.xml",
+          "siteUrl": "https://www.bbc.com/news",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "attualita-the-new-york-times-world",
+          "name": "The New York Times World",
+          "feedUrl": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+          "siteUrl": "https://www.nytimes.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "attualita-the-guardian-world",
+          "name": "The Guardian World",
+          "feedUrl": "https://www.theguardian.com/world/rss",
+          "siteUrl": "https://www.theguardian.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "attualita-al-jazeera",
+          "name": "Al Jazeera",
+          "feedUrl": "https://www.aljazeera.com/xml/rss/all.xml",
+          "siteUrl": "https://www.aljazeera.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "attualita-deutsche-welle",
+          "name": "Deutsche Welle",
+          "feedUrl": "https://rss.dw.com/rdf/rss-en-all",
+          "siteUrl": "https://www.dw.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "attualita-france-24",
+          "name": "France 24",
+          "feedUrl": "https://www.france24.com/en/rss",
+          "siteUrl": "https://www.france24.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-le-monde",
+          "name": "Le Monde",
+          "feedUrl": "https://www.lemonde.fr/rss/une.xml",
+          "siteUrl": "https://www.lemonde.fr",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-der-spiegel-international",
+          "name": "DER SPIEGEL International",
+          "feedUrl": "https://www.spiegel.de/international/index.rss",
+          "siteUrl": "https://www.spiegel.de",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-el-pais",
+          "name": "El País",
+          "feedUrl": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+          "siteUrl": "https://elpais.com",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-npr-news",
+          "name": "NPR News",
+          "feedUrl": "https://feeds.npr.org/1001/rss.xml",
+          "siteUrl": "https://www.npr.org",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-politico-europe",
+          "name": "POLITICO Europe",
+          "feedUrl": "https://www.politico.eu/feed/",
+          "siteUrl": "https://www.politico.eu",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-euronews",
+          "name": "Euronews",
+          "feedUrl": "https://www.euronews.com/rss",
+          "siteUrl": "https://www.euronews.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-cnn-world",
+          "name": "CNN World",
+          "feedUrl": "http://rss.cnn.com/rss/edition_world.rss",
+          "siteUrl": "https://edition.cnn.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-sky-news-world",
+          "name": "Sky News World",
+          "feedUrl": "https://feeds.skynews.com/feeds/rss/world.xml",
+          "siteUrl": "https://news.sky.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-abc-news-australia",
+          "name": "ABC News Australia",
+          "feedUrl": "https://www.abc.net.au/news/feed/51120/rss.xml",
+          "siteUrl": "https://www.abc.net.au/news",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-cbc-world",
+          "name": "CBC World",
+          "feedUrl": "https://www.cbc.ca/webfeed/rss/rss-world",
+          "siteUrl": "https://www.cbc.ca/news",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-the-japan-times",
+          "name": "The Japan Times",
+          "feedUrl": "https://www.japantimes.co.jp/feed/",
+          "siteUrl": "https://www.japantimes.co.jp",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-south-china-morning-post",
+          "name": "South China Morning Post",
+          "feedUrl": "https://www.scmp.com/rss/91/feed",
+          "siteUrl": "https://www.scmp.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-the-straits-times",
+          "name": "The Straits Times",
+          "feedUrl": "https://www.straitstimes.com/news/world/rss.xml",
+          "siteUrl": "https://www.straitstimes.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "attualita-the-hindu",
+          "name": "The Hindu",
+          "feedUrl": "https://www.thehindu.com/news/international/feeder/default.rss",
+          "siteUrl": "https://www.thehindu.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "economia",
+      "name": "Economia e Finanza",
+      "short": "Economia",
+      "sources": [
+        {
+          "id": "economia-il-sole-24-ore-economia",
+          "name": "Il Sole 24 Ore Economia",
+          "feedUrl": "https://www.ilsole24ore.com/rss/economia.xml",
+          "siteUrl": "https://www.ilsole24ore.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-la-repubblica-economia",
+          "name": "la Repubblica Economia",
+          "feedUrl": "https://www.repubblica.it/rss/economia/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-corriere-della-sera-economia",
+          "name": "Corriere della Sera Economia",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/economia.xml",
+          "siteUrl": "https://www.corriere.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-ansa-economia",
+          "name": "ANSA Economia",
+          "feedUrl": "https://www.ansa.it/sito/notizie/economia/economia_rss.xml",
+          "siteUrl": "https://www.ansa.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-money-it",
+          "name": "Money.it",
+          "feedUrl": "https://www.money.it/spip.php?page=backend",
+          "siteUrl": "https://www.money.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-wall-street-italia",
+          "name": "Wall Street Italia",
+          "feedUrl": "https://www.wallstreetitalia.com/feed/",
+          "siteUrl": "https://www.wallstreetitalia.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-quifinanza",
+          "name": "QuiFinanza",
+          "feedUrl": "https://quifinanza.it/feed/",
+          "siteUrl": "https://quifinanza.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-forbes-italia",
+          "name": "Forbes Italia",
+          "feedUrl": "https://forbes.it/feed/",
+          "siteUrl": "https://forbes.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-lavoce-info",
+          "name": "lavoce.info",
+          "feedUrl": "https://www.lavoce.info/feed/",
+          "siteUrl": "https://www.lavoce.info",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-bebeez",
+          "name": "BeBeez",
+          "feedUrl": "https://bebeez.it/feed/",
+          "siteUrl": "https://bebeez.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "economia-trend-online",
+          "name": "Trend Online",
+          "feedUrl": "https://www.trend-online.com/feed/",
+          "siteUrl": "https://www.trend-online.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-messaggero-economia",
+          "name": "Il Messaggero Economia",
+          "feedUrl": "https://www.ilmessaggero.it/rss/economia.xml",
+          "siteUrl": "https://www.ilmessaggero.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-mattino-economia",
+          "name": "Il Mattino Economia",
+          "feedUrl": "https://www.ilmattino.it/rss/economia.xml",
+          "siteUrl": "https://www.ilmattino.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-gazzettino-economia",
+          "name": "Il Gazzettino Economia",
+          "feedUrl": "https://www.ilgazzettino.it/rss/economia.xml",
+          "siteUrl": "https://www.ilgazzettino.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-leggo-economia",
+          "name": "Leggo Economia",
+          "feedUrl": "https://www.leggo.it/rss/economia.xml",
+          "siteUrl": "https://www.leggo.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-quotidiano-net-economia",
+          "name": "Quotidiano.net Economia",
+          "feedUrl": "https://www.quotidiano.net/rss/economia",
+          "siteUrl": "https://www.quotidiano.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-post-economia",
+          "name": "Il Post Economia",
+          "feedUrl": "https://www.ilpost.it/economia/feed/",
+          "siteUrl": "https://www.ilpost.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-adnkronos-economia",
+          "name": "Adnkronos Economia",
+          "feedUrl": "https://www.adnkronos.com/RSS_Economia.xml",
+          "siteUrl": "https://www.adnkronos.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-agi-economia",
+          "name": "AGI Economia",
+          "feedUrl": "https://www.agi.it/economia/rss",
+          "siteUrl": "https://www.agi.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-tgcom24-economia",
+          "name": "Tgcom24 Economia",
+          "feedUrl": "https://www.tgcom24.mediaset.it/rss/economia.xml",
+          "siteUrl": "https://www.tgcom24.mediaset.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-borsainside",
+          "name": "BorsaInside",
+          "feedUrl": "https://www.borsainside.com/feed/",
+          "siteUrl": "https://www.borsainside.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-finanza-online",
+          "name": "Finanza Online",
+          "feedUrl": "https://www.finanzaonline.com/feed",
+          "siteUrl": "https://www.finanzaonline.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-informazione-fiscale",
+          "name": "Informazione Fiscale",
+          "feedUrl": "https://www.informazionefiscale.it/spip.php?page=backend",
+          "siteUrl": "https://www.informazionefiscale.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-salvagente",
+          "name": "Il Salvagente",
+          "feedUrl": "https://ilsalvagente.it/feed/",
+          "siteUrl": "https://ilsalvagente.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-altroconsumo",
+          "name": "Altroconsumo",
+          "feedUrl": "https://www.altroconsumo.it/rss",
+          "siteUrl": "https://www.altroconsumo.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-industria-italiana",
+          "name": "Industria Italiana",
+          "feedUrl": "https://www.industriaitaliana.it/feed/",
+          "siteUrl": "https://www.industriaitaliana.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-sole-24-ore-norme-e-tributi",
+          "name": "Il Sole 24 Ore Norme e Tributi",
+          "feedUrl": "https://www.ilsole24ore.com/rss/norme-e-tributi.xml",
+          "siteUrl": "https://www.ilsole24ore.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-eunews-economia",
+          "name": "Eunews Economia",
+          "feedUrl": "https://www.eunews.it/category/economia/feed/",
+          "siteUrl": "https://www.eunews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-italpress-economia",
+          "name": "Italpress Economia",
+          "feedUrl": "https://www.italpress.com/category/economia/feed/",
+          "siteUrl": "https://www.italpress.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-il-riformista-economia",
+          "name": "Il Riformista Economia",
+          "feedUrl": "https://www.ilriformista.it/category/economia/feed/",
+          "siteUrl": "https://www.ilriformista.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "economia-financial-times",
+          "name": "Financial Times",
+          "feedUrl": "https://www.ft.com/rss/home",
+          "siteUrl": "https://www.ft.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "economia-the-wall-street-journal-markets",
+          "name": "The Wall Street Journal Markets",
+          "feedUrl": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+          "siteUrl": "https://www.wsj.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "economia-bloomberg-markets",
+          "name": "Bloomberg Markets",
+          "feedUrl": "https://feeds.bloomberg.com/markets/news.rss",
+          "siteUrl": "https://www.bloomberg.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "economia-cnbc-top-news",
+          "name": "CNBC Top News",
+          "feedUrl": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+          "siteUrl": "https://www.cnbc.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "economia-marketwatch",
+          "name": "MarketWatch",
+          "feedUrl": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+          "siteUrl": "https://www.marketwatch.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "economia-the-economist-finance-and-economics",
+          "name": "The Economist Finance and Economics",
+          "feedUrl": "https://www.economist.com/finance-and-economics/rss.xml",
+          "siteUrl": "https://www.economist.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-the-new-york-times-business",
+          "name": "The New York Times Business",
+          "feedUrl": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+          "siteUrl": "https://www.nytimes.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-bbc-news-business",
+          "name": "BBC News Business",
+          "feedUrl": "http://feeds.bbci.co.uk/news/business/rss.xml",
+          "siteUrl": "https://www.bbc.com/news/business",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-the-guardian-business",
+          "name": "The Guardian Business",
+          "feedUrl": "https://www.theguardian.com/uk/business/rss",
+          "siteUrl": "https://www.theguardian.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-forbes-business",
+          "name": "Forbes Business",
+          "feedUrl": "https://www.forbes.com/business/feed/",
+          "siteUrl": "https://www.forbes.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-fortune",
+          "name": "Fortune",
+          "feedUrl": "https://fortune.com/feed/",
+          "siteUrl": "https://fortune.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-investing-com",
+          "name": "Investing.com",
+          "feedUrl": "https://www.investing.com/rss/news.rss",
+          "siteUrl": "https://www.investing.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-seeking-alpha",
+          "name": "Seeking Alpha",
+          "feedUrl": "https://seekingalpha.com/market_currents.xml",
+          "siteUrl": "https://seekingalpha.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-business-insider",
+          "name": "Business Insider",
+          "feedUrl": "https://feeds.businessinsider.com/custom/all",
+          "siteUrl": "https://www.businessinsider.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-handelsblatt",
+          "name": "Handelsblatt",
+          "feedUrl": "https://www.handelsblatt.com/contentexport/feed/top-themen",
+          "siteUrl": "https://www.handelsblatt.com",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-expansion",
+          "name": "Expansión",
+          "feedUrl": "https://e00-expansion.uecdn.es/rss/portada.xml",
+          "siteUrl": "https://www.expansion.com",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-european-central-bank",
+          "name": "European Central Bank",
+          "feedUrl": "https://www.ecb.europa.eu/rss/press.html",
+          "siteUrl": "https://www.ecb.europa.eu",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-federal-reserve-press-releases",
+          "name": "Federal Reserve Press Releases",
+          "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+          "siteUrl": "https://www.federalreserve.gov",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-bank-for-international-settlements",
+          "name": "Bank for International Settlements",
+          "feedUrl": "https://www.bis.org/doclist/bis_fsi_publs.rss",
+          "siteUrl": "https://www.bis.org",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "economia-nikkei-asia",
+          "name": "Nikkei Asia",
+          "feedUrl": "https://asia.nikkei.com/rss/feed/nar",
+          "siteUrl": "https://asia.nikkei.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "Tech, PC & Gaming",
+      "short": "Tech",
+      "sources": [
+        {
+          "id": "tech-hdblog",
+          "name": "HDblog",
+          "feedUrl": "https://www.hdblog.it/feed/",
+          "siteUrl": "https://www.hdblog.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-puntoinformatico",
+          "name": "Punto Informatico",
+          "feedUrl": "https://www.punto-informatico.it/feed/",
+          "siteUrl": "https://www.punto-informatico.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-tomshw",
+          "name": "Tom's Hardware Italia",
+          "feedUrl": "https://www.tomshw.it/feed/",
+          "siteUrl": "https://www.tomshw.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-wiredit",
+          "name": "Wired Italia",
+          "feedUrl": "https://www.wired.it/feed/rss",
+          "siteUrl": "https://www.wired.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-everyeye",
+          "name": "Everyeye.it",
+          "feedUrl": "https://www.everyeye.it/feed/",
+          "siteUrl": "https://www.everyeye.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-dday",
+          "name": "DDay.it",
+          "feedUrl": "https://www.dday.it/rss",
+          "siteUrl": "https://www.dday.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-ilsoftware",
+          "name": "Il Software",
+          "feedUrl": "https://www.ilsoftware.it/feed/",
+          "siteUrl": "https://www.ilsoftware.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-repubblicatech",
+          "name": "la Repubblica Tecnologia",
+          "feedUrl": "https://www.repubblica.it/rss/tecnologia/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it/tecnologia",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-corrieretech",
+          "name": "Corriere Tecnologia",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/tecnologia.xml",
+          "siteUrl": "https://www.corriere.it/tecnologia",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-ansatech",
+          "name": "ANSA Tecnologia",
+          "feedUrl": "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml",
+          "siteUrl": "https://www.ansa.it/sito/notizie/tecnologia",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "tech-androidworld",
+          "name": "AndroidWorld",
+          "feedUrl": "https://www.androidworld.it/feed/",
+          "siteUrl": "https://www.androidworld.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-ignit",
+          "name": "IGN Italia",
+          "feedUrl": "https://it.ign.com/feed.xml",
+          "siteUrl": "https://it.ign.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-macitynet",
+          "name": "Macitynet",
+          "feedUrl": "https://www.macitynet.it/feed/",
+          "siteUrl": "https://www.macitynet.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-webnews",
+          "name": "Webnews",
+          "feedUrl": "https://www.webnews.it/feed/",
+          "siteUrl": "https://www.webnews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-smartworld",
+          "name": "SmartWorld",
+          "feedUrl": "https://www.smartworld.it/feed",
+          "siteUrl": "https://www.smartworld.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-telefonino",
+          "name": "Telefonino.net",
+          "feedUrl": "https://www.telefonino.net/feed/",
+          "siteUrl": "https://www.telefonino.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-iphoneitalia",
+          "name": "iPhoneItalia",
+          "feedUrl": "https://www.iphoneitalia.com/feed",
+          "siteUrl": "https://www.iphoneitalia.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-gamesource",
+          "name": "GameSource",
+          "feedUrl": "https://www.gamesource.it/feed/",
+          "siteUrl": "https://www.gamesource.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-gamereactor",
+          "name": "Gamereactor Italia",
+          "feedUrl": "https://www.gamereactor.it/rss/rss.php?texttype=1",
+          "siteUrl": "https://www.gamereactor.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-datamanager",
+          "name": "Data Manager",
+          "feedUrl": "https://www.datamanager.it/feed/",
+          "siteUrl": "https://www.datamanager.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-cyberdefence",
+          "name": "Cyber Security 360",
+          "feedUrl": "https://www.cybersecurity360.it/feed/",
+          "siteUrl": "https://www.cybersecurity360.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-agendadigitale",
+          "name": "Agenda Digitale",
+          "feedUrl": "https://www.agendadigitale.eu/feed/",
+          "siteUrl": "https://www.agendadigitale.eu",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-zerounoweb",
+          "name": "ZeroUno",
+          "feedUrl": "https://www.zerounoweb.it/feed/",
+          "siteUrl": "https://www.zerounoweb.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-ilpost",
+          "name": "Il Post Tecnologia",
+          "feedUrl": "https://www.ilpost.it/tecnologia/feed/",
+          "siteUrl": "https://www.ilpost.it/tecnologia",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-techgaming",
+          "name": "Techgaming",
+          "feedUrl": "https://www.techgaming.it/feed/",
+          "siteUrl": "https://www.techgaming.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-tecnoandroid",
+          "name": "Tecnoandroid",
+          "feedUrl": "https://www.tecnoandroid.it/feed",
+          "siteUrl": "https://www.tecnoandroid.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-mobileworld",
+          "name": "Mobileworld",
+          "feedUrl": "https://www.mobileworld.it/feed/",
+          "siteUrl": "https://www.mobileworld.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-appuntidigitali",
+          "name": "Appuntidigitali",
+          "feedUrl": "https://www.appuntidigitali.it/feed/",
+          "siteUrl": "https://www.appuntidigitali.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-tecnozoom",
+          "name": "TecnoZoom",
+          "feedUrl": "https://www.tecnozoom.it/feed/",
+          "siteUrl": "https://www.tecnozoom.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "tech-arstechnica",
+          "name": "Ars Technica",
+          "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+          "siteUrl": "https://arstechnica.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "tech-theverge",
+          "name": "The Verge",
+          "feedUrl": "https://www.theverge.com/rss/index.xml",
+          "siteUrl": "https://www.theverge.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "tech-techcrunch",
+          "name": "TechCrunch",
+          "feedUrl": "https://techcrunch.com/feed/",
+          "siteUrl": "https://techcrunch.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "tech-wired",
+          "name": "WIRED",
+          "feedUrl": "https://www.wired.com/feed/rss",
+          "siteUrl": "https://www.wired.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "tech-engadget",
+          "name": "Engadget",
+          "feedUrl": "https://www.engadget.com/rss.xml",
+          "siteUrl": "https://www.engadget.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "tech-pcgamer",
+          "name": "PC Gamer",
+          "feedUrl": "https://www.pcgamer.com/rss/",
+          "siteUrl": "https://www.pcgamer.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-ign",
+          "name": "IGN",
+          "feedUrl": "https://feeds.ign.com/ign/all",
+          "siteUrl": "https://www.ign.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-eurogamer",
+          "name": "Eurogamer",
+          "feedUrl": "https://www.eurogamer.net/feed",
+          "siteUrl": "https://www.eurogamer.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-rps",
+          "name": "Rock Paper Shotgun",
+          "feedUrl": "https://www.rockpapershotgun.com/feed",
+          "siteUrl": "https://www.rockpapershotgun.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-polygon",
+          "name": "Polygon",
+          "feedUrl": "https://www.polygon.com/rss/index.xml",
+          "siteUrl": "https://www.polygon.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-gamesradar",
+          "name": "GamesRadar+",
+          "feedUrl": "https://www.gamesradar.com/rss/",
+          "siteUrl": "https://www.gamesradar.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-heise",
+          "name": "heise online",
+          "feedUrl": "https://www.heise.de/rss/heise-atom.xml",
+          "siteUrl": "https://www.heise.de",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-theregister",
+          "name": "The Register",
+          "feedUrl": "https://www.theregister.com/headlines.atom",
+          "siteUrl": "https://www.theregister.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-hackaday",
+          "name": "Hackaday",
+          "feedUrl": "https://hackaday.com/blog/feed/",
+          "siteUrl": "https://hackaday.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-bleepingcomputer",
+          "name": "BleepingComputer",
+          "feedUrl": "https://www.bleepingcomputer.com/feed/",
+          "siteUrl": "https://www.bleepingcomputer.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-9to5mac",
+          "name": "9to5Mac",
+          "feedUrl": "https://9to5mac.com/feed/",
+          "siteUrl": "https://9to5mac.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-9to5google",
+          "name": "9to5Google",
+          "feedUrl": "https://9to5google.com/feed/",
+          "siteUrl": "https://9to5google.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-androidauthority",
+          "name": "Android Authority",
+          "feedUrl": "https://www.androidauthority.com/feed/",
+          "siteUrl": "https://www.androidauthority.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-mittr",
+          "name": "MIT Technology Review",
+          "feedUrl": "https://www.technologyreview.com/feed/",
+          "siteUrl": "https://www.technologyreview.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-kotaku",
+          "name": "Kotaku",
+          "feedUrl": "https://kotaku.com/rss",
+          "siteUrl": "https://kotaku.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "tech-gizchina-italia",
+          "name": "GizChina Italia",
+          "feedUrl": "https://www.gizchina.it/feed/",
+          "siteUrl": "https://www.gizchina.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "scienza",
+      "name": "Scienza, Storia e Viaggi",
+      "short": "Scienza",
+      "sources": [
+        {
+          "id": "scienza-focus",
+          "name": "Focus",
+          "feedUrl": "https://www.focus.it/rss",
+          "siteUrl": "https://www.focus.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-mediainaf",
+          "name": "Media INAF",
+          "feedUrl": "https://www.media.inaf.it/feed/",
+          "siteUrl": "https://www.media.inaf.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-galileo",
+          "name": "Galileo",
+          "feedUrl": "https://www.galileonet.it/feed/",
+          "siteUrl": "https://www.galileonet.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-corrierescienze",
+          "name": "Corriere Scienze",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/scienze.xml",
+          "siteUrl": "https://www.corriere.it/scienze",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-repubblicascienze",
+          "name": "la Repubblica Scienze",
+          "feedUrl": "https://www.repubblica.it/rss/scienze/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it/scienze",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-ilpostscienza",
+          "name": "Il Post Scienza",
+          "feedUrl": "https://www.ilpost.it/scienza/feed/",
+          "siteUrl": "https://www.ilpost.it/scienza",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-asi",
+          "name": "Agenzia Spaziale Italiana",
+          "feedUrl": "https://www.asi.it/feed/",
+          "siteUrl": "https://www.asi.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-scienzainrete",
+          "name": "Scienza in rete",
+          "feedUrl": "https://www.scienzainrete.it/rss.xml",
+          "siteUrl": "https://www.scienzainrete.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-geopop",
+          "name": "Geopop",
+          "feedUrl": "https://www.geopop.it/feed/",
+          "siteUrl": "https://www.geopop.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-astronomia",
+          "name": "Astronomia.com",
+          "feedUrl": "https://www.astronomia.com/feed/",
+          "siteUrl": "https://www.astronomia.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "scienza-ingv",
+          "name": "INGV Terremoti",
+          "feedUrl": "https://ingvterremoti.com/feed/",
+          "siteUrl": "https://ingvterremoti.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-meteoweb",
+          "name": "MeteoWeb",
+          "feedUrl": "https://www.meteoweb.eu/feed/",
+          "siteUrl": "https://www.meteoweb.eu",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-storiain",
+          "name": "Storia in Network",
+          "feedUrl": "https://www.storiain.net/feed/",
+          "siteUrl": "https://www.storiain.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-archeologiaviva",
+          "name": "Archeologia Viva",
+          "feedUrl": "https://www.archeologiaviva.it/feed/",
+          "siteUrl": "https://www.archeologiaviva.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-archeomedia",
+          "name": "Archeomedia",
+          "feedUrl": "https://www.archeomedia.net/feed/",
+          "siteUrl": "https://www.archeomedia.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-archeostorie",
+          "name": "Archeostorie",
+          "feedUrl": "https://www.archeostorie.it/feed/",
+          "siteUrl": "https://www.archeostorie.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-astrospace",
+          "name": "AstroSpace",
+          "feedUrl": "https://www.astrospace.it/feed/",
+          "siteUrl": "https://www.astrospace.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-coelum",
+          "name": "Coelum Astronomia",
+          "feedUrl": "https://www.coelum.com/feed",
+          "siteUrl": "https://www.coelum.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-gaianews",
+          "name": "Gaianews",
+          "feedUrl": "https://www.gaianews.it/feed/",
+          "siteUrl": "https://www.gaianews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-ilbolive",
+          "name": "Il Bo Live",
+          "feedUrl": "https://ilbolive.unipd.it/it/rss.xml",
+          "siteUrl": "https://ilbolive.unipd.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-lifegate",
+          "name": "LifeGate",
+          "feedUrl": "https://www.lifegate.it/feed",
+          "siteUrl": "https://www.lifegate.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-medioevo",
+          "name": "Medioevo",
+          "feedUrl": "https://www.medioevo.it/feed/",
+          "siteUrl": "https://www.medioevo.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-queryonline",
+          "name": "Query Online",
+          "feedUrl": "https://www.queryonline.it/feed/",
+          "siteUrl": "https://www.queryonline.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-repubblicaviaggi",
+          "name": "Repubblica Viaggi",
+          "feedUrl": "https://www.repubblica.it/rss/viaggi/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it/viaggi",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-siviaggia",
+          "name": "SiViaggia",
+          "feedUrl": "https://www.siviaggia.it/feed/",
+          "siteUrl": "https://www.siviaggia.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-spazio50",
+          "name": "Spazio50",
+          "feedUrl": "https://www.spazio50.org/feed/",
+          "siteUrl": "https://www.spazio50.org",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-turistipercaso",
+          "name": "Turisti per Caso",
+          "feedUrl": "https://www.turistipercaso.it/feed/",
+          "siteUrl": "https://www.turistipercaso.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-viagginews",
+          "name": "Viaggi News",
+          "feedUrl": "https://www.viagginews.com/feed/",
+          "siteUrl": "https://www.viagginews.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-ilmessaggero",
+          "name": "Il Messaggero Scienza",
+          "feedUrl": "https://www.ilmessaggero.it/rss/scienza.xml",
+          "siteUrl": "https://www.ilmessaggero.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "scienza-nasa",
+          "name": "NASA",
+          "feedUrl": "https://www.nasa.gov/feed/",
+          "siteUrl": "https://www.nasa.gov",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "scienza-nature",
+          "name": "Nature",
+          "feedUrl": "https://www.nature.com/nature.rss",
+          "siteUrl": "https://www.nature.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "scienza-science",
+          "name": "Science",
+          "feedUrl": "https://www.science.org/rss/news_current.xml",
+          "siteUrl": "https://www.science.org",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "scienza-sciam",
+          "name": "Scientific American",
+          "feedUrl": "http://rss.sciam.com/ScientificAmerican-Global",
+          "siteUrl": "https://www.scientificamerican.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "scienza-smithsonian",
+          "name": "Smithsonian Magazine",
+          "feedUrl": "https://www.smithsonianmag.com/rss/latest_articles/",
+          "siteUrl": "https://www.smithsonianmag.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "scienza-physorg",
+          "name": "Phys.org",
+          "feedUrl": "https://phys.org/rss-feed/",
+          "siteUrl": "https://phys.org",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-esa",
+          "name": "ESA",
+          "feedUrl": "https://www.esa.int/rssfeed/Our_Activities/Space_Science",
+          "siteUrl": "https://www.esa.int",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-sciencedaily",
+          "name": "ScienceDaily",
+          "feedUrl": "https://www.sciencedaily.com/rss/all.xml",
+          "siteUrl": "https://www.sciencedaily.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-universetoday",
+          "name": "Universe Today",
+          "feedUrl": "https://www.universetoday.com/feed",
+          "siteUrl": "https://www.universetoday.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-quanta",
+          "name": "Quanta Magazine",
+          "feedUrl": "https://api.quantamagazine.org/feed/",
+          "siteUrl": "https://www.quantamagazine.org",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-atlasobscura",
+          "name": "Atlas Obscura",
+          "feedUrl": "https://www.atlasobscura.com/feeds/latest",
+          "siteUrl": "https://www.atlasobscura.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-cntraveler",
+          "name": "Condé Nast Traveler",
+          "feedUrl": "https://www.cntraveler.com/feed/rss",
+          "siteUrl": "https://www.cntraveler.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-archaeology",
+          "name": "Archaeology Magazine",
+          "feedUrl": "https://www.archaeology.org/feed",
+          "siteUrl": "https://www.archaeology.org",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-historyextra",
+          "name": "HistoryExtra",
+          "feedUrl": "https://www.historyextra.com/feed/",
+          "siteUrl": "https://www.historyextra.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-bbcscience",
+          "name": "BBC Science & Environment",
+          "feedUrl": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+          "siteUrl": "https://www.bbc.com/news/science_and_environment",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-guardiansci",
+          "name": "The Guardian Science",
+          "feedUrl": "https://www.theguardian.com/science/rss",
+          "siteUrl": "https://www.theguardian.com/science",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-sciencenews",
+          "name": "Science News",
+          "feedUrl": "https://www.sciencenews.org/feed",
+          "siteUrl": "https://www.sciencenews.org",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-popsci",
+          "name": "Popular Science",
+          "feedUrl": "https://www.popsci.com/arcio/rss/",
+          "siteUrl": "https://www.popsci.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-spektrum",
+          "name": "Spektrum der Wissenschaft",
+          "feedUrl": "https://www.spektrum.de/alias/rss/spektrum-de-rss-feed/996406",
+          "siteUrl": "https://www.spektrum.de",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-futura",
+          "name": "Futura Sciences",
+          "feedUrl": "https://www.futura-sciences.com/rss/actualites.xml",
+          "siteUrl": "https://www.futura-sciences.com",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "scienza-le-scienze",
+          "name": "Le Scienze",
+          "feedUrl": "https://www.lescienze.it/rss",
+          "siteUrl": "https://www.lescienze.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "name": "Sport",
+      "short": "Sport",
+      "sources": [
+        {
+          "id": "sport-gazzetta",
+          "name": "La Gazzetta dello Sport",
+          "feedUrl": "https://www.gazzetta.it/rss/home.xml",
+          "siteUrl": "https://www.gazzetta.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-corrieresport",
+          "name": "Corriere dello Sport",
+          "feedUrl": "https://www.corrieredellosport.it/rss/calcio",
+          "siteUrl": "https://www.corrieredellosport.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-tuttosport",
+          "name": "Tuttosport",
+          "feedUrl": "https://www.tuttosport.com/rss/calcio",
+          "siteUrl": "https://www.tuttosport.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-skysport",
+          "name": "Sky Sport",
+          "feedUrl": "https://sport.sky.it/rss/sport.xml",
+          "siteUrl": "https://sport.sky.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-ansasport",
+          "name": "ANSA Sport",
+          "feedUrl": "https://www.ansa.it/sito/notizie/sport/sport_rss.xml",
+          "siteUrl": "https://www.ansa.it/sport",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-corriere",
+          "name": "Corriere della Sera Sport",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/sport.xml",
+          "siteUrl": "https://www.corriere.it/sport",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-tmw",
+          "name": "TuttoMercatoWeb",
+          "feedUrl": "https://www.tuttomercatoweb.com/rss/",
+          "siteUrl": "https://www.tuttomercatoweb.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-oasport",
+          "name": "OA Sport",
+          "feedUrl": "https://www.oasport.it/feed/",
+          "siteUrl": "https://www.oasport.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-ansacalcio",
+          "name": "ANSA Calcio",
+          "feedUrl": "https://www.ansa.it/sito/notizie/sport/calcio/calcio_rss.xml",
+          "siteUrl": "https://www.ansa.it/sport/calcio",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-ilmessaggero",
+          "name": "Il Messaggero Sport",
+          "feedUrl": "https://www.ilmessaggero.it/rss/sport.xml",
+          "siteUrl": "https://www.ilmessaggero.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-rivistaundici",
+          "name": "Rivista Undici",
+          "feedUrl": "https://www.rivistaundici.com/feed/",
+          "siteUrl": "https://www.rivistaundici.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-ubitennis",
+          "name": "Ubitennis",
+          "feedUrl": "https://www.ubitennis.com/feed/",
+          "siteUrl": "https://www.ubitennis.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-leggo",
+          "name": "Leggo Sport",
+          "feedUrl": "https://www.leggo.it/rss/sport.xml",
+          "siteUrl": "https://www.leggo.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-milannews",
+          "name": "MilanNews",
+          "feedUrl": "https://www.milannews.it/rss/",
+          "siteUrl": "https://www.milannews.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-ilposta",
+          "name": "Il Post Sport",
+          "feedUrl": "https://www.ilpost.it/sport/feed/",
+          "siteUrl": "https://www.ilpost.it/sport",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-forzaroma",
+          "name": "ForzaRoma",
+          "feedUrl": "https://www.forzaroma.info/feed/",
+          "siteUrl": "https://www.forzaroma.info",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-ilnapolista",
+          "name": "Il Napolista",
+          "feedUrl": "https://www.ilnapolista.it/feed/",
+          "siteUrl": "https://www.ilnapolista.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-sportando",
+          "name": "Sportando",
+          "feedUrl": "https://sportando.basketball/feed/",
+          "siteUrl": "https://sportando.basketball",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-calciomercatoit",
+          "name": "Calciomercato.it",
+          "feedUrl": "https://www.calciomercato.it/feed/",
+          "siteUrl": "https://www.calciomercato.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-automoto",
+          "name": "Automoto.it",
+          "feedUrl": "https://www.automoto.it/rss/news.xml",
+          "siteUrl": "https://www.automoto.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-tuttocampo",
+          "name": "TuttoCalcioNews",
+          "feedUrl": "https://www.tuttonapoli.net/rss/",
+          "siteUrl": "https://www.tuttonapoli.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-areanapoli",
+          "name": "Area Napoli",
+          "feedUrl": "https://www.areanapoli.it/rss/",
+          "siteUrl": "https://www.areanapoli.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-tuttojuve",
+          "name": "TuttoJuve",
+          "feedUrl": "https://www.tuttojuve.com/rss/",
+          "siteUrl": "https://www.tuttojuve.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-juvenews",
+          "name": "Juventus News 24",
+          "feedUrl": "https://www.juventusnews24.com/feed/",
+          "siteUrl": "https://www.juventusnews24.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-tennisitaliano",
+          "name": "Il Tennis Italiano",
+          "feedUrl": "https://www.tennisitaliano.it/feed/",
+          "siteUrl": "https://www.tennisitaliano.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-sportface",
+          "name": "Sportface",
+          "feedUrl": "https://www.sportface.it/feed/",
+          "siteUrl": "https://www.sportface.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-napolicalciolive",
+          "name": "NapoliCalcioLive",
+          "feedUrl": "https://www.napolicalciolive.com/feed/",
+          "siteUrl": "https://www.napolicalciolive.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-bbcsport",
+          "name": "BBC Sport",
+          "feedUrl": "https://feeds.bbci.co.uk/sport/rss.xml",
+          "siteUrl": "https://www.bbc.com/sport",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "sport-guardian",
+          "name": "The Guardian Sport",
+          "feedUrl": "https://www.theguardian.com/uk/sport/rss",
+          "siteUrl": "https://www.theguardian.com/sport",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "sport-skysportsuk",
+          "name": "Sky Sports",
+          "feedUrl": "https://www.skysports.com/rss/12040",
+          "siteUrl": "https://www.skysports.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "sport-marca",
+          "name": "Marca",
+          "feedUrl": "https://e00-marca.uecdn.es/rss/portada.xml",
+          "siteUrl": "https://www.marca.com",
+          "lang": "es",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "sport-lequipe",
+          "name": "L'Equipe",
+          "feedUrl": "https://dwh.lequipe.fr/api/edito/rss?path=/",
+          "siteUrl": "https://www.lequipe.fr",
+          "lang": "fr",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "sport-cbssports",
+          "name": "CBS Sports",
+          "feedUrl": "https://www.cbssports.com/rss/headlines/",
+          "siteUrl": "https://www.cbssports.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-kicker",
+          "name": "Kicker",
+          "feedUrl": "https://newsfeed.kicker.de/news/aktuell",
+          "siteUrl": "https://www.kicker.de",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-guardianfootball",
+          "name": "The Guardian Football",
+          "feedUrl": "https://www.theguardian.com/football/rss",
+          "siteUrl": "https://www.theguardian.com/football",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-bbcfootball",
+          "name": "BBC Sport Football",
+          "feedUrl": "https://feeds.bbci.co.uk/sport/football/rss.xml",
+          "siteUrl": "https://www.bbc.com/sport/football",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-footballit",
+          "name": "Football Italia",
+          "feedUrl": "https://football-italia.net/feed/",
+          "siteUrl": "https://football-italia.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-independent",
+          "name": "The Independent Sport",
+          "feedUrl": "https://www.independent.co.uk/sport/rss",
+          "siteUrl": "https://www.independent.co.uk/sport",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-foxsports",
+          "name": "Fox Sports",
+          "feedUrl": "https://www.foxsports.com/feedout/syndicatedContent?categoryId=0",
+          "siteUrl": "https://www.foxsports.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-mundodeportivo",
+          "name": "Mundo Deportivo",
+          "feedUrl": "https://www.mundodeportivo.com/feed/rss/home",
+          "siteUrl": "https://www.mundodeportivo.com",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-sportingnews",
+          "name": "Sporting News",
+          "feedUrl": "https://www.sportingnews.com/us/rss",
+          "siteUrl": "https://www.sportingnews.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-cyclingnews",
+          "name": "Cyclingnews",
+          "feedUrl": "https://www.cyclingnews.com/rss/",
+          "siteUrl": "https://www.cyclingnews.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-sportskeeda",
+          "name": "Sportskeeda",
+          "feedUrl": "https://www.sportskeeda.com/feed",
+          "siteUrl": "https://www.sportskeeda.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-record",
+          "name": "Record",
+          "feedUrl": "https://www.record.pt/rss",
+          "siteUrl": "https://www.record.pt",
+          "lang": "pt",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-volley-news",
+          "name": "Volley News",
+          "feedUrl": "https://www.volleynews.it/feed/",
+          "siteUrl": "https://www.volleynews.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-calcio-e-finanza",
+          "name": "Calcio e Finanza",
+          "feedUrl": "https://www.calcioefinanza.it/feed/",
+          "siteUrl": "https://www.calcioefinanza.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "sport-sport-press-24",
+          "name": "Sport Press 24",
+          "feedUrl": "https://www.sportpress24.com/feed/",
+          "siteUrl": "https://www.sportpress24.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "sport-the-athletic-soccer",
+          "name": "The Athletic Soccer",
+          "feedUrl": "https://www.nytimes.com/athletic/rss/soccer/",
+          "siteUrl": "https://www.nytimes.com/athletic/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-soccernews",
+          "name": "SoccerNews",
+          "feedUrl": "https://www.soccernews.com/feed/",
+          "siteUrl": "https://www.soccernews.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "sport-sportsnet-hockey",
+          "name": "Sportsnet Hockey",
+          "feedUrl": "https://www.sportsnet.ca/hockey/feed/",
+          "siteUrl": "https://www.sportsnet.ca/hockey/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "cinema",
+      "name": "Cinema, Serie TV e Cultura",
+      "short": "Cinema e TV",
+      "sources": [
+        {
+          "id": "cinema-ansacinema",
+          "name": "ANSA Cinema",
+          "feedUrl": "https://www.ansa.it/sito/notizie/cultura/cinema/cinema_rss.xml",
+          "siteUrl": "https://www.ansa.it/sito/notizie/cultura/cinema",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-movieplayer",
+          "name": "Movieplayer.it",
+          "feedUrl": "https://movieplayer.it/rss/news.xml",
+          "siteUrl": "https://movieplayer.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-everyeye",
+          "name": "Everyeye Cinema",
+          "feedUrl": "https://cinema.everyeye.it/feed/",
+          "siteUrl": "https://cinema.everyeye.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-repubblicaspettacoli",
+          "name": "la Repubblica Spettacoli",
+          "feedUrl": "https://www.repubblica.it/rss/spettacoli_e_cultura/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it/spettacoli",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-corrierespettacoli",
+          "name": "Corriere Spettacoli",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/spettacoli.xml",
+          "siteUrl": "https://www.corriere.it/spettacoli",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-ilpostcultura",
+          "name": "Il Post Cultura",
+          "feedUrl": "https://www.ilpost.it/cultura/feed/",
+          "siteUrl": "https://www.ilpost.it/cultura",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-ansacultura",
+          "name": "ANSA Cultura",
+          "feedUrl": "https://www.ansa.it/sito/notizie/cultura/cultura_rss.xml",
+          "siteUrl": "https://www.ansa.it/sito/notizie/cultura",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-cinefilos",
+          "name": "Cinefilos.it",
+          "feedUrl": "https://www.cinefilos.it/feed/",
+          "siteUrl": "https://www.cinefilos.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-screenweek",
+          "name": "ScreenWeek",
+          "feedUrl": "https://www.screenweek.it/feed/",
+          "siteUrl": "https://www.screenweek.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-tvserial",
+          "name": "TV Serial",
+          "feedUrl": "https://www.tvserial.it/feed/",
+          "siteUrl": "https://www.tvserial.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cinema-artribune",
+          "name": "Artribune",
+          "feedUrl": "https://www.artribune.com/feed/",
+          "siteUrl": "https://www.artribune.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-corrierecultura",
+          "name": "Corriere Cultura",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/cultura.xml",
+          "siteUrl": "https://www.corriere.it/cultura",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-ciak",
+          "name": "Ciak Magazine",
+          "feedUrl": "https://www.ciakmagazine.it/feed/",
+          "siteUrl": "https://www.ciakmagazine.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-lascimmia",
+          "name": "La Scimmia Pensa",
+          "feedUrl": "https://www.lascimmiapensa.com/feed/",
+          "siteUrl": "https://www.lascimmiapensa.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-illibraio",
+          "name": "Il Libraio",
+          "feedUrl": "https://www.illibraio.it/feed/",
+          "siteUrl": "https://www.illibraio.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-vanityfairit",
+          "name": "Vanity Fair Italia Cultura",
+          "feedUrl": "https://www.vanityfair.it/feed/rss",
+          "siteUrl": "https://www.vanityfair.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-nerdpool",
+          "name": "Nerdpool",
+          "feedUrl": "https://www.nerdpool.it/feed/",
+          "siteUrl": "https://www.nerdpool.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-sole24cultura",
+          "name": "Il Sole 24 Ore Cultura",
+          "feedUrl": "https://www.ilsole24ore.com/rss/cultura.xml",
+          "siteUrl": "https://www.ilsole24ore.com/cultura",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-ilmessaggerocine",
+          "name": "Il Messaggero Cinema",
+          "feedUrl": "https://www.ilmessaggero.it/rss/spettacoli.xml",
+          "siteUrl": "https://www.ilmessaggero.it/spettacoli",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-exibart",
+          "name": "Exibart",
+          "feedUrl": "https://www.exibart.com/feed/",
+          "siteUrl": "https://www.exibart.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-ilfattocinema",
+          "name": "Il Fatto Quotidiano Cinema",
+          "feedUrl": "https://www.ilfattoquotidiano.it/cinema/feed/",
+          "siteUrl": "https://www.ilfattoquotidiano.it/cinema",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-leggocine",
+          "name": "Leggo Spettacoli",
+          "feedUrl": "https://www.leggo.it/rss/spettacoli.xml",
+          "siteUrl": "https://www.leggo.it/spettacoli",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-doppiozero",
+          "name": "Doppiozero",
+          "feedUrl": "https://www.doppiozero.com/rss.xml",
+          "siteUrl": "https://www.doppiozero.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-biografilm",
+          "name": "Il Cineocchio",
+          "feedUrl": "https://www.ilcineocchio.it/feed/",
+          "siteUrl": "https://www.ilcineocchio.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-cineblog",
+          "name": "Cineblog",
+          "feedUrl": "https://www.cineblog.it/feed/",
+          "siteUrl": "https://www.cineblog.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-adnkronos",
+          "name": "Adnkronos Spettacolo",
+          "feedUrl": "https://www.adnkronos.com/RSS_Cultura.xml",
+          "siteUrl": "https://www.adnkronos.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-agi",
+          "name": "AGI Cultura",
+          "feedUrl": "https://www.agi.it/cultura/rss",
+          "siteUrl": "https://www.agi.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-quinlan",
+          "name": "Quinlan",
+          "feedUrl": "https://quinlan.it/feed/",
+          "siteUrl": "https://quinlan.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-variety",
+          "name": "Variety",
+          "feedUrl": "https://variety.com/feed/",
+          "siteUrl": "https://variety.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cinema-thr",
+          "name": "The Hollywood Reporter",
+          "feedUrl": "https://www.hollywoodreporter.com/feed/",
+          "siteUrl": "https://www.hollywoodreporter.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cinema-deadline",
+          "name": "Deadline",
+          "feedUrl": "https://deadline.com/feed/",
+          "siteUrl": "https://deadline.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cinema-indiewire",
+          "name": "IndieWire",
+          "feedUrl": "https://www.indiewire.com/feed/",
+          "siteUrl": "https://www.indiewire.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cinema-guardianfilm",
+          "name": "The Guardian Film",
+          "feedUrl": "https://www.theguardian.com/film/rss",
+          "siteUrl": "https://www.theguardian.com/film",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cinema-bbcculture",
+          "name": "BBC Culture",
+          "feedUrl": "https://www.bbc.com/culture/feed.rss",
+          "siteUrl": "https://www.bbc.com/culture",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-slashfilm",
+          "name": "/Film",
+          "feedUrl": "https://www.slashfilm.com/feed/",
+          "siteUrl": "https://www.slashfilm.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-rt",
+          "name": "Rotten Tomatoes",
+          "feedUrl": "https://editorial.rottentomatoes.com/feed/",
+          "siteUrl": "https://editorial.rottentomatoes.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-guardiantv",
+          "name": "The Guardian TV & Radio",
+          "feedUrl": "https://www.theguardian.com/tv-and-radio/rss",
+          "siteUrl": "https://www.theguardian.com/tv-and-radio",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-ebert",
+          "name": "RogerEbert.com",
+          "feedUrl": "https://www.rogerebert.com/feed",
+          "siteUrl": "https://www.rogerebert.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-nytmovies",
+          "name": "NYT Movies",
+          "feedUrl": "https://rss.nytimes.com/services/xml/rss/nyt/Movies.xml",
+          "siteUrl": "https://www.nytimes.com/section/movies",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-denofgeek",
+          "name": "Den of Geek",
+          "feedUrl": "https://www.denofgeek.com/feed/",
+          "siteUrl": "https://www.denofgeek.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-allocine",
+          "name": "AlloCiné",
+          "feedUrl": "https://www.allocine.fr/rss/news.xml",
+          "siteUrl": "https://www.allocine.fr",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-rollingstone",
+          "name": "Rolling Stone",
+          "feedUrl": "https://www.rollingstone.com/feed/",
+          "siteUrl": "https://www.rollingstone.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-joblo",
+          "name": "JoBlo",
+          "feedUrl": "https://www.joblo.com/feed/",
+          "siteUrl": "https://www.joblo.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-collider",
+          "name": "Collider",
+          "feedUrl": "https://collider.com/feed/",
+          "siteUrl": "https://collider.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-telerama",
+          "name": "Télérama Cinéma",
+          "feedUrl": "https://www.telerama.fr/rss/cinema.xml",
+          "siteUrl": "https://www.telerama.fr",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-deadlinetv",
+          "name": "The Wrap",
+          "feedUrl": "https://www.thewrap.com/feed/",
+          "siteUrl": "https://www.thewrap.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-elpaiscultura",
+          "name": "El País Cultura",
+          "feedUrl": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/cultura/portada",
+          "siteUrl": "https://elpais.com/cultura",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cinema-cinecitta-news",
+          "name": "Cinecittà News",
+          "feedUrl": "https://cinecittanews.it/feed/",
+          "siteUrl": "https://cinecittanews.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-movieplayer-film-news",
+          "name": "Movieplayer Film News",
+          "feedUrl": "https://movieplayer.it/rss/news.xml?type=film",
+          "siteUrl": "https://movieplayer.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cinema-the-film-stage",
+          "name": "The Film Stage",
+          "feedUrl": "https://thefilmstage.com/feed/",
+          "siteUrl": "https://thefilmstage.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "musica",
+      "name": "Musica",
+      "short": "Musica",
+      "sources": [
+        {
+          "id": "musica-rockol",
+          "name": "Rockol",
+          "feedUrl": "https://www.rockol.it/rss/news",
+          "siteUrl": "https://www.rockol.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-rolling-stone-italia",
+          "name": "Rolling Stone Italia",
+          "feedUrl": "https://www.rollingstone.it/feed/",
+          "siteUrl": "https://www.rollingstone.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-ondarock",
+          "name": "OndaRock",
+          "feedUrl": "https://www.ondarock.it/feed",
+          "siteUrl": "https://www.ondarock.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-billboard-italia",
+          "name": "Billboard Italia",
+          "feedUrl": "https://billboard.it/feed/",
+          "siteUrl": "https://billboard.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-rumore",
+          "name": "Rumore",
+          "feedUrl": "https://www.rumoremag.com/feed/",
+          "siteUrl": "https://www.rumoremag.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-metalitalia",
+          "name": "Metalitalia",
+          "feedUrl": "https://www.metalitalia.com/feed/",
+          "siteUrl": "https://www.metalitalia.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-sentireascoltare",
+          "name": "SentireAscoltare",
+          "feedUrl": "https://www.sentireascoltare.com/feed/",
+          "siteUrl": "https://www.sentireascoltare.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-impatto-sonoro",
+          "name": "Impatto Sonoro",
+          "feedUrl": "https://impattosonoro.it/feed/",
+          "siteUrl": "https://impattosonoro.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-all-music-italia",
+          "name": "All Music Italia",
+          "feedUrl": "https://www.allmusicitalia.it/feed/",
+          "siteUrl": "https://www.allmusicitalia.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-musica-jazz",
+          "name": "Musica Jazz",
+          "feedUrl": "https://www.musicajazz.it/feed/",
+          "siteUrl": "https://www.musicajazz.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "musica-truemetal",
+          "name": "TrueMetal",
+          "feedUrl": "https://www.truemetal.it/feed",
+          "siteUrl": "https://www.truemetal.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-distorsioni",
+          "name": "Distorsioni",
+          "feedUrl": "https://distorsioni.net/feed/",
+          "siteUrl": "https://distorsioni.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-rock-garage",
+          "name": "Rock Garage",
+          "feedUrl": "https://www.rockgarage.it/feed/",
+          "siteUrl": "https://www.rockgarage.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-repubblica-musica",
+          "name": "Repubblica Musica",
+          "feedUrl": "https://www.repubblica.it/rss/spettacoli/musica/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-rockambula",
+          "name": "Rockambula",
+          "feedUrl": "https://www.rockambula.com/feed/",
+          "siteUrl": "https://www.rockambula.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-radiofreccia-musica",
+          "name": "Radiofreccia Musica",
+          "feedUrl": "https://www.radiofreccia.it/feed/",
+          "siteUrl": "https://www.radiofreccia.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-rockshock",
+          "name": "Rockshock",
+          "feedUrl": "https://www.rockshock.it/feed/",
+          "siteUrl": "https://www.rockshock.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-sound36",
+          "name": "Sound36",
+          "feedUrl": "https://www.sound36.com/feed/",
+          "siteUrl": "https://www.sound36.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-soundwall",
+          "name": "Soundwall",
+          "feedUrl": "https://www.soundwall.it/feed/",
+          "siteUrl": "https://www.soundwall.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-spettakolo",
+          "name": "Spettakolo",
+          "feedUrl": "https://www.spettakolo.it/feed/",
+          "siteUrl": "https://www.spettakolo.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-tuttorock",
+          "name": "Tuttorock",
+          "feedUrl": "https://www.tuttorock.com/feed/",
+          "siteUrl": "https://www.tuttorock.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-metalhead",
+          "name": "Metalhead",
+          "feedUrl": "https://www.metalhead.it/feed/",
+          "siteUrl": "https://www.metalhead.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-rockon",
+          "name": "Rockon",
+          "feedUrl": "https://www.rockon.it/feed/",
+          "siteUrl": "https://www.rockon.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-ultimo-buscadero",
+          "name": "Ultimo Buscadero",
+          "feedUrl": "https://www.buscadero.com/feed/",
+          "siteUrl": "https://www.buscadero.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-rapologia",
+          "name": "Rapologia",
+          "feedUrl": "https://rapologia.it/feed/",
+          "siteUrl": "https://rapologia.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-il-cibicida",
+          "name": "Il Cibicida",
+          "feedUrl": "https://www.ilcibicida.com/feed/",
+          "siteUrl": "https://www.ilcibicida.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-music-attitude",
+          "name": "Music Attitude",
+          "feedUrl": "https://www.musicattitude.it/feed/",
+          "siteUrl": "https://www.musicattitude.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-musicalnews",
+          "name": "MusicalNews",
+          "feedUrl": "https://www.musicalnews.com/feed/",
+          "siteUrl": "https://www.musicalnews.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-heavy-metal-webzine",
+          "name": "Heavy Metal Webzine",
+          "feedUrl": "https://www.heavymetalwebzine.it/feed/",
+          "siteUrl": "https://www.heavymetalwebzine.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-indie-for-bunnies",
+          "name": "Indie for Bunnies",
+          "feedUrl": "https://www.indieforbunnies.com/feed/",
+          "siteUrl": "https://www.indieforbunnies.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "musica-pitchfork",
+          "name": "Pitchfork",
+          "feedUrl": "https://pitchfork.com/feed/feed-news/rss",
+          "siteUrl": "https://pitchfork.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "musica-rolling-stone",
+          "name": "Rolling Stone",
+          "feedUrl": "https://www.rollingstone.com/music/feed/",
+          "siteUrl": "https://www.rollingstone.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "musica-nme",
+          "name": "NME",
+          "feedUrl": "https://www.nme.com/feed",
+          "siteUrl": "https://www.nme.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "musica-billboard",
+          "name": "Billboard",
+          "feedUrl": "https://www.billboard.com/feed/",
+          "siteUrl": "https://www.billboard.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "musica-guardian-music",
+          "name": "Guardian Music",
+          "feedUrl": "https://www.theguardian.com/music/rss",
+          "siteUrl": "https://www.theguardian.com/music",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "musica-consequence",
+          "name": "Consequence",
+          "feedUrl": "https://consequence.net/feed/",
+          "siteUrl": "https://consequence.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-stereogum",
+          "name": "Stereogum",
+          "feedUrl": "https://www.stereogum.com/feed/",
+          "siteUrl": "https://www.stereogum.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-loudwire",
+          "name": "Loudwire",
+          "feedUrl": "https://loudwire.com/feed/",
+          "siteUrl": "https://loudwire.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-metal-injection",
+          "name": "Metal Injection",
+          "feedUrl": "https://metalinjection.net/feed",
+          "siteUrl": "https://metalinjection.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-blabbermouth",
+          "name": "Blabbermouth",
+          "feedUrl": "https://www.blabbermouth.net/feed/",
+          "siteUrl": "https://www.blabbermouth.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-mixmag",
+          "name": "Mixmag",
+          "feedUrl": "https://mixmag.net/rss.xml",
+          "siteUrl": "https://mixmag.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-dj-mag",
+          "name": "DJ Mag",
+          "feedUrl": "https://djmag.com/feed",
+          "siteUrl": "https://djmag.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-bandcamp-daily",
+          "name": "Bandcamp Daily",
+          "feedUrl": "https://daily.bandcamp.com/feed",
+          "siteUrl": "https://daily.bandcamp.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-the-quietus",
+          "name": "The Quietus",
+          "feedUrl": "https://thequietus.com/feed",
+          "siteUrl": "https://thequietus.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-jazztimes",
+          "name": "JazzTimes",
+          "feedUrl": "https://jazztimes.com/feed/",
+          "siteUrl": "https://jazztimes.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-blues-blast",
+          "name": "Blues Blast",
+          "feedUrl": "https://www.bluesblastmagazine.com/feed/",
+          "siteUrl": "https://www.bluesblastmagazine.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-caribbean-beat",
+          "name": "Caribbean Beat",
+          "feedUrl": "https://www.caribbean-beat.com/feed",
+          "siteUrl": "https://www.caribbean-beat.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-slipped-disc",
+          "name": "Slipped Disc",
+          "feedUrl": "https://slippedisc.com/feed/",
+          "siteUrl": "https://slippedisc.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-les-inrocks-musique",
+          "name": "Les Inrocks Musique",
+          "feedUrl": "https://www.lesinrocks.com/musique/feed/",
+          "siteUrl": "https://www.lesinrocks.com",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "musica-rolling-stone-germany",
+          "name": "Rolling Stone Germany",
+          "feedUrl": "https://www.rollingstone.de/feed/",
+          "siteUrl": "https://www.rollingstone.de",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "anime",
+      "name": "Anime e Manga",
+      "short": "Anime",
+      "sources": [
+        {
+          "id": "anime-animeclick",
+          "name": "AnimeClick",
+          "feedUrl": "https://www.animeclick.it/rss",
+          "siteUrl": "https://www.animeclick.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-fumettologica",
+          "name": "Fumettologica",
+          "feedUrl": "https://fumettologica.it/feed/",
+          "siteUrl": "https://fumettologica.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-mangaforever",
+          "name": "MangaForever",
+          "feedUrl": "https://www.mangaforever.net/feed/",
+          "siteUrl": "https://www.mangaforever.net",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-lo-spazio-bianco",
+          "name": "Lo Spazio Bianco",
+          "feedUrl": "https://www.lospaziobianco.it/feed/",
+          "siteUrl": "https://www.lospaziobianco.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-akiba-gamers",
+          "name": "Akiba Gamers",
+          "feedUrl": "https://www.akibagamers.it/feed/",
+          "siteUrl": "https://www.akibagamers.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-nerdevil",
+          "name": "Nerdevil",
+          "feedUrl": "https://www.nerdevil.it/feed/",
+          "siteUrl": "https://www.nerdevil.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-comics-universe",
+          "name": "Comics Universe",
+          "feedUrl": "https://www.comicsuniverse.it/feed/",
+          "siteUrl": "https://www.comicsuniverse.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-lega-nerd",
+          "name": "Lega Nerd",
+          "feedUrl": "https://www.leganerd.com/feed/",
+          "siteUrl": "https://www.leganerd.com",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-fumettoteca",
+          "name": "Fumettoteca",
+          "feedUrl": "https://www.fumettoteca.it/feed/",
+          "siteUrl": "https://www.fumettoteca.it",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "anime-gamerbrain",
+          "name": "Gamerbrain",
+          "feedUrl": "https://www.gamerbrain.net/feed/",
+          "siteUrl": "https://www.gamerbrain.net",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-gamesurf",
+          "name": "Gamesurf",
+          "feedUrl": "https://www.gamesurf.it/feed/",
+          "siteUrl": "https://www.gamesurf.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-the-games-machine",
+          "name": "The Games Machine",
+          "feedUrl": "https://www.thegamesmachine.it/feed/",
+          "siteUrl": "https://www.thegamesmachine.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-il-corriere-fumetti",
+          "name": "Il Corriere Fumetti",
+          "feedUrl": "https://www.corrierenerd.it/feed/",
+          "siteUrl": "https://www.corrierenerd.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-techprincess",
+          "name": "Techprincess",
+          "feedUrl": "https://www.techprincess.it/feed/",
+          "siteUrl": "https://www.techprincess.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-il-cartoonista",
+          "name": "Il Cartoonista",
+          "feedUrl": "https://www.cartonionline.com/feed/",
+          "siteUrl": "https://www.cartonionline.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-e-manga-archive",
+          "name": "Anime e Manga (archivio)",
+          "feedUrl": "https://www.animeemanga.it/feed/?paged=2",
+          "siteUrl": "https://www.animeemanga.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-movieplayer",
+          "name": "Movieplayer",
+          "feedUrl": "https://movieplayer.it/feed/",
+          "siteUrl": "https://movieplayer.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-nerdmovie",
+          "name": "Nerdmovie",
+          "feedUrl": "https://www.nerdmovieproductions.it/feed",
+          "siteUrl": "https://www.nerdmovieproductions.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-hall-of-series",
+          "name": "Hall of Series",
+          "feedUrl": "https://www.hallofseries.com/feed/",
+          "siteUrl": "https://www.hallofseries.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-serial-minds",
+          "name": "Serial Minds",
+          "feedUrl": "https://www.serialminds.com/feed/",
+          "siteUrl": "https://www.serialminds.com",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-vgmag",
+          "name": "Vgmag",
+          "feedUrl": "https://www.vgmag.it/feed/",
+          "siteUrl": "https://www.vgmag.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-gamempire",
+          "name": "Gamempire",
+          "feedUrl": "https://www.gamempire.it/feed/",
+          "siteUrl": "https://www.gamempire.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-gamingtalker",
+          "name": "Gamingtalker",
+          "feedUrl": "https://www.gamingtalker.it/feed/",
+          "siteUrl": "https://www.gamingtalker.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-badtaste",
+          "name": "BadTaste",
+          "feedUrl": "https://www.badtaste.it/feed",
+          "siteUrl": "https://www.badtaste.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-cineavatar",
+          "name": "Cineavatar",
+          "feedUrl": "https://www.cineavatar.it/feed/",
+          "siteUrl": "https://www.cineavatar.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-nerdgate",
+          "name": "Nerdgate",
+          "feedUrl": "https://www.nerdgate.it/feed/",
+          "siteUrl": "https://www.nerdgate.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-orgoglio-nerd",
+          "name": "Orgoglio Nerd",
+          "feedUrl": "https://www.orgoglionerd.it/feed/",
+          "siteUrl": "https://www.orgoglionerd.it",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-news-network",
+          "name": "Anime News Network",
+          "feedUrl": "https://www.animenewsnetwork.com/news/rss.xml",
+          "siteUrl": "https://www.animenewsnetwork.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "anime-anime-corner",
+          "name": "Anime Corner",
+          "feedUrl": "https://animecorner.me/feed/",
+          "siteUrl": "https://animecorner.me",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "anime-crunchyroll-news",
+          "name": "Crunchyroll News",
+          "feedUrl": "https://cr-news-api-service.prd.crunchyrollsvc.com/v1/en-US/rss",
+          "siteUrl": "https://www.crunchyroll.com/news",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "anime-myanimelist-news",
+          "name": "MyAnimeList News",
+          "feedUrl": "https://myanimelist.net/rss/news.xml",
+          "siteUrl": "https://myanimelist.net",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "anime-otaku-usa",
+          "name": "Otaku USA",
+          "feedUrl": "https://www.otakuusamagazine.com/feed/",
+          "siteUrl": "https://www.otakuusamagazine.com",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "anime-siliconera",
+          "name": "Siliconera",
+          "feedUrl": "https://www.siliconera.com/feed/",
+          "siteUrl": "https://www.siliconera.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-cbr-anime",
+          "name": "CBR Anime",
+          "feedUrl": "https://www.cbr.com/feed/category/anime/",
+          "siteUrl": "https://www.cbr.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-soranews24",
+          "name": "SoraNews24",
+          "feedUrl": "https://soranews24.com/feed/",
+          "siteUrl": "https://soranews24.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-feminist",
+          "name": "Anime Feminist",
+          "feedUrl": "https://www.animefeminist.com/feed/",
+          "siteUrl": "https://www.animefeminist.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-herald",
+          "name": "Anime Herald",
+          "feedUrl": "https://www.animeherald.com/feed/",
+          "siteUrl": "https://www.animeherald.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-uk-news",
+          "name": "Anime UK News",
+          "feedUrl": "https://animeuknews.net/feed/",
+          "siteUrl": "https://animeuknews.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-honey-s-anime",
+          "name": "Honey's Anime",
+          "feedUrl": "https://honeysanime.com/feed/",
+          "siteUrl": "https://honeysanime.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-cartoon-brew",
+          "name": "Cartoon Brew",
+          "feedUrl": "https://www.cartoonbrew.com/feed",
+          "siteUrl": "https://www.cartoonbrew.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-animation-world",
+          "name": "Animation World",
+          "feedUrl": "https://www.animationmagazine.net/feed/",
+          "siteUrl": "https://www.animationmagazine.net",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-otaku-mode",
+          "name": "Otaku Mode",
+          "feedUrl": "https://otakumode.com/news/feed",
+          "siteUrl": "https://otakumode.com",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-adala-news",
+          "name": "Adala News",
+          "feedUrl": "https://adala-news.fr/feed/",
+          "siteUrl": "https://adala-news.fr",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-journal-du-japon",
+          "name": "Journal du Japon",
+          "feedUrl": "https://www.journaldujapon.com/feed/",
+          "siteUrl": "https://www.journaldujapon.com",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-anime2you",
+          "name": "Anime2You",
+          "feedUrl": "https://www.anime2you.de/feed/",
+          "siteUrl": "https://www.anime2you.de",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-ramen-para-dos",
+          "name": "Ramen Para Dos",
+          "feedUrl": "https://www.ramenparados.com/feed/",
+          "siteUrl": "https://www.ramenparados.com",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-anime",
+          "name": "Anime! Anime!",
+          "feedUrl": "https://animeanime.jp/rss/index.rdf",
+          "siteUrl": "https://animeanime.jp",
+          "lang": "ja",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-movie-forever",
+          "name": "Anime Movie Forever",
+          "feedUrl": "https://www.animemovieforever.net/feed/",
+          "siteUrl": "https://www.animemovieforever.net/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-anime-e-manga",
+          "name": "Anime e Manga",
+          "feedUrl": "https://www.animeemanga.it/feed/",
+          "siteUrl": "https://www.animeemanga.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "anime-akiba-gamers-anime-manga",
+          "name": "Akiba Gamers Anime & Manga",
+          "feedUrl": "https://www.akibagamers.it/anime-manga/feed",
+          "siteUrl": "https://www.akibagamers.it/anime-manga/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "fotografia",
+      "name": "Fotografia e Video",
+      "short": "Foto e Video",
+      "sources": [
+        {
+          "id": "fotografia-fotografiaprofessionale",
+          "name": "FotografiaProfessionale.it",
+          "feedUrl": "https://www.fotografiaprofessionale.it/feed",
+          "siteUrl": "https://www.fotografiaprofessionale.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-digitalic",
+          "name": "Digitalic",
+          "feedUrl": "https://www.digitalic.it/feed",
+          "siteUrl": "https://www.digitalic.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-fotografia",
+          "name": "Fotografia.it",
+          "feedUrl": "https://www.fotografia.it/feed",
+          "siteUrl": "https://www.fotografia.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-photographers",
+          "name": "Photographers.it",
+          "feedUrl": "https://www.photographers.it/feed",
+          "siteUrl": "https://www.photographers.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-fotocomefare",
+          "name": "Foto Come Fare",
+          "feedUrl": "https://www.fotocomefare.com/feed/",
+          "siteUrl": "https://www.fotocomefare.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-fotocult",
+          "name": "FOTO Cult",
+          "feedUrl": "https://www.fotocult.it/feed",
+          "siteUrl": "https://www.fotocult.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-ilfotografo",
+          "name": "IL FOTOGRAFO",
+          "feedUrl": "https://www.ilfotografo.it/feed",
+          "siteUrl": "https://www.ilfotografo.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-videomakers",
+          "name": "VideoMakers.net",
+          "feedUrl": "https://www.videomakers.net/feed",
+          "siteUrl": "https://www.videomakers.net/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-artribune",
+          "name": "Artribune",
+          "feedUrl": "https://www.artribune.com/category/fotografia/feed/",
+          "siteUrl": "https://www.artribune.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "fotografia-ilmondodellafotografia",
+          "name": "Il Mondo della Fotografia",
+          "feedUrl": "https://www.ilmondodellafotografia.it/feed",
+          "siteUrl": "https://www.ilmondodellafotografia.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografia-photo",
+          "name": "Fotografia.photo",
+          "feedUrl": "https://www.fotografia.photo/feed",
+          "siteUrl": "https://www.fotografia.photo/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotopadova",
+          "name": "FotoPadova",
+          "feedUrl": "https://www.fotopadova.it/feed",
+          "siteUrl": "https://www.fotopadova.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografiamoderna",
+          "name": "Fotografia Moderna",
+          "feedUrl": "https://www.fotografiamoderna.it/feed",
+          "siteUrl": "https://www.fotografiamoderna.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-exibart",
+          "name": "exibart.com",
+          "feedUrl": "https://www.exibart.com/tag/fotografia/feed/",
+          "siteUrl": "https://www.exibart.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografiaeuropea",
+          "name": "Fotografia Europea",
+          "feedUrl": "https://www.fotografiaeuropea.it/feed",
+          "siteUrl": "https://www.fotografiaeuropea.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografi",
+          "name": "ANFP Fotografi Professionisti",
+          "feedUrl": "https://www.fotografi.org/feed",
+          "siteUrl": "https://www.fotografi.org/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografi-it",
+          "name": "fotografi.it",
+          "feedUrl": "https://www.fotografi.it/feed",
+          "siteUrl": "https://www.fotografi.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografia-moderna-archive",
+          "name": "Fotografia Moderna (archivio)",
+          "feedUrl": "https://www.fotografiamoderna.it/feed/?paged=2",
+          "siteUrl": "https://www.fotografiamoderna.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-nonsolocinema",
+          "name": "NonSoloCinema",
+          "feedUrl": "https://www.nonsolocinema.com/feed",
+          "siteUrl": "https://www.nonsolocinema.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-movieplayer",
+          "name": "Movieplayer.it",
+          "feedUrl": "https://www.movieplayer.it/rss/news.xml",
+          "siteUrl": "https://www.movieplayer.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-ondacinema",
+          "name": "Onda Cinema",
+          "feedUrl": "https://www.ondacinema.it/feed",
+          "siteUrl": "https://www.ondacinema.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-quinlan",
+          "name": "Quinlan",
+          "feedUrl": "https://www.quinlan.it/feed",
+          "siteUrl": "https://www.quinlan.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-photographers-archive",
+          "name": "Photographers.it (archivio)",
+          "feedUrl": "https://www.photographers.it/feed/?paged=2",
+          "siteUrl": "https://www.photographers.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fondazionecsc",
+          "name": "Centro Sperimentale di Cinematografia",
+          "feedUrl": "https://www.fondazionecsc.it/feed",
+          "siteUrl": "https://www.fondazionecsc.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-tomshw",
+          "name": "Tom's Hardware Fotografia",
+          "feedUrl": "https://www.tomshw.it/feed/?category_name=fotografia",
+          "siteUrl": "https://www.tomshw.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-macitynet",
+          "name": "macitynet.it Fotografia",
+          "feedUrl": "https://www.macitynet.it/tag/fotografia/feed/",
+          "siteUrl": "https://www.macitynet.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotocult-photography",
+          "name": "FOTO Cult Fotografia",
+          "feedUrl": "https://www.fotocult.it/tag/fotografia/feed/",
+          "siteUrl": "https://www.fotocult.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotoinfo",
+          "name": "Enzo Paiola Fotografia",
+          "feedUrl": "https://www.fotoinfo.it/feed",
+          "siteUrl": "https://www.fotoinfo.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-petapixel",
+          "name": "PetaPixel",
+          "feedUrl": "https://petapixel.com/feed/",
+          "siteUrl": "https://petapixel.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "fotografia-dpreview",
+          "name": "DPReview",
+          "feedUrl": "https://www.dpreview.com/feeds/news.xml",
+          "siteUrl": "https://www.dpreview.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "fotografia-fstoppers",
+          "name": "Fstoppers",
+          "feedUrl": "https://fstoppers.com/feed",
+          "siteUrl": "https://fstoppers.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "fotografia-photographylife",
+          "name": "Photography Life",
+          "feedUrl": "https://photographylife.com/feed",
+          "siteUrl": "https://photographylife.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "fotografia-digital-photography-school",
+          "name": "Digital Photography School",
+          "feedUrl": "https://digital-photography-school.com/feed/",
+          "siteUrl": "https://digital-photography-school.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "fotografia-thephoblographer",
+          "name": "The Phoblographer",
+          "feedUrl": "https://www.thephoblographer.com/feed/",
+          "siteUrl": "https://www.thephoblographer.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-imaging-resource",
+          "name": "Imaging Resource",
+          "feedUrl": "https://www.imaging-resource.com/feed",
+          "siteUrl": "https://www.imaging-resource.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-digitalcameraworld",
+          "name": "Digital Camera World",
+          "feedUrl": "https://www.digitalcameraworld.com/feeds.xml",
+          "siteUrl": "https://www.digitalcameraworld.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-500px",
+          "name": "500px ISO",
+          "feedUrl": "https://iso.500px.com/feed/",
+          "siteUrl": "https://iso.500px.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-diyphotography",
+          "name": "DIY Photography",
+          "feedUrl": "https://www.diyphotography.net/feed/",
+          "siteUrl": "https://www.diyphotography.net/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-amateurphotographer",
+          "name": "Amateur Photographer",
+          "feedUrl": "https://www.amateurphotographer.com/feed/",
+          "siteUrl": "https://www.amateurphotographer.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-nofilmschool",
+          "name": "No Film School",
+          "feedUrl": "https://nofilmschool.com/rss.xml",
+          "siteUrl": "https://nofilmschool.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-canonrumors",
+          "name": "Canon Rumors",
+          "feedUrl": "https://www.canonrumors.com/feed/",
+          "siteUrl": "https://www.canonrumors.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-sonyalpharumors",
+          "name": "sonyalpharumors",
+          "feedUrl": "https://www.sonyalpharumors.com/feed/",
+          "siteUrl": "https://www.sonyalpharumors.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-cined",
+          "name": "CineD",
+          "feedUrl": "https://www.cined.com/feed/",
+          "siteUrl": "https://www.cined.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-expertphotography",
+          "name": "ExpertPhotography",
+          "feedUrl": "https://expertphotography.com/feed/",
+          "siteUrl": "https://expertphotography.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-redsharknews",
+          "name": "RedShark News",
+          "feedUrl": "https://www.redsharknews.com/rss.xml",
+          "siteUrl": "https://www.redsharknews.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-phototrend",
+          "name": "Phototrend",
+          "feedUrl": "https://www.phototrend.fr/feed/",
+          "siteUrl": "https://www.phototrend.fr/",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-xatakafoto",
+          "name": "Xataka Foto",
+          "feedUrl": "https://www.xatakafoto.com/index.xml",
+          "siteUrl": "https://www.xatakafoto.com/",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotomagazin",
+          "name": "fotoMAGAZIN",
+          "feedUrl": "https://www.fotomagazin.de/feed",
+          "siteUrl": "https://www.fotomagazin.de/",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografare-online",
+          "name": "Fotografare Online",
+          "feedUrl": "https://www.fotografareonline.it/feed/",
+          "siteUrl": "https://www.fotografareonline.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "fotografia-fotografia-artistica",
+          "name": "Fotografia Artistica",
+          "feedUrl": "https://www.fotografiaartistica.it/feed/",
+          "siteUrl": "https://www.fotografiaartistica.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "cucina",
+      "name": "Cucina e Alimentazione",
+      "short": "Cucina",
+      "sources": [
+        {
+          "id": "cucina-giallozafferano",
+          "name": "GialloZafferano",
+          "feedUrl": "https://www.giallozafferano.it/feed",
+          "siteUrl": "https://www.giallozafferano.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-cookist",
+          "name": "Cookist",
+          "feedUrl": "https://www.cookist.it/feed/",
+          "siteUrl": "https://www.cookist.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-agrodolce",
+          "name": "Agrodolce",
+          "feedUrl": "https://www.agrodolce.it/feed",
+          "siteUrl": "https://www.agrodolce.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-fattoincasadabenedetta",
+          "name": "Fatto in casa da Benedetta",
+          "feedUrl": "https://www.fattoincasadabenedetta.it/feed/",
+          "siteUrl": "https://www.fattoincasadabenedetta.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-dissapore",
+          "name": "Dissapore",
+          "feedUrl": "https://www.dissapore.com/feed/",
+          "siteUrl": "https://www.dissapore.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-gamberorosso",
+          "name": "Gambero Rosso",
+          "feedUrl": "https://www.gamberorosso.it/feed/",
+          "siteUrl": "https://www.gamberorosso.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-misya",
+          "name": "Ricette di Misya",
+          "feedUrl": "https://www.misya.info/feed",
+          "siteUrl": "https://www.misya.info/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-cookaround",
+          "name": "Cookaround",
+          "feedUrl": "https://www.cookaround.com/feed",
+          "siteUrl": "https://www.cookaround.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-ilfattoalimentare",
+          "name": "Il Fatto Alimentare",
+          "feedUrl": "https://ilfattoalimentare.it/feed",
+          "siteUrl": "https://ilfattoalimentare.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-scattidigusto",
+          "name": "Scatti di Gusto",
+          "feedUrl": "https://www.scattidigusto.it/feed/",
+          "siteUrl": "https://www.scattidigusto.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "cucina-cookist-archive",
+          "name": "Cookist (archivio)",
+          "feedUrl": "https://www.cookist.it/feed/?paged=2",
+          "siteUrl": "https://www.cookist.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-ilgiornaledelcibo",
+          "name": "Il Giornale del Cibo",
+          "feedUrl": "https://www.ilgiornaledelcibo.it/feed/",
+          "siteUrl": "https://www.ilgiornaledelcibo.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-tavolartegusto",
+          "name": "Tavolartegusto.it",
+          "feedUrl": "https://www.tavolartegusto.it/feed/",
+          "siteUrl": "https://www.tavolartegusto.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-greenme",
+          "name": "greenMe",
+          "feedUrl": "https://www.greenme.it/feed/",
+          "siteUrl": "https://www.greenme.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-lemillericette",
+          "name": "Le mille ricette",
+          "feedUrl": "https://www.lemillericette.it/feed",
+          "siteUrl": "https://www.lemillericette.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-civiltadelbere",
+          "name": "Civiltà del bere",
+          "feedUrl": "https://www.civiltadelbere.com/feed/",
+          "siteUrl": "https://www.civiltadelbere.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-foodclub",
+          "name": "FoodClub",
+          "feedUrl": "https://www.foodclub.it/feed",
+          "siteUrl": "https://www.foodclub.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-ricettedalmondo",
+          "name": "RicetteDalMondo",
+          "feedUrl": "https://www.ricettedalmondo.it/feed",
+          "siteUrl": "https://www.ricettedalmondo.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-italiaatavola",
+          "name": "Italia a Tavola",
+          "feedUrl": "https://www.italiaatavola.net/rss",
+          "siteUrl": "https://www.italiaatavola.net/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-ricettedellanonna",
+          "name": "Ricette della Nonna",
+          "feedUrl": "https://www.ricettedellanonna.net/feed",
+          "siteUrl": "https://www.ricettedellanonna.net/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-vegolosi",
+          "name": "Vegolosi",
+          "feedUrl": "https://www.vegolosi.it/feed/",
+          "siteUrl": "https://www.vegolosi.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-leitv-cucina",
+          "name": "LEITV Cucina",
+          "feedUrl": "https://www.leitv.it/cucina/feed",
+          "siteUrl": "https://www.leitv.it/cucina/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-mixerplanet",
+          "name": "MixerPlanet",
+          "feedUrl": "https://www.mixerplanet.com/feed",
+          "siteUrl": "https://www.mixerplanet.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-melarossa",
+          "name": "Melarossa",
+          "feedUrl": "https://www.melarossa.it/feed/",
+          "siteUrl": "https://www.melarossa.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-puntarellarossa",
+          "name": "Puntarella Rossa",
+          "feedUrl": "https://www.puntarellarossa.it/rss",
+          "siteUrl": "https://www.puntarellarossa.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-birraegusto",
+          "name": "Birra e Gusto",
+          "feedUrl": "https://www.birraegusto.it/feed",
+          "siteUrl": "https://www.birraegusto.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-ilsole24ore",
+          "name": "Il Sole 24 ORE Food",
+          "feedUrl": "https://www.ilsole24ore.com/rss/food.xml",
+          "siteUrl": "https://www.ilsole24ore.com/food",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-winemag",
+          "name": "Winemag.it",
+          "feedUrl": "https://www.winemag.it/feed",
+          "siteUrl": "https://www.winemag.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-mangiaebevi",
+          "name": "MangiaeBevi",
+          "feedUrl": "https://www.mangiaebevi.it/feed",
+          "siteUrl": "https://www.mangiaebevi.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-pasticceriainternazionale",
+          "name": "Pasticceria Internazionale",
+          "feedUrl": "https://www.pasticceriainternazionale.it/feed",
+          "siteUrl": "https://www.pasticceriainternazionale.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "cucina-seriouseats",
+          "name": "Serious Eats",
+          "feedUrl": "https://feeds.feedburner.com/seriouseats/recipes",
+          "siteUrl": "https://www.seriouseats.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cucina-bonappetit",
+          "name": "Bon Appétit",
+          "feedUrl": "https://www.bonappetit.com/feed/rss",
+          "siteUrl": "https://www.bonappetit.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cucina-bbcgoodfood",
+          "name": "BBC Good Food",
+          "feedUrl": "https://www.bbcgoodfood.com/feed",
+          "siteUrl": "https://www.bbcgoodfood.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cucina-nytimes-cooking",
+          "name": "The New York Times Food",
+          "feedUrl": "https://rss.nytimes.com/services/xml/rss/nyt/DiningandWine.xml",
+          "siteUrl": "https://cooking.nytimes.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cucina-theguardian",
+          "name": "The Guardian Food",
+          "feedUrl": "https://www.theguardian.com/food/rss",
+          "siteUrl": "https://www.theguardian.com/food",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "cucina-eater",
+          "name": "Eater",
+          "feedUrl": "https://www.eater.com/rss/index.xml",
+          "siteUrl": "https://www.eater.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-thekitchn",
+          "name": "The Kitchn",
+          "feedUrl": "https://www.thekitchn.com/main.rss",
+          "siteUrl": "https://www.thekitchn.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-kingarthurbaking",
+          "name": "The King Arthur Blog",
+          "feedUrl": "https://www.kingarthurbaking.com/blog/feed",
+          "siteUrl": "https://www.kingarthurbaking.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-davidlebovitz",
+          "name": "David Lebovitz",
+          "feedUrl": "https://www.davidlebovitz.com/feed/",
+          "siteUrl": "https://www.davidlebovitz.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-loveandlemons",
+          "name": "Love and Lemons",
+          "feedUrl": "https://www.loveandlemons.com/feed/",
+          "siteUrl": "https://www.loveandlemons.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-recipetineats",
+          "name": "RecipeTin Eats",
+          "feedUrl": "https://www.recipetineats.com/feed/",
+          "siteUrl": "https://www.recipetineats.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-sallysbakingaddiction",
+          "name": "Sally's Baking Addiction",
+          "feedUrl": "https://sallysbakingaddiction.com/feed/",
+          "siteUrl": "https://sallysbakingaddiction.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-101cookbooks",
+          "name": "101 Cookbooks",
+          "feedUrl": "https://www.101cookbooks.com/feed",
+          "siteUrl": "https://www.101cookbooks.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-saveur",
+          "name": "Saveur",
+          "feedUrl": "https://www.saveur.com/feed/",
+          "siteUrl": "https://www.saveur.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-minimalistbaker",
+          "name": "Minimalist Baker",
+          "feedUrl": "https://minimalistbaker.com/feed/",
+          "siteUrl": "https://minimalistbaker.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-budgetbytes",
+          "name": "Budget Bytes",
+          "feedUrl": "https://www.budgetbytes.com/feed/",
+          "siteUrl": "https://www.budgetbytes.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-justonecookbook",
+          "name": "Just One Cookbook",
+          "feedUrl": "https://www.justonecookbook.com/feed/",
+          "siteUrl": "https://www.justonecookbook.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-skinnytaste",
+          "name": "Skinnytaste",
+          "feedUrl": "https://www.skinnytaste.com/feed/",
+          "siteUrl": "https://www.skinnytaste.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-olivemagazine",
+          "name": "olivemagazine",
+          "feedUrl": "https://www.olivemagazine.com/feed/",
+          "siteUrl": "https://www.olivemagazine.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "cucina-directoalpaladar",
+          "name": "Directo al Paladar",
+          "feedUrl": "https://www.directoalpaladar.com/index.xml",
+          "siteUrl": "https://www.directoalpaladar.com/",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "salute",
+      "name": "Salute e Benessere",
+      "short": "Salute",
+      "sources": [
+        {
+          "id": "salute-corriere-salute",
+          "name": "Corriere della Sera Salute",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/salute.xml",
+          "siteUrl": "https://www.corriere.it/salute/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-repubblica-salute",
+          "name": "la Repubblica Salute",
+          "feedUrl": "https://www.repubblica.it/rss/salute/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it/salute/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-humanitas-news",
+          "name": "Humanitas News",
+          "feedUrl": "https://www.humanitas.it/news/feed/",
+          "siteUrl": "https://www.humanitas.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-hsr",
+          "name": "Ospedale San Raffaele",
+          "feedUrl": "https://www.hsr.it/feed/",
+          "siteUrl": "https://www.hsr.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-aiom",
+          "name": "AIOM",
+          "feedUrl": "https://www.aiom.it/feed/",
+          "siteUrl": "https://www.aiom.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-fnomceo",
+          "name": "FNOMCeO",
+          "feedUrl": "https://portale.fnomceo.it/feed/",
+          "siteUrl": "https://portale.fnomceo.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-ospedale-bambino-gesu",
+          "name": "Ospedale Pediatrico Bambino Gesù",
+          "feedUrl": "https://www.ospedalebambinogesu.it/rss",
+          "siteUrl": "https://www.ospedalebambinogesu.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-gemelli",
+          "name": "Policlinico Gemelli",
+          "feedUrl": "https://www.policlinicogemelli.it/feed/",
+          "siteUrl": "https://www.policlinicogemelli.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-pharmastar",
+          "name": "PharmaStar",
+          "feedUrl": "https://www.pharmastar.it/rss",
+          "siteUrl": "https://www.pharmastar.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-fnopi",
+          "name": "FNOPI",
+          "feedUrl": "https://www.fnopi.it/feed/",
+          "siteUrl": "https://www.fnopi.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "salute-adnkronos-salute",
+          "name": "Adnkronos Salute",
+          "feedUrl": "https://www.adnkronos.com/RSS_Salute.xml",
+          "siteUrl": "https://www.adnkronos.com/salute",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-tgcom24-salute",
+          "name": "Tgcom24 Salute",
+          "feedUrl": "https://www.tgcom24.mediaset.it/rss/salute.xml",
+          "siteUrl": "https://www.tgcom24.mediaset.it/salute/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-ok-salute",
+          "name": "OK Salute",
+          "feedUrl": "https://www.ok-salute.it/feed/",
+          "siteUrl": "https://www.ok-salute.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-starbene",
+          "name": "Starbene",
+          "feedUrl": "https://www.starbene.it/feed",
+          "siteUrl": "https://www.starbene.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-nursetimes",
+          "name": "Nurse Times",
+          "feedUrl": "https://www.nursetimes.org/feed/",
+          "siteUrl": "https://www.nursetimes.org/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-insalutenews",
+          "name": "Insalutenews",
+          "feedUrl": "https://www.insalutenews.it/in-salute/feed/",
+          "siteUrl": "https://www.insalutenews.it/in-salute/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-valori-salute",
+          "name": "Salute Domani",
+          "feedUrl": "https://www.salutedomani.com/feed/",
+          "siteUrl": "https://www.salutedomani.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-doctor33",
+          "name": "Doctor33",
+          "feedUrl": "https://www.doctor33.it/feed/",
+          "siteUrl": "https://www.doctor33.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-quotidiano-net-salute",
+          "name": "QN Salute",
+          "feedUrl": "https://www.quotidiano.net/rss/salute",
+          "siteUrl": "https://www.quotidiano.net/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-ilgiorno-salute",
+          "name": "Il Giorno Salute",
+          "feedUrl": "https://www.ilgiorno.it/rss/salute",
+          "siteUrl": "https://www.ilgiorno.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-ilmessaggero-salute",
+          "name": "Il Messaggero Salute",
+          "feedUrl": "https://www.ilmessaggero.it/rss/salute.xml",
+          "siteUrl": "https://www.ilmessaggero.it/salute/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-medicoepaziente",
+          "name": "Medico e Paziente",
+          "feedUrl": "https://www.medicoepaziente.it/feed/",
+          "siteUrl": "https://www.medicoepaziente.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-agi-scienza",
+          "name": "AGI Scienza",
+          "feedUrl": "https://www.agi.it/scienza/rss",
+          "siteUrl": "https://www.agi.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-who",
+          "name": "World Health Organization",
+          "feedUrl": "https://www.who.int/rss-feeds/news-english.xml",
+          "siteUrl": "https://www.who.int/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "salute-cdc",
+          "name": "CDC Newsroom",
+          "feedUrl": "https://tools.cdc.gov/api/v2/resources/media/132608.rss",
+          "siteUrl": "https://www.cdc.gov/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "salute-ecdc",
+          "name": "ECDC",
+          "feedUrl": "https://www.ecdc.europa.eu/en/taxonomy/term/1310/feed",
+          "siteUrl": "https://www.ecdc.europa.eu/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "salute-nejm",
+          "name": "NEJM",
+          "feedUrl": "https://www.nejm.org/action/showFeed?jc=nejm&type=etoc&feed=rss",
+          "siteUrl": "https://www.nejm.org/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "salute-lancet",
+          "name": "The Lancet",
+          "feedUrl": "https://www.thelancet.com/rssfeed/lancet_current.xml",
+          "siteUrl": "https://www.thelancet.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "salute-nyt-health",
+          "name": "The New York Times Health",
+          "feedUrl": "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
+          "siteUrl": "https://www.nytimes.com/section/health",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-guardian-health",
+          "name": "The Guardian Health",
+          "feedUrl": "https://www.theguardian.com/society/health/rss",
+          "siteUrl": "https://www.theguardian.com/society/health",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-stat-news",
+          "name": "STAT",
+          "feedUrl": "https://www.statnews.com/feed/",
+          "siteUrl": "https://www.statnews.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-bbc-health",
+          "name": "BBC News Health",
+          "feedUrl": "http://feeds.bbci.co.uk/news/health/rss.xml",
+          "siteUrl": "https://www.bbc.com/news/health",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-nature-medicine",
+          "name": "Nature Medicine",
+          "feedUrl": "https://www.nature.com/nm.rss",
+          "siteUrl": "https://www.nature.com/nm/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-jama",
+          "name": "JAMA Network",
+          "feedUrl": "https://jamanetwork.com/rss/site_3/67.xml",
+          "siteUrl": "https://jamanetwork.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-plos-medicine",
+          "name": "PLOS Medicine",
+          "feedUrl": "https://journals.plos.org/plosmedicine/feed/atom",
+          "siteUrl": "https://journals.plos.org/plosmedicine/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-npr-health",
+          "name": "NPR Health",
+          "feedUrl": "https://feeds.npr.org/103537970/rss.xml",
+          "siteUrl": "https://www.npr.org/sections/health/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-pan-american",
+          "name": "PAHO",
+          "feedUrl": "https://www.paho.org/en/rss.xml",
+          "siteUrl": "https://www.paho.org/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-sciencedaily-health",
+          "name": "ScienceDaily Health",
+          "feedUrl": "https://www.sciencedaily.com/rss/health_medicine.xml",
+          "siteUrl": "https://www.sciencedaily.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-kff-health-news",
+          "name": "KFF Health News",
+          "feedUrl": "https://kffhealthnews.org/feed/",
+          "siteUrl": "https://kffhealthnews.org/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-medical-xpress",
+          "name": "Medical Xpress",
+          "feedUrl": "https://medicalxpress.com/rss-feed/",
+          "siteUrl": "https://medicalxpress.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-elpais-salud",
+          "name": "El País Salud",
+          "feedUrl": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ciencia/portada",
+          "siteUrl": "https://elpais.com/salud-y-bienestar/",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-lemonde-sante",
+          "name": "Le Monde Santé",
+          "feedUrl": "https://www.lemonde.fr/sante/rss_full.xml",
+          "siteUrl": "https://www.lemonde.fr/sante/",
+          "lang": "fr",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-aerzteblatt",
+          "name": "Deutsches Ärzteblatt",
+          "feedUrl": "https://www.aerzteblatt.de/rss/news.asp",
+          "siteUrl": "https://www.aerzteblatt.de/",
+          "lang": "de",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "salute-quotidiano-sanita",
+          "name": "Quotidiano Sanità",
+          "feedUrl": "https://www.quotidianosanita.it/rss",
+          "siteUrl": "https://www.quotidianosanita.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-nutrizione-sana",
+          "name": "Nutrizione Sana",
+          "feedUrl": "https://www.nutrizionesana.it/feed/",
+          "siteUrl": "https://www.nutrizionesana.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-dottore-ma-e-vero",
+          "name": "Dottore ma è vero",
+          "feedUrl": "https://dottoremaeveroche.it/feed/",
+          "siteUrl": "https://dottoremaeveroche.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-sanihelp",
+          "name": "Sanihelp",
+          "feedUrl": "https://www.sanihelp.it/feed/",
+          "siteUrl": "https://www.sanihelp.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-sapere-salute",
+          "name": "SapereSalute",
+          "feedUrl": "https://www.saperesalute.it/feed/",
+          "siteUrl": "https://www.saperesalute.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-farmaco-e-cura",
+          "name": "Farmaco e Cura",
+          "feedUrl": "https://www.farmacoecura.it/feed/",
+          "siteUrl": "https://www.farmacoecura.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "salute-gazzetta-active",
+          "name": "Gazzetta Active",
+          "feedUrl": "https://www.gazzetta.it/rss/fitness.xml",
+          "siteUrl": "https://www.gazzetta.it/active/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": "motori",
+      "name": "Motori",
+      "short": "Motori",
+      "sources": [
+        {
+          "id": "motori-alvolante",
+          "name": "Al Volante",
+          "feedUrl": "https://www.alvolante.it/rss",
+          "siteUrl": "https://www.alvolante.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-motor1-it",
+          "name": "Motor1 Italia",
+          "feedUrl": "https://it.motor1.com/rss/articles/all/",
+          "siteUrl": "https://it.motor1.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-hdmotori",
+          "name": "HDmotori",
+          "feedUrl": "https://www.hdmotori.it/feed/",
+          "siteUrl": "https://www.hdmotori.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-gazzetta-motori",
+          "name": "La Gazzetta dello Sport Motori",
+          "feedUrl": "https://www.gazzetta.it/rss/motori.xml",
+          "siteUrl": "https://www.gazzetta.it/motori/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-corriere-motori",
+          "name": "Corriere della Sera Motori",
+          "feedUrl": "https://xml2.corriereobjects.it/rss/motori.xml",
+          "siteUrl": "https://www.corriere.it/motori/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-repubblica-motori",
+          "name": "la Repubblica Motori",
+          "feedUrl": "https://www.repubblica.it/rss/motori/rss2.0.xml",
+          "siteUrl": "https://www.repubblica.it/motori/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-sole24-motori",
+          "name": "Il Sole 24 Ore Motori",
+          "feedUrl": "https://www.ilsole24ore.com/rss/motori.xml",
+          "siteUrl": "https://www.ilsole24ore.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-motorsport-it",
+          "name": "Motorsport.com Italia",
+          "feedUrl": "https://it.motorsport.com/rss/all/news/",
+          "siteUrl": "https://it.motorsport.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-formulapassion",
+          "name": "FormulaPassion",
+          "feedUrl": "https://www.formulapassion.it/feed",
+          "siteUrl": "https://www.formulapassion.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-insideevs-it",
+          "name": "InsideEVs Italia",
+          "feedUrl": "https://insideevs.it/rss/news/all/",
+          "siteUrl": "https://insideevs.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": true
+        },
+        {
+          "id": "motori-auto-it",
+          "name": "Auto.it",
+          "feedUrl": "https://www.auto.it/rss/",
+          "siteUrl": "https://www.auto.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-newsauto",
+          "name": "Newsauto",
+          "feedUrl": "https://www.newsauto.it/feed/",
+          "siteUrl": "https://www.newsauto.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-vaielettrico",
+          "name": "Vaielettrico",
+          "feedUrl": "https://www.vaielettrico.it/feed/",
+          "siteUrl": "https://www.vaielettrico.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-motori360",
+          "name": "Motori360",
+          "feedUrl": "https://www.motori360.it/feed/",
+          "siteUrl": "https://www.motori360.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-infomotori",
+          "name": "Infomotori",
+          "feedUrl": "https://www.infomotori.com/feed/",
+          "siteUrl": "https://www.infomotori.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-quotidiano-motori",
+          "name": "Quotidiano Motori",
+          "feedUrl": "https://www.quotidianomotori.com/feed/",
+          "siteUrl": "https://www.quotidianomotori.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-adnkronos-motori",
+          "name": "Adnkronos Motori",
+          "feedUrl": "https://www.adnkronos.com/RSS_Motori.xml",
+          "siteUrl": "https://www.adnkronos.com/motori",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-autoprove",
+          "name": "Autoprove",
+          "feedUrl": "https://www.autoprove.it/feed/",
+          "siteUrl": "https://www.autoprove.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-clubalfa",
+          "name": "ClubAlfa",
+          "feedUrl": "https://www.clubalfa.it/feed/",
+          "siteUrl": "https://www.clubalfa.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-insella",
+          "name": "Insella",
+          "feedUrl": "https://www.insella.it/feed",
+          "siteUrl": "https://www.insella.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-automotive-news-it",
+          "name": "Automotive News Italia",
+          "feedUrl": "https://www.automotive-news.it/feed/",
+          "siteUrl": "https://www.automotive-news.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-ilmessaggero-motori",
+          "name": "Il Messaggero Motori",
+          "feedUrl": "https://www.ilmessaggero.it/rss/motori.xml",
+          "siteUrl": "https://www.ilmessaggero.it/motori/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-gpone",
+          "name": "GPOne",
+          "feedUrl": "https://www.gpone.com/rss.xml",
+          "siteUrl": "https://www.gpone.com/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-moto-it-news",
+          "name": "Motoblog",
+          "feedUrl": "https://www.motoblog.it/feed/",
+          "siteUrl": "https://www.motoblog.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-autoblog-it",
+          "name": "Autoblog.it",
+          "feedUrl": "https://www.autoblog.it/feed/",
+          "siteUrl": "https://www.autoblog.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-elettricomagazine",
+          "name": "Elettrico Magazine",
+          "feedUrl": "https://www.elettricomagazine.it/feed/",
+          "siteUrl": "https://www.elettricomagazine.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-motorage",
+          "name": "Motorage",
+          "feedUrl": "https://www.motorage.it/feed/",
+          "siteUrl": "https://www.motorage.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-motorbox-news",
+          "name": "Motorlife",
+          "feedUrl": "https://www.motorlife.it/feed/",
+          "siteUrl": "https://www.motorlife.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-ruoteclassiche",
+          "name": "Ruoteclassiche",
+          "feedUrl": "https://www.ruoteclassiche.it/feed",
+          "siteUrl": "https://www.ruoteclassiche.it/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-tgcom24-motori",
+          "name": "Tgcom24 Motori",
+          "feedUrl": "https://www.tgcom24.mediaset.it/rss/motori.xml",
+          "siteUrl": "https://www.tgcom24.mediaset.it/motori/",
+          "lang": "it",
+          "region": "IT",
+          "active": false
+        },
+        {
+          "id": "motori-autocar",
+          "name": "Autocar",
+          "feedUrl": "https://www.autocar.co.uk/rss",
+          "siteUrl": "https://www.autocar.co.uk/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "motori-motor1",
+          "name": "Motor1",
+          "feedUrl": "https://www.motor1.com/rss/articles/all/",
+          "siteUrl": "https://www.motor1.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "motori-motorsport-com",
+          "name": "Motorsport.com",
+          "feedUrl": "https://www.motorsport.com/rss/all/news/",
+          "siteUrl": "https://www.motorsport.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "motori-roadandtrack",
+          "name": "Road & Track",
+          "feedUrl": "https://www.roadandtrack.com/rss/all.xml/",
+          "siteUrl": "https://www.roadandtrack.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "motori-caranddriver",
+          "name": "Car and Driver",
+          "feedUrl": "https://www.caranddriver.com/rss/all.xml/",
+          "siteUrl": "https://www.caranddriver.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": true
+        },
+        {
+          "id": "motori-autoweek",
+          "name": "Autoweek",
+          "feedUrl": "https://www.autoweek.com/rss/all/",
+          "siteUrl": "https://www.autoweek.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-autosport",
+          "name": "Autosport",
+          "feedUrl": "https://www.autosport.com/rss/feed/all",
+          "siteUrl": "https://www.autosport.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-autoexpress",
+          "name": "Auto Express",
+          "feedUrl": "https://www.autoexpress.co.uk/feed/all",
+          "siteUrl": "https://www.autoexpress.co.uk/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-electrek",
+          "name": "Electrek",
+          "feedUrl": "https://electrek.co/feed/",
+          "siteUrl": "https://electrek.co/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-jalopnik",
+          "name": "Jalopnik",
+          "feedUrl": "https://jalopnik.com/rss",
+          "siteUrl": "https://jalopnik.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-formula1",
+          "name": "Formula1.com",
+          "feedUrl": "https://www.formula1.com/content/fom-website/en/latest/all.xml",
+          "siteUrl": "https://www.formula1.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-insideevs",
+          "name": "InsideEVs",
+          "feedUrl": "https://insideevs.com/rss/news/all/",
+          "siteUrl": "https://insideevs.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-the-race",
+          "name": "The Race",
+          "feedUrl": "https://www.the-race.com/feed/",
+          "siteUrl": "https://www.the-race.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-motorpasion",
+          "name": "Motorpasión",
+          "feedUrl": "https://www.motorpasion.com/index.xml",
+          "siteUrl": "https://www.motorpasion.com/",
+          "lang": "es",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-carscoops",
+          "name": "Carscoops",
+          "feedUrl": "https://www.carscoops.com/feed/",
+          "siteUrl": "https://www.carscoops.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-crash-net",
+          "name": "Crash.net",
+          "feedUrl": "https://www.crash.net/rss",
+          "siteUrl": "https://www.crash.net/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-gpfans",
+          "name": "GPFans",
+          "feedUrl": "https://www.gpfans.com/en/rss.xml",
+          "siteUrl": "https://www.gpfans.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-electrive",
+          "name": "electrive.com",
+          "feedUrl": "https://www.electrive.com/feed/",
+          "siteUrl": "https://www.electrive.com/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-hagerty",
+          "name": "Hagerty Media",
+          "feedUrl": "https://www.hagerty.com/media/feed/",
+          "siteUrl": "https://www.hagerty.com/media/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        },
+        {
+          "id": "motori-racefans",
+          "name": "RaceFans",
+          "feedUrl": "https://www.racefans.net/feed/",
+          "siteUrl": "https://www.racefans.net/",
+          "lang": "en",
+          "region": "INT",
+          "active": false
+        }
+      ]
+    }
+  ]
+}

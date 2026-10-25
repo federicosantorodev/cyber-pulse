@@ -1,0 +1,465 @@
+:root {
+  color-scheme: light;
+
+  --page: #f8f9fa;
+  --surface: #ffffff;
+  --surface-muted: #f1f3f4;
+  --text: #202124;
+  --text-muted: #5f6368;
+  --border: #dadce0;
+  --accent: #1a73e8;
+  --accent-soft: #e8f0fe;
+  --on-accent: #ffffff;
+  --accent-secondary: #34a853;
+  --accent-tertiary: #fbbc04;
+  --page-pattern: none;
+
+  --theme-accent: #1a73e8;
+  --theme-accent-dark: #8ab4f8;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(26 115 232 / 8%);
+  --theme-pattern:
+    radial-gradient(circle, var(--theme-pattern-color) 1px, transparent 1.5px);
+  --theme-pattern-size: 24px 24px;
+
+  --header-height: 112px;
+  --content-width: 1120px;
+  --radius: 16px;
+
+  --accent: var(--theme-accent);
+  --on-accent: var(--theme-on-accent);
+  --page-pattern: var(--theme-pattern);
+}
+
+:root[data-mode="day"] {
+  color-scheme: light;
+  --page: #f8f9fa;
+  --surface: #ffffff;
+  --surface-muted: #f1f3f4;
+  --text: #202124;
+  --text-muted: #5f6368;
+  --border: #dadce0;
+  --accent: var(--theme-accent);
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --on-accent: var(--theme-on-accent);
+}
+
+:root[data-mode="night"] {
+  color-scheme: dark;
+  --page: #202124;
+  --surface: #292a2d;
+  --surface-muted: #35363a;
+  --text: #e8eaed;
+  --text-muted: #bdc1c6;
+  --border: #45474b;
+  --accent: var(--theme-accent-dark);
+  --accent-soft: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  --on-accent: #202124;
+}
+
+:root[data-mode="oled"] {
+  color-scheme: dark;
+  --page: #000000;
+  --surface: #080808;
+  --surface-muted: #171717;
+  --text: #f1f3f4;
+  --text-muted: #bdc1c6;
+  --border: #343638;
+  --accent: var(--theme-accent-dark);
+  --accent-soft: color-mix(in srgb, var(--accent) 24%, var(--surface));
+  --on-accent: #000000;
+}
+
+/* Google (Base) */
+:root[data-theme^="google-"] {
+  --theme-pattern:
+    radial-gradient(circle, var(--theme-pattern-color) 1px, transparent 1.5px);
+  --theme-pattern-size: 24px 24px;
+}
+
+:root[data-theme="google-1"] {
+  --theme-accent: #1a73e8;
+  --theme-accent-dark: #8ab4f8;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(26 115 232 / 8%);
+}
+
+:root[data-theme="google-2"] {
+  --theme-accent: #4285f4;
+  --theme-accent-dark: #aecbfa;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(66 133 244 / 8%);
+}
+
+:root[data-theme="google-3"] {
+  --theme-accent: #188038;
+  --theme-accent-dark: #81c995;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(24 128 56 / 8%);
+}
+
+:root[data-theme="google-4"] {
+  --theme-accent: #d93025;
+  --theme-accent-dark: #f28b82;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(217 48 37 / 8%);
+}
+
+:root[data-theme="google-5"] {
+  --theme-accent: #8430ce;
+  --theme-accent-dark: #d7aefb;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(132 48 206 / 8%);
+}
+
+/* Neon */
+:root[data-theme^="cyberpunk-77-"] {
+  --theme-pattern:
+    linear-gradient(var(--theme-pattern-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--theme-pattern-color) 1px, transparent 1px);
+  --theme-pattern-size: 32px 32px;
+}
+
+:root[data-theme="cyberpunk-77-1"] {
+  --theme-accent: #d500f9;
+  --theme-accent-dark: #ea80fc;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(213 0 249 / 9%);
+}
+
+:root[data-theme="cyberpunk-77-2"] {
+  --theme-accent: #00a6a6;
+  --theme-accent-dark: #5eead4;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 166 166 / 9%);
+}
+
+:root[data-theme="cyberpunk-77-3"] {
+  --theme-accent: #f4511e;
+  --theme-accent-dark: #ffab91;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(244 81 30 / 9%);
+}
+
+:root[data-theme="cyberpunk-77-4"] {
+  --theme-accent: #c2185b;
+  --theme-accent-dark: #f48fb1;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(194 24 91 / 9%);
+}
+
+:root[data-theme="cyberpunk-77-5"] {
+  --theme-accent: #3949ab;
+  --theme-accent-dark: #9fa8da;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(57 73 171 / 9%);
+}
+
+/* Harry Potter */
+:root[data-theme^="harry-potter-"] {
+  --theme-pattern:
+    radial-gradient(circle at 12px 12px, var(--theme-pattern-color) 1px, transparent 1.7px),
+    radial-gradient(circle at 36px 36px, var(--theme-pattern-color) 1px, transparent 1.7px);
+  --theme-pattern-size: 48px 48px;
+}
+
+:root[data-theme="harry-potter-1"] {
+  --theme-accent: #7b1fa2;
+  --theme-accent-dark: #ce93d8;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(123 31 162 / 9%);
+}
+
+:root[data-theme="harry-potter-2"] {
+  --theme-accent: #b71c1c;
+  --theme-accent-dark: #ef9a9a;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(183 28 28 / 8%);
+}
+
+:root[data-theme="harry-potter-3"] {
+  --theme-accent: #1b5e20;
+  --theme-accent-dark: #a5d6a7;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(27 94 32 / 8%);
+}
+
+:root[data-theme="harry-potter-4"] {
+  --theme-accent: #b8860b;
+  --theme-accent-dark: #fdd663;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(184 134 11 / 9%);
+}
+
+:root[data-theme="harry-potter-5"] {
+  --theme-accent: #37474f;
+  --theme-accent-dark: #b0bec5;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(55 71 79 / 8%);
+}
+
+/* Star Wars */
+:root[data-theme^="star-wars-"] {
+  --theme-pattern:
+    radial-gradient(circle at 10px 10px, var(--theme-pattern-color) 1px, transparent 1.5px),
+    radial-gradient(circle at 32px 30px, var(--theme-pattern-color) 1px, transparent 1.5px),
+    linear-gradient(180deg, transparent 0 78%, var(--theme-pattern-color) 78% 79%, transparent 79%);
+  --theme-pattern-size: 44px 44px;
+}
+
+:root[data-theme="star-wars-1"] {
+  --theme-accent: #1565c0;
+  --theme-accent-dark: #90caf9;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(21 101 192 / 8%);
+}
+
+:root[data-theme="star-wars-2"] {
+  --theme-accent: #c62828;
+  --theme-accent-dark: #ef9a9a;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(198 40 40 / 8%);
+}
+
+:root[data-theme="star-wars-3"] {
+  --theme-accent: #d49b00;
+  --theme-accent-dark: #fdd663;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(212 155 0 / 9%);
+}
+
+:root[data-theme="star-wars-4"] {
+  --theme-accent: #2e7d32;
+  --theme-accent-dark: #a5d6a7;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(46 125 50 / 8%);
+}
+
+:root[data-theme="star-wars-5"] {
+  --theme-accent: #455a64;
+  --theme-accent-dark: #b0bec5;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(69 90 100 / 8%);
+}
+
+/* Giappone */
+:root[data-theme^="japan-"] {
+  --theme-pattern:
+    radial-gradient(circle at 50% 50%, var(--theme-pattern-color) 0 18%, transparent 18.5%),
+    repeating-linear-gradient(0deg, transparent 0 20px, var(--theme-pattern-color) 20px 21px);
+  --theme-pattern-size: 56px 56px;
+}
+
+:root[data-theme="japan-1"] {
+  --theme-accent: #c62828;
+  --theme-accent-dark: #ef9a9a;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(198 40 40 / 8%);
+}
+
+:root[data-theme="japan-2"] {
+  --theme-accent: #ad1457;
+  --theme-accent-dark: #f48fb1;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(173 20 87 / 8%);
+}
+
+:root[data-theme="japan-3"] {
+  --theme-accent: #00695c;
+  --theme-accent-dark: #80cbc4;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 105 92 / 8%);
+}
+
+:root[data-theme="japan-4"] {
+  --theme-accent: #1565c0;
+  --theme-accent-dark: #90caf9;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(21 101 192 / 8%);
+}
+
+:root[data-theme="japan-5"] {
+  --theme-accent: #6d4c41;
+  --theme-accent-dark: #bcaaa4;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(109 76 65 / 8%);
+}
+
+/* Italia */
+:root[data-theme^="italy-"] {
+  --theme-pattern:
+    linear-gradient(90deg, var(--theme-pattern-color) 0 1px, transparent 1px),
+    linear-gradient(0deg, var(--theme-pattern-color) 0 1px, transparent 1px);
+  --theme-pattern-size: 36px 36px;
+}
+
+:root[data-theme="italy-1"] {
+  --theme-accent: #008c45;
+  --theme-accent-dark: #81c995;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 140 69 / 8%);
+}
+
+:root[data-theme="italy-2"] {
+  --theme-accent: #c62828;
+  --theme-accent-dark: #ef9a9a;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(198 40 40 / 8%);
+}
+
+:root[data-theme="italy-3"] {
+  --theme-accent: #1565c0;
+  --theme-accent-dark: #90caf9;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(21 101 192 / 8%);
+}
+
+:root[data-theme="italy-4"] {
+  --theme-accent: #6d4c41;
+  --theme-accent-dark: #bcaaa4;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(109 76 65 / 8%);
+}
+
+:root[data-theme="italy-5"] {
+  --theme-accent: #00695c;
+  --theme-accent-dark: #80cbc4;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 105 92 / 8%);
+}
+
+/* Mexico */
+:root[data-theme^="mexico-"] {
+  --theme-pattern:
+    radial-gradient(circle at 10px 10px, var(--theme-pattern-color) 2px, transparent 2.5px),
+    repeating-linear-gradient(135deg, transparent 0 22px, var(--theme-pattern-color) 22px 23px);
+  --theme-pattern-size: 40px 40px;
+}
+
+:root[data-theme="mexico-1"] {
+  --theme-accent: #006847;
+  --theme-accent-dark: #81c995;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 104 71 / 8%);
+}
+
+:root[data-theme="mexico-2"] {
+  --theme-accent: #ce1126;
+  --theme-accent-dark: #f28b82;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(206 17 38 / 8%);
+}
+
+:root[data-theme="mexico-3"] {
+  --theme-accent: #d97706;
+  --theme-accent-dark: #fdd663;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(217 119 6 / 9%);
+}
+
+:root[data-theme="mexico-4"] {
+  --theme-accent: #007c91;
+  --theme-accent-dark: #80deea;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 124 145 / 8%);
+}
+
+:root[data-theme="mexico-5"] {
+  --theme-accent: #8e244d;
+  --theme-accent-dark: #f48fb1;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(142 36 77 / 8%);
+}
+
+/* Colori Solidi */
+:root[data-theme^="solid-"] {
+  --theme-pattern: none;
+  --theme-pattern-size: auto;
+}
+
+:root[data-theme="solid-1"] {
+  --theme-accent: #1a73e8;
+  --theme-accent-dark: #8ab4f8;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: transparent;
+}
+
+:root[data-theme="solid-2"] {
+  --theme-accent: #188038;
+  --theme-accent-dark: #81c995;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: transparent;
+}
+
+:root[data-theme="solid-3"] {
+  --theme-accent: #d93025;
+  --theme-accent-dark: #f28b82;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: transparent;
+}
+
+:root[data-theme="solid-4"] {
+  --theme-accent: #8430ce;
+  --theme-accent-dark: #d7aefb;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: transparent;
+}
+
+:root[data-theme="solid-5"] {
+  --theme-accent: #00695c;
+  --theme-accent-dark: #80cbc4;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: transparent;
+}
+
+/* Unicorno */
+:root[data-theme^="unicorn-"] {
+  --theme-pattern:
+    radial-gradient(circle at 15% 20%, var(--theme-pattern-color) 0 12%, transparent 12.5%),
+    radial-gradient(circle at 85% 75%, var(--theme-pattern-color) 0 16%, transparent 16.5%),
+    linear-gradient(135deg, transparent 35%, var(--theme-pattern-color) 50%, transparent 65%);
+  --theme-pattern-size: 160px 160px, 190px 190px, 100% 100%;
+}
+
+:root[data-theme="unicorn-1"] {
+  --theme-accent: #a142a5;
+  --theme-accent-dark: #e1bee7;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(161 66 165 / 8%);
+}
+
+:root[data-theme="unicorn-2"] {
+  --theme-accent: #c2185b;
+  --theme-accent-dark: #f48fb1;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(194 24 91 / 8%);
+}
+
+:root[data-theme="unicorn-3"] {
+  --theme-accent: #5e35b1;
+  --theme-accent-dark: #b39ddb;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(94 53 177 / 8%);
+}
+
+:root[data-theme="unicorn-4"] {
+  --theme-accent: #00838f;
+  --theme-accent-dark: #80deea;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(0 131 143 / 8%);
+}
+
+:root[data-theme="unicorn-5"] {
+  --theme-accent: #ad6500;
+  --theme-accent-dark: #fdd663;
+  --theme-on-accent: #ffffff;
+  --theme-pattern-color: rgb(173 101 0 / 8%);
+}
+
+body {
+  background-color: var(--page);
+  background-image: var(--page-pattern);
+  background-position: center top;
+  background-size: var(--theme-pattern-size);
+  background-attachment: fixed;
+}
