@@ -34,14 +34,15 @@ function pdf() {
   const start=Buffer.byteLength(out);out+=`xref\n0 ${offsets.length}\n0000000000 65535 f \n`;for(const n of offsets.slice(1))out+=`${String(n).padStart(10,"0")} 00000 n \n`;
   return Buffer.from(out+`trailer\n<< /Size ${offsets.length} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF\n`);
 }
-const html=`<!doctype html><html><head><meta charset="utf-8"><style>:root{--surface:#fff;--surface-muted:#eee;--text:#222;--text-muted:#555;--border:#aaa;--accent:#1765ca;--accent-soft:#ddf;--radius:12px;--header-height:56px}*{box-sizing:border-box}body{font-family:sans-serif}</style><script>window.CyberPulseAuth={getUser:()=>({uid:"fake"})}</script><script defer src="/assets/js/modules/library.js"></script></head><body><main id="home"><div id="home-page"></div></main></body></html>`;
+const indexStyle = fs.readFileSync(path.join(root, "index.html"), "utf8").match(/<style>([\s\S]*?)<\/style>/)[1];
+const html=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/css/themes_styles.css"><style>${indexStyle}</style><link rel="stylesheet" href="/assets/css/material-ui.css"><script>window.CyberPulseAuth={getUser:()=>({uid:"fake"})}</script><script defer src="/assets/js/modules/library.js"></script></head><body><main class="content" id="home"><div id="home-page"></div></main></body></html>`;
 const server=http.createServer((req,res)=>{
   if(req.url==="/"){res.writeHead(200,{"Content-Type":"text/html"});return res.end(html);}
   if(req.url==="/test.epub")return res.end(epub);
   if(req.url==="/test.pdf")return res.end(pdf());
   const file=path.join(root,decodeURIComponent(req.url.split("?")[0]));
   if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}
-  fs.readFile(file,(err,data)=>{if(err){res.writeHead(404);return res.end();}res.writeHead(200,{"Content-Type":"text/javascript"});res.end(data);});
+  fs.readFile(file,(err,data)=>{if(err){res.writeHead(404);return res.end();}res.writeHead(200,{"Content-Type":file.endsWith(".css")?"text/css":"text/javascript"});res.end(data);});
 });
 const sleep=(n)=>new Promise(r=>setTimeout(r,n));
 async function main(){
@@ -65,6 +66,7 @@ async function main(){
     const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise((resolve,reject)=>{ws.onopen=resolve;ws.onerror=reject;});await sleep(2500);
     let id=0;function send(method,params={}){return new Promise((resolve,reject)=>{const n=++id;const listener=e=>{const m=JSON.parse(e.data);if(m.id!==n)return;ws.removeEventListener("message",listener);m.error?reject(Error(m.error.message)):resolve(m.result);};ws.addEventListener("message",listener);ws.send(JSON.stringify({id:n,method,params}));});}
     async function run(expression){const r=await send("Runtime.evaluate",{expression,awaitPromise:true,returnByValue:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||r.exceptionDetails.text);return r.result.value;}
+    async function screenshot(name){if(process.env.LIBRARY_SCREENSHOT_DIR){const result=await send("Page.captureScreenshot",{format:"png"});fs.writeFileSync(path.join(process.env.LIBRARY_SCREENSHOT_DIR,name),Buffer.from(result.data,"base64"));}}
     await run(`(async()=>{for(let i=0;i<100;i++){if(location.origin===${JSON.stringify(origin)} && document.readyState==="complete" && window.CyberPulseLibrary)return;await new Promise(r=>setTimeout(r,100));}throw Error("Page not ready: "+location.href+" "+document.title);})()`);
     const result=await run(`(async()=>{
       const wait=async(f,label)=>{for(let i=0;i<240;i++){if(f())return;await new Promise(r=>setTimeout(r,50));}throw Error("Timeout: "+label)};
@@ -129,11 +131,12 @@ async function main(){
       const cover=row.querySelector(".lb-row-thumb").getBoundingClientRect();
       const title=row.querySelector(".lb-row-text").getBoundingClientRect();
       const controls=[...row.querySelectorAll("button")].map(b=>b.getBoundingClientRect());
-      if(cover.width!==64||title.width<35||controls.some(r=>r.left<0||r.right>innerWidth)||document.documentElement.scrollWidth>innerWidth)
+      if(cover.width!==64||title.width<100||controls.some(r=>r.left<0||r.right>innerWidth)||document.documentElement.scrollWidth>innerWidth)
         throw Error("Folder row overflow at 320px");
       return "PASS 320px folder row with large covers";
     })()`);
     console.log(mobile);
+    await screenshot("library-mobile-folders.png");
     await send("Page.reload");
     await sleep(1500);
     const restored=await run(`(async()=>{
@@ -158,6 +161,121 @@ async function main(){
       return "PASS cover size persisted and shared with settings and grid";
     })()`);
     console.log(restored);
+    const mobileGrid=await run(`(async()=>{
+      const wait=async(f,label)=>{for(let i=0;i<200;i++){if(f())return;await new Promise(r=>setTimeout(r,50));}throw Error("Timeout: "+label)};
+      document.querySelector('[aria-label="Impostazioni della Libreria"]').click();
+      await wait(()=>document.querySelector(".lb-settings-dialog[open]"),"settings");
+      [...document.querySelectorAll(".lb-settings-dialog button")].find(b=>b.textContent.includes("Scaffale")).click();
+      await wait(()=>document.querySelector('.lb-settings-dialog select[aria-label="Dimensione copertine"]'),"size setting");
+      const size=document.querySelector('.lb-settings-dialog select[aria-label="Dimensione copertine"]');
+      size.value="medium";size.dispatchEvent(new Event("change",{bubbles:true}));
+      document.querySelector(".lb-settings-close").click();
+      await wait(()=>document.querySelector('.lb-grid[data-cover-size="medium"]'),"medium grid");
+      const cards=[...document.querySelectorAll(".lb-book")];
+      if(cards.length<2||Math.abs(cards[0].getBoundingClientRect().top-cards[1].getBoundingClientRect().top)>1)
+        throw Error("Medium covers do not fit two columns");
+      for(const button of document.querySelectorAll(".lb-book .lb-actions button")) {
+        const r=button.getBoundingClientRect(), parent=button.closest(".lb-book").getBoundingClientRect();
+        if(r.left<parent.left-1||r.right>parent.right+1||r.height<40)throw Error("Card button clipped or too small: "+JSON.stringify({button:button.outerHTML,left:r.left,right:r.right,height:r.height,cardLeft:parent.left,cardRight:parent.right}));
+      }
+      cards[0].querySelector('.lb-actions [aria-label^="Modifica"]').click();
+      await wait(()=>document.querySelector(".lb-tools[open] .lb-fix-grid input"),"edit");
+      const dialog=document.querySelector(".lb-tools[open]"), field=dialog.querySelector(".lb-fix-grid input");
+      const box=field.getBoundingClientRect(), outer=dialog.getBoundingClientRect();
+      if(box.width<230||box.left<outer.left||box.right>outer.right||getComputedStyle(field).fontSize!=="16px")
+        throw Error("Mobile edit field too narrow or clipped");
+      return "PASS 320px two-column grid, touch controls and edit fields";
+    })()`);
+    console.log(mobileGrid);
+    await screenshot("library-mobile-edit.png");
+    await run(`document.querySelector(".lb-tools[open]").close()`);
+    await screenshot("library-mobile-grid.png");
+    await send("Emulation.setDeviceMetricsOverride",{width:390,height:844,deviceScaleFactor:1,mobile:true});
+    const wider=await run(`(()=>{
+      const cards=[...document.querySelectorAll(".lb-book")];
+      if(Math.abs(cards[0].getBoundingClientRect().top-cards[1].getBoundingClientRect().top)>1
+        || document.documentElement.scrollWidth>innerWidth) throw Error("Grid layout at 390px");
+      for(const button of document.querySelectorAll(".lb-bar button, .lb-bar select")) {
+        const r=button.getBoundingClientRect();
+        if(r.left<0||r.right>innerWidth||r.height<40)throw Error("Toolbar control clipped or too small at 390px");
+      }
+      return "PASS 390px grid and toolbar";
+    })()`);
+    console.log(wider);
+    await run(`(async()=>{
+      const req=indexedDB.open("cyber-pulse-library",3);
+      const db=await new Promise((resolve,reject)=>{req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});
+      const tx=db.transaction(["books","folders"],"readwrite");
+      tx.objectStore("books").put({id:"extra",title:"Altro libro",name:"altro.txt",type:"txt",file:new Blob(["test"]),size:4,added:Date.now(),author:"",year:""});
+      tx.objectStore("folders").put({id:"folder-test",name:"Libreria con un nome molto lungo",count:50,synced:Date.now(),ignore:["excluded.txt"],handle:{}});
+      await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});
+      Object.prototype.queryPermission=async function(){return window.folderPermission};
+      window.folderPermission="granted";
+      const old=document.querySelector(".lb-bar");
+      const sort=old.querySelector(".lb-bar-sort");sort.value="title";sort.dispatchEvent(new Event("change",{bubbles:true}));
+      for(let i=0;i<200;i++){if(document.querySelector(".lb-bar")!==old&&document.querySelector(".lb-folder-actions"))return;await new Promise(r=>setTimeout(r,50))}
+      throw Error("Folder test did not render");
+    })()`);
+    for (const width of [320,390]) {
+      await send("Emulation.setDeviceMetricsOverride",{width,height:844,deviceScaleFactor:1,mobile:true});
+      const result=await run(`(()=>{
+        const bar=document.querySelector(".lb-bar"), actions=[...bar.querySelectorAll(":scope > .lb-button")];
+        const rect=e=>e.getBoundingClientRect();
+        if(actions.length!==4)throw Error("Expected four shelf actions");
+        const r=actions.map(rect);
+        if(Math.abs(r[0].width-r[1].width)>1||Math.abs(r[2].width-r[3].width)>1||Math.abs(r[0].left-r[2].left)>1||Math.abs(r[1].left-r[3].left)>1||Math.abs(r[0].top-r[1].top)>1||Math.abs(r[2].top-r[3].top)>1)throw Error("Shelf actions not aligned");
+        for(const a of actions) {
+          const text=document.createRange();text.selectNodeContents(a.lastChild);
+          if(text.getBoundingClientRect().right>rect(a).right-2)throw Error("Action label clipped: "+a.textContent);
+        }
+        const sort=rect(bar.querySelector(".lb-bar-sort")), settings=rect(bar.querySelector(".lb-bar-settings"));
+        const search=rect(bar.querySelector(".lb-search"));
+        if(Math.abs(sort.top-settings.top)>1||sort.right>settings.left||Math.abs(search.left-rect(bar).left)>1||Math.abs(search.right-rect(bar).right)>1)throw Error("Shelf controls not aligned");
+        const folder=document.querySelector(".lb-folder"), text=rect(folder.querySelector(".lb-folder-text"));
+        if(text.width<innerWidth-90||!folder.querySelector(".lb-write-status"))throw Error("Folder details too narrow or missing status");
+        for(const e of folder.querySelectorAll("button")){const b=rect(e);if(b.left<0||b.right>innerWidth||b.height<44||e.scrollWidth>e.clientWidth)throw Error("Folder action clipped");}
+        if(document.documentElement.scrollWidth>innerWidth)throw Error("Page overflow");
+        return "PASS ${width}px aligned shelf controls and linked folder";
+      })()`);
+      console.log(result);
+      if(width===390) {
+        await screenshot("library-mobile-toolbar.png");
+        await run(`document.querySelector(".lb-folders").scrollIntoView({block:"start"})`);
+        await screenshot("library-mobile-linked-folder.png");
+      }
+    }
+    const denied=await run(`(async()=>{
+      window.folderPermission="denied";
+      const old=document.querySelector(".lb-bar"),sort=old.querySelector(".lb-bar-sort");
+      sort.value="recent";sort.dispatchEvent(new Event("change",{bubbles:true}));
+      for(let i=0;i<200;i++){if(document.querySelector(".lb-bar")!==old&&document.querySelector(".lb-folder-actions"))break;await new Promise(r=>setTimeout(r,50))}
+      const folder=document.querySelector(".lb-folder");
+      if(!folder.textContent.includes("serve il permesso di lettura")||!folder.textContent.includes("Autorizza")||!folder.textContent.includes("Permetti rinomina")||!folder.textContent.includes("Ripristina esclusi"))throw Error("Folder permission actions missing");
+      for(const b of folder.querySelectorAll("button")){const r=b.getBoundingClientRect();if(r.right>innerWidth||r.left<0||r.height<44||b.scrollWidth>b.clientWidth)throw Error("Permission action clipped");}
+      delete Object.prototype.queryPermission;
+      return "PASS linked folder permission and restore controls";
+    })()`);
+    console.log(denied);
+    await run(`(async()=>{
+      const wait=async(f,label)=>{for(let i=0;i<200;i++){if(f())return;await new Promise(r=>setTimeout(r,50));}throw Error("Timeout: "+label)};
+      document.querySelector('[aria-label="Impostazioni della Libreria"]').click();
+      await wait(()=>document.querySelector(".lb-settings-dialog[open]"),"settings");
+      [...document.querySelectorAll(".lb-settings-dialog button")].find(b=>b.textContent.includes("Scaffale")).click();
+      await wait(()=>document.querySelector('.lb-settings-dialog select[aria-label="Vista dello scaffale"]'),"view setting");
+      const view=document.querySelector('.lb-settings-dialog select[aria-label="Vista dello scaffale"]');
+      view.value="folders";view.dispatchEvent(new Event("change",{bubbles:true}));
+      document.querySelector(".lb-settings-close").click();
+      await wait(()=>document.querySelector('.lb-bar select[aria-label="Dimensione copertine"]'),"folder controls");
+    })()`);
+    for (const width of [320,390]) {
+      await send("Emulation.setDeviceMetricsOverride",{width,height:844,deviceScaleFactor:1,mobile:true});
+      console.log(await run(`(()=>{
+        const bar=document.querySelector(".lb-bar").getBoundingClientRect();
+        const cover=document.querySelector('.lb-bar select[aria-label="Dimensione copertine"]').getBoundingClientRect();
+        if(Math.abs(cover.left-bar.left)>1||Math.abs(cover.right-bar.right)>1||document.documentElement.scrollWidth>innerWidth)throw Error("Folder size selector not aligned");
+        return "PASS ${width}px folder view selector";
+      })()`));
+    }
     ws.close();
   }finally{
     chrome.kill();

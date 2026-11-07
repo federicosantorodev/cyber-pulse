@@ -1266,18 +1266,19 @@
       const when = folder.synced ? new Date(folder.synced).toLocaleString("it-IT", { dateStyle: "medium", timeStyle: "short" }) : "mai";
       text.append(el("small", "", `${folder.count || 0} file · ${granted ? `aggiornata ${when}` : "serve il permesso di lettura"}${folder.ignore?.length ? ` · ${folder.ignore.length} esclusi` : ""}`));
       row.append(text);
+      const actions = el("div", "lb-folder-actions");
       if (folder.ignore?.length) {
-        row.append(button("Ripristina esclusi", null, async () => {
+        actions.append(button("Ripristina esclusi", null, async () => {
           folder.ignore = [];
           await folderPut(folder);
           syncAndReport(folder, true);
         }));
       }
-      row.append(button(granted ? "Aggiorna" : "Autorizza", ICONS.refresh, () => syncAndReport(folder, true)));
+      actions.append(button(granted ? "Aggiorna" : "Autorizza", ICONS.refresh, () => syncAndReport(folder, true)));
       if (writable) {
-        row.append(el("small", "lb-write-status", "Rinomina autorizzata"));
+        actions.append(el("small", "lb-write-status", "Rinomina autorizzata"));
       } else {
-        row.append(button("Permetti rinomina", ICONS.edit, async () => {
+        actions.append(button("Permetti rinomina", ICONS.edit, async () => {
           try {
             await requireWritePermission(folder.handle);
             say(`Scrittura autorizzata per «${folder.name}». Ora puoi rinominare i file sul dispositivo.`);
@@ -1287,7 +1288,8 @@
           renderShelf();
         }));
       }
-      row.append(iconButton(`Scollega ${folder.name}`, ICONS.del, () => unlinkFolder(folder)));
+      actions.append(iconButton(`Scollega ${folder.name}`, ICONS.del, () => unlinkFolder(folder)));
+      row.append(actions);
       box.append(row);
     }
     return box;
@@ -3628,9 +3630,11 @@
     bar.append(button("Collega cartella", ICONS.folder, pickFolder));
     bar.append(button("Libro da immagini", ICONS.book, pickImageFolder));
     if (books.length) bar.append(button("Sistema libreria", ICONS.tools, () => openTools()));
-    bar.append(iconButton("Impostazioni della Libreria", ICONS.settings, () => openLibrarySettings()));
+    const settings = iconButton("Impostazioni della Libreria", ICONS.settings, () => openLibrarySettings());
+    settings.classList.add("lb-bar-settings");
     if (books.length > 1) {
       const sort = el("select", "lb-select");
+      sort.classList.add("lb-bar-sort");
       sort.setAttribute("aria-label", "Ordina i libri");
       Object.entries(SORTS).forEach(([value, label]) => {
         const option = el("option", "", `Ordina: ${label}`);
@@ -3645,6 +3649,7 @@
       });
       bar.append(sort);
     }
+    bar.append(settings);
     if (books.length && prefs().shelfView === "folders") {
       const size = settingsSelect("Dimensione copertine", COVER_SIZES.map(([value, label]) => [value, `Copertine: ${label.toLowerCase()}`]),
         FOLDER_COVER_WIDTHS[prefs().coverSize] ? prefs().coverSize : "medium", async (value) => {
@@ -3741,6 +3746,7 @@
     } else {
       const grid = el("div", "lb-grid");
       grid.style.setProperty("--lb-cover-min", ({ small: "120px", medium: "160px", large: "220px" })[prefs().coverSize] || "160px");
+      grid.dataset.coverSize = prefs().coverSize || "medium";
       books.forEach((book) => grid.append(makeCard(book)));
       content = [grid];
     }
@@ -5492,6 +5498,7 @@
       .lb-folder-text { display: flex; flex: 1; flex-direction: column; min-width: 0; }
       .lb-folder-text strong { overflow: hidden; color: var(--text); font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
       .lb-folder-text small { font-size: 12px; }
+      .lb-folder-actions { display: flex; align-items: center; gap: 10px; }
       .lb-note { max-width: 70ch; margin: 16px 0 0; color: var(--text-muted); font-size: 12px; line-height: 1.6; }
       .lb-ai-preview { display: grid; gap: 8px; width: 100%; }
       .lb-ai-preview summary { color: var(--accent); cursor: pointer; font-size: 13px; }
@@ -5710,6 +5717,46 @@
         .lb-pop { animation: lb-in 160ms ease-out; }
       }
       @media (max-width: 560px) {
+        .lb-page { padding-top: 16px; }
+        .lb-panel { margin-top: 12px; }
+        .lb-meta:empty { display: none; }
+        .lb-bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-bottom: 16px; }
+        .lb-bar > .lb-button { grid-column: span 2; min-width: 0; min-height: 44px; gap: 4px; padding-inline: 6px; font-size: 12px; }
+        .lb-bar > .lb-bar-settings { grid-column: span 4; width: 100%; height: 44px; border: 1px solid var(--border); border-radius: 14px; }
+        .lb-bar > .lb-bar-settings:nth-child(4) { grid-column: span 2; }
+        .lb-bar:has(> .lb-bar-sort) > .lb-bar-settings { grid-column: span 1; order: 2; }
+        .lb-bar > .lb-select { grid-column: span 4; min-width: 0; min-height: 44px; order: 3; }
+        .lb-bar > .lb-bar-sort { grid-column: span 3; order: 1; }
+        .lb-bar > .lb-search { grid-column: span 4; width: 100%; max-width: none; min-width: 0; min-height: 44px; order: 4; }
+        .lb-folder { display: grid; grid-template-columns: 24px minmax(0, 1fr); align-items: start; gap: 8px 12px; padding: 14px 0; }
+        .lb-folder > svg { margin-top: 2px; }
+        .lb-folder-text strong { overflow-wrap: anywhere; white-space: normal; }
+        .lb-folder-text small { line-height: 1.5; }
+        .lb-folder-actions { grid-column: 1 / -1; flex-wrap: wrap; gap: 8px; }
+        .lb-folder-actions .lb-button { flex: 1 1 auto; min-height: 44px; }
+        .lb-folder-actions .lb-icon-button { width: 44px; height: 44px; }
+        .lb-folder-actions .lb-write-status { flex: 1 0 100%; order: -1; padding-left: 36px; }
+        .lb-grid { gap: 16px 12px; }
+        .lb-grid[data-cover-size="medium"] { --lb-cover-min: 136px !important; }
+        .lb-book { min-width: 0; gap: 6px; }
+        .lb-book .lb-file { display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .lb-book .lb-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: 4px; }
+        .lb-book .lb-actions .lb-button { grid-column: 1 / -1; min-height: 44px; padding-inline: 10px; }
+        .lb-book .lb-actions .lb-icon-button { width: 100%; height: 44px; }
+        .lb-row:has(> .lb-row-open) { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px 44px; gap: 0; padding: 8px 0; }
+        .lb-row:has(> .lb-row-open) > .lb-preview-button { grid-column: 1; grid-row: 1; width: 44px; height: 44px; }
+        .lb-row-open { grid-column: 2 / -1; grid-row: 1; gap: 10px; }
+        .lb-row:has(> .lb-row-open) > .lb-icon-button:not(.lb-preview-button) { grid-row: 2; width: 44px; height: 44px; }
+        .lb-row:has(> .lb-row-open) > .lb-icon-button:nth-last-child(2) { grid-column: 3; }
+        .lb-row:has(> .lb-row-open) > .lb-icon-button:last-child { grid-column: 4; }
+        .lb-row-text strong { display: -webkit-box; overflow: hidden; white-space: normal; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .lb-fix { display: grid; grid-template-columns: 44px 24px minmax(0, 1fr); align-items: center; }
+        .lb-fix > .lb-preview-button { width: 44px; height: 44px; }
+        .lb-fix-main { grid-column: 1 / -1; }
+        .lb-dialog-body { padding: 16px; }
+        .lb-fix-grid .lb-field { justify-content: stretch; }
+        .lb-fix-grid .lb-field input { width: 100%; min-height: 44px; font-size: 16px; }
+        .lb-tool-tabs { top: -16px; }
         .lb-reader { padding: 6px; }
         .lb-toolbar { gap: 2px; }
         .lb-reader-title { flex-basis: calc(100% - 130px); }

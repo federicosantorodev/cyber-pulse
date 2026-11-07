@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "v128";
+const CACHE_VERSION = "v130";
 const CACHE_NAME = `cyber-pulse-shell-${CACHE_VERSION}`;
 const VENDOR_CACHE = "cyber-pulse-vendor-v1";
 
