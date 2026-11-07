@@ -1,0 +1,143 @@
+/* Shared Material-inspired surfaces. Theme and transparency remain user-controlled. */
+:root {
+  --radius: 20px;
+}
+
+html body {
+  font-family: "Google Sans", Roboto, "Segoe UI", Arial, sans-serif;
+}
+
+html body :is(button, input, select, textarea):focus-visible,
+html body a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+html body .app-header {
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+html body .brand-name {
+  font-weight: 650;
+  letter-spacing: -.025em;
+}
+
+html body .search-box {
+  border-color: transparent;
+  border-radius: 16px;
+}
+
+html body .category-strip {
+  gap: 6px;
+}
+
+html body .category-button {
+  min-height: 36px;
+  font-weight: 500;
+}
+
+html body .category-button[aria-pressed="true"] {
+  color: var(--text);
+}
+
+html body .launcher {
+  border-radius: 0 24px 24px 0;
+  box-shadow: 12px 0 48px rgb(0 0 0 / 22%);
+}
+
+html body .launcher-heading {
+  min-height: 76px;
+  padding-inline: 20px;
+}
+
+html body .launcher-nav {
+  gap: 3px;
+  padding-inline: 12px;
+}
+
+html body .launcher-link {
+  min-height: 52px;
+  padding-inline: 16px;
+}
+
+html body .launcher-link.current {
+  color: var(--text);
+}
+
+html body .launcher-link.current .icon {
+  color: var(--accent);
+}
+
+html body :is(.feed-heading, .arena-page-heading, .gm-title, .lb-title, .mu-title) {
+  font-size: clamp(24px, 3.2vw, 32px);
+  font-weight: 650;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+}
+
+html body :is(.news-card, .cp-story, .cp-headlines, .fy-section, .arena-card, .mu-card, .gm-tile) {
+  border-radius: 20px;
+  border-color: color-mix(in srgb, var(--border) 80%, transparent);
+}
+
+html body :is(.arena-card-header, .mu-card-header) {
+  min-height: 58px;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+html body :is(.arena-card-content, .mu-card-body) {
+  padding: 20px;
+}
+
+html body :is(.news-card-title, .arena-card-title, .mu-card-title, .fy-title) {
+  letter-spacing: -.015em;
+}
+
+html body :is(.news-card-thumb, .lb-cover) {
+  border-radius: 14px;
+}
+
+html body :is(.cp-dialog, .lb-dialog, .mu-dialog, .arena-wizard) {
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgb(0 0 0 / 24%);
+}
+
+html body :is(.cp-panel-header, .cp-set-detail-header) {
+  border-bottom-color: color-mix(in srgb, var(--border) 75%, transparent);
+}
+
+html body :is(.cp-choice, .cp-card-action, .mu-chip, .gm-button, .lb-button, .mu-button) {
+  letter-spacing: .01em;
+}
+
+html body :is(.cp-set-item, .cp-set-group summary) {
+  min-height: 44px;
+  border-radius: 14px;
+}
+
+html body :is(.cp-set-item[aria-current], .cp-choice[aria-pressed="true"]) {
+  color: var(--text);
+}
+
+html body :is(.lb-search, .gm-select, .lb-select, .cp-ai-input) {
+  border-radius: 14px;
+}
+
+@media (max-width: 720px) {
+  html body #settings-dialog {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  html body .lb-settings-dialog {
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body .lb-settings-panel .lb-check input::after {
+    transition: none;
+  }
+}

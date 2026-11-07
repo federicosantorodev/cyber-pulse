@@ -104,6 +104,18 @@
     document.dispatchEvent(new CustomEvent("cyberpulse:sourceschange"));
   }
 
+  // value: true/false forza la fonte, null ripristina il valore predefinito del catalogo.
+  function setSourcesEnabled(sourceIds, value) {
+    const overrides = getOverrides();
+    for (const id of sourceIds) {
+      if (value === null) delete overrides[id];
+      else overrides[id] = Boolean(value);
+    }
+    writeStorage(OVERRIDES_KEY, overrides);
+    refreshSourceFilter();
+    document.dispatchEvent(new CustomEvent("cyberpulse:sourceschange"));
+  }
+
   function setCategoryOrder(ids) {
     if (!Array.isArray(ids)) throw new TypeError("L'ordine delle categorie deve essere un array di id.");
     writeStorage(ORDER_KEY, ids);
@@ -205,6 +217,7 @@
       getEnabledSources,
       isSourceEnabled: (source) => isSourceEnabled(source),
       setSourceEnabled,
+      setSourcesEnabled,
       setCategoryOrder,
       resetPreferences,
     });

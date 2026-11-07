@@ -92,7 +92,20 @@
     if (!before) return;
     const sequence = state.sequence;
     state.olderLoading = true;
-    render();
+    // Aggiorna solo il pulsante e la sezione "precedenti": ricostruire tutto il feed accorcia la pagina e fa saltare lo scroll.
+    const refreshOlder = () => {
+      const x = window.scrollX;
+      const y = window.scrollY;
+      const height = dom.older.offsetHeight;
+      dom.older.style.minHeight = `${height}px`;
+      renderOlder(true);
+      dom.more.hidden = !state.olderMore;
+      dom.more.disabled = state.loading || state.olderLoading;
+      dom.more.textContent = state.olderLoading ? "Caricamento…" : "Notizie precedenti";
+      window.scrollTo({ left: x, top: y, behavior: "instant" });
+      setTimeout(() => { dom.older.style.minHeight = ""; }, 1500);
+    };
+    refreshOlder();
     try {
       const result = await window.CyberPulseApi.fetchNews({ category: state.category, limit: pageSize(), before });
       if (sequence !== state.sequence) return;
@@ -106,7 +119,7 @@
     } finally {
       if (sequence === state.sequence) {
         state.olderLoading = false;
-        render();
+        refreshOlder();
       }
     }
   }

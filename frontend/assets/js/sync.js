@@ -10,7 +10,7 @@
   const META_KEY = "cyber-pulse.sync.meta";
   const GROUPS = [
     { title: "Aspetto e sfondi", keys: ["cyber-pulse.theme", "cyber-pulse.mode", "cyber-pulse.backdrop"] },
-    { title: "Notizie, categorie e fonti", keys: ["cyber-pulse.reading-prefs", "cyber-pulse.category-order", "cyber-pulse.source-overrides", "cyber-pulse.saved-items", "cyber-pulse.read-ids", "cyber-pulse.affinity", "cyber-pulse.foryou-hidden", "cyber-pulse.keywords"] },
+    { title: "Notizie, categorie e fonti", keys: ["cyber-pulse.reading-prefs", "cyber-pulse.category-order", "cyber-pulse.source-overrides", "cyber-pulse.saved-items", "cyber-pulse.read-ids", "cyber-pulse.affinity", "cyber-pulse.foryou-hidden", "cyber-pulse.keywords", "cyber-pulse.onboarding-complete", "cyber-pulse.level"] },
     { title: "Traduzione e scorciatoie", keys: ["cyber-pulse.translate", "cyber-pulse.shortcuts"] },
     { title: "Arena e Musica", keys: ["cyber-pulse.arena-preferences", "cyber-pulse.music-preferences"] },
     { title: "Libreria: cronologia, segnalibri, preferenze", keys: ["cyber-pulse.library.state", "cyber-pulse.library.prefs"] },
@@ -188,6 +188,42 @@
     }
   }
 
+  // Primo accesso su un dispositivo: se nel cloud ci sono già dati, vincono sempre sulle impostazioni predefinite locali.
+  let restoreJob = null;
+  function restore() {
+    const user = auth()?.getUser();
+    if (!user || (meta.uid === user.uid && meta.last)) return Promise.resolve({ restored: false });
+    if (restoreJob?.uid === user.uid) return restoreJob.promise;
+    const promise = (async () => {
+      try {
+        if (!navigator.onLine) return { restored: false };
+        const remote = decode(await request(user.uid, "GET"));
+        const stored = KEYS.filter((key) => remote[key]);
+        meta = { uid: user.uid, last: Date.now(), auto: stored.length > 0 || meta.auto, base: {}, mod: meta.mod };
+        if (!stored.length) {
+          saveMeta();
+          return { restored: false };
+        }
+        for (const key of stored) {
+          nativeSet.call(localStorage, key, remote[key].v);
+          meta.base[key] = remote[key].at;
+          meta.mod[key] = remote[key].at;
+        }
+        // Dati salvati prima dell'introduzione di questa voce: chi ha già dei dati ha già fatto la configurazione.
+        if (!remote["cyber-pulse.onboarding-complete"]) nativeSet.call(localStorage, "cyber-pulse.onboarding-complete", "true");
+        saveMeta();
+        report("Le tue impostazioni sono state ripristinate dal cloud. Ricarico la pagina…", true);
+        setTimeout(() => location.reload(), 600);
+        return { restored: true };
+      } catch (error) {
+        console.warn("Ripristino dal cloud non riuscito:", error);
+        return { restored: false };
+      }
+    })();
+    restoreJob = { uid: user.uid, promise };
+    return promise;
+  }
+
   function scheduleAuto() {
     clearTimeout(timer);
     if (!meta.auto || !auth()?.getUser()) return;
@@ -299,13 +335,14 @@
       launcherButton.querySelector(".availability")?.remove();
       launcherButton.addEventListener("click", () => sync());
     }
-    document.addEventListener("cyberpulse:signedin", () => {
-      if (meta.auto) setTimeout(() => sync({ pull: true, silent: true }), 1500);
+    document.addEventListener("cyberpulse:signedin", async () => {
+      const { restored } = await restore();
+      if (!restored && meta.auto) setTimeout(() => sync({ pull: true, silent: true }), 1500);
     });
     window.addEventListener("online", scheduleAuto);
   }
 
-  window.CyberPulseSync = Object.freeze({ sync, keys: KEYS });
+  window.CyberPulseSync = Object.freeze({ sync, restore, keys: KEYS });
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
   else start();

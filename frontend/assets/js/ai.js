@@ -13,6 +13,7 @@
     AI_UNAVAILABLE: "Il servizio AI non risponde. Riprova tra poco.",
     NETWORK: "Backend non raggiungibile. Controlla la connessione.",
     TIMEOUT: "Il servizio ha impiegato troppo tempo. Riprova.",
+    UNKNOWN_ACTION: "Il backend Gemini non è aggiornato: distribuisci la versione GAS che supporta i metadati della Libreria.",
   };
 
   function readKey() {
@@ -33,7 +34,7 @@
 
   function describe(error) {
     if (error?.code === "AI_UNAVAILABLE" && error.message) return error.message;
-    return ERROR_TEXT[error?.code] || "Operazione AI non riuscita. Riprova.";
+    return ERROR_TEXT[error?.code] || (error?.code && error.message) || "Operazione AI non riuscita. Riprova.";
   }
 
   async function run(task, payload, signal) {

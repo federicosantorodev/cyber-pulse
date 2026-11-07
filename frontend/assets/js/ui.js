@@ -652,6 +652,8 @@
         categoryButton.setAttribute("aria-pressed", String(categoryButton === button));
       }
       applyFeedFilters();
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      document.querySelectorAll("main, #home-page").forEach((node) => { node.scrollTop = 0; });
       document.dispatchEvent(new CustomEvent("cyberpulse:categorychange", { detail: { category: activeCategory } }));
     });
     applyFeedFilters();

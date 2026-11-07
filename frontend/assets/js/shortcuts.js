@@ -23,7 +23,7 @@
   };
   const MODE_LABELS = { day: "Giorno", night: "Notte", auto: "Auto", oled: "OLED" };
   // I controlli di liste, righe di dati e moduli con "Salva" non sono impostazioni dirette e non si possono fissare.
-  const SKIP = ".cp-order-item, .cp-source-row, .cp-source-group, .cp-saved-list, li, form, .cp-sc-pin";
+  const SKIP = ".cp-order-item, .cp-source-row, .cp-source-group, .cp-source-tools, .cp-saved-list, li, form, .cp-sc-pin";
   // "Azzera" non è qui perché la sua azione chiede già conferma da sola.
   const DESTRUCTIVE = /rimuov|ripristin|elimin|cancell|svuot/i;
 

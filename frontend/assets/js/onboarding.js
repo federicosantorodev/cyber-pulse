@@ -433,9 +433,15 @@
 
   // Parte solo dopo l'accesso, una sola volta.
   let started = false;
-  function initialize() {
+  async function initialize() {
     if (started) return;
     started = true;
+    // Su un nuovo dispositivo si attende il ripristino dal cloud (max 8 s) prima di proporre la configurazione.
+    if (!hasCompletedSetup() && window.CyberPulseSync?.restore) {
+      const timeout = new Promise((resolve) => setTimeout(() => resolve({ restored: false }), 8000));
+      const { restored } = await Promise.race([window.CyberPulseSync.restore(), timeout]);
+      if (restored) return;
+    }
     if (!hasCompletedSetup()) startOnboarding();
   }
 

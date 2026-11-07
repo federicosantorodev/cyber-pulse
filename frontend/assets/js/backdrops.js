@@ -21,18 +21,17 @@
     pop: { soft: 72, full: 50, veil: "surface", glow: "none" },
   };
 
-  // Un'ambientazione per gruppo: sfumature a mesh + texture (carta, pietra, metallo) o nebulosa.
-  // stops: indici nella tavolozza [accento, ...extras] usati per colorare il rumore.
+  // Ogni gruppo mantiene la propria tavolozza di sfumature.
   const SCENES = {
-    google: { extras: ["#ea4335", "#fbbc04", "#34a853"], blob: 0.55, grain: 6 },
-    "cyberpunk-77": { extras: ["#00e5ff", "#ff2a6d", "#7c4dff"], blob: 0.45, noise: { kind: "warp", scale: 2.2, alpha: 0.85, stops: [0, 1, 2, 3] }, grain: 8 },
-    "harry-potter": { extras: ["#7e57c2", "#26c6da", "#ffd54f"], blob: 0.5, noise: { kind: "warp", scale: 2.6, alpha: 0.75, stops: [3, 0, 1, 2] }, sparkles: 0.0001, vignette: 0.25, grain: 5 },
-    "star-wars": { extras: ["#5c6bc0", "#ec407a", "#101733"], blob: 0.45, noise: { kind: "warp", scale: 1.7, alpha: 0.85, stops: [3, 0, 1, 2] }, stars: 0.0024, grain: 5 },
-    japan: { extras: ["#f6ebe0", "#c62828", "#2b2b2b"], blob: 0.18, sun: true, noise: { kind: "paper", alpha: 0.5, stops: [1, 2, 1] }, grain: 12 },
-    italy: { extras: ["#f4efe6", "#008c45", "#cd212a"], blob: 0.35, noise: { kind: "plaster", scale: 5, alpha: 0.5, stops: [1, 0, 2] }, grain: 12 },
-    mexico: { extras: ["#ffb300", "#e53935", "#00897b"], blob: 0.6, noise: { kind: "linen", alpha: 0.14, stops: [1, 2, 0] }, grain: 8 },
-    solid: { extras: [], blob: 0.3, grain: 4 },
-    unicorn: { extras: ["#f8bbd0", "#b39ddb", "#80deea", "#fff59d"], blob: 0.7, noise: { kind: "warp", scale: 1.4, alpha: 0.45, stops: [1, 2, 3, 4] }, grain: 5 },
+    google: { extras: ["#ea4335", "#fbbc04", "#34a853"], blob: 0.55 },
+    "cyberpunk-77": { extras: ["#00e5ff", "#ff2a6d", "#7c4dff"], blob: 0.45 },
+    "harry-potter": { extras: ["#7e57c2", "#26c6da", "#ffd54f"], blob: 0.5 },
+    "star-wars": { extras: ["#5c6bc0", "#ec407a", "#101733"], blob: 0.45 },
+    japan: { extras: ["#f6ebe0", "#c62828", "#2b2b2b"], blob: 0.18, sun: true },
+    italy: { extras: ["#f4efe6", "#008c45", "#cd212a"], blob: 0.35 },
+    mexico: { extras: ["#ffb300", "#e53935", "#00897b"], blob: 0.6 },
+    solid: { extras: [], blob: 0.3 },
+    unicorn: { extras: ["#f8bbd0", "#b39ddb", "#80deea", "#fff59d"], blob: 0.7 },
   };
   const MODE_MIX = { day: ["#ffffff", 0.28], night: ["#000000", 0.08], oled: ["#000000", 0.3] };
 
@@ -63,195 +62,37 @@
     };
   }
 
-  function noiseField(seed) {
-    const lattice = (x, y) => {
-      let n = (Math.imul(x, 374761393) + Math.imul(y, 668265263) + Math.imul(seed, 2147483647)) | 0;
-      n = Math.imul(n ^ (n >>> 13), 1274126177);
-      return ((n ^ (n >>> 16)) >>> 0) / 4294967295;
-    };
-    const smooth = (t) => t * t * (3 - 2 * t);
-    const value = (x, y) => {
-      const xi = Math.floor(x);
-      const yi = Math.floor(y);
-      const fx = smooth(x - xi);
-      const fy = smooth(y - yi);
-      const top = lattice(xi, yi) + (lattice(xi + 1, yi) - lattice(xi, yi)) * fx;
-      const bottom = lattice(xi, yi + 1) + (lattice(xi + 1, yi + 1) - lattice(xi, yi + 1)) * fx;
-      return top + (bottom - top) * fy;
-    };
-    const fbm = (x, y, octaves = 4) => {
-      let sum = 0;
-      let amp = 0.5;
-      let total = 0;
-      for (let i = 0; i < octaves; i += 1) {
-        sum += value(x, y) * amp;
-        total += amp;
-        x = x * 2 + 17.3;
-        y = y * 2 + 9.1;
-        amp *= 0.5;
-      }
-      return sum / total;
-    };
-    return { value, fbm };
-  }
-
-  function sample(kind, field, x, y, scale = 3) {
-    const { fbm } = field;
-    switch (kind) {
-      case "warp": {
-        const wx = fbm(x * scale + 5.2, y * scale + 1.3, 3);
-        const wy = fbm(x * scale + 8.7, y * scale + 2.8, 3);
-        return fbm(x * scale + wx * 2.6, y * scale + wy * 2.6, 5);
-      }
-      case "brushed":
-        return fbm(x * 0.8, y * 26, 3) * 0.75 + fbm(x * 1.5, y * 3, 2) * 0.25;
-      case "paper":
-        return fbm(x * 4, y * 4, 4) * 0.65 + fbm(x * 38, y * 38, 2) * 0.35;
-      case "plaster":
-        return fbm(x * scale, y * scale, 5) * 0.8 + fbm(x * 30, y * 30, 2) * 0.2;
-      case "stone": {
-        const base = fbm(x * 3.2, y * 3.2, 5);
-        return 1 - Math.abs(base * 2 - 1) * 0.9;
-      }
-      case "linen":
-        return fbm(x * 70, y * 4, 2) * 0.5 + fbm(x * 4, y * 70, 2) * 0.5;
-      default:
-        return 0.5;
-    }
-  }
-
-  function paletteColor(palette, stops, n) {
-    const t = Math.min(1, Math.max(0, n)) * (stops.length - 1);
-    const i = Math.min(stops.length - 2, Math.floor(t));
-    return mix(palette[stops[i]], palette[stops[i + 1]], t - i);
-  }
-
   // Disegna l'immagine di sfondo del tema e la restituisce come data URL.
   function render({ group, theme, accent, base, mode = "day", w = 720, h = 480 }) {
     const scene = SCENES[group] || SCENES.solid;
     const seed = hash(theme || group);
     const rnd = random(seed);
-    const field = noiseField(seed & 0xffff);
     const [tint, amount] = MODE_MIX[mode] || MODE_MIX.day;
     const tintRgb = toRgb(tint);
     const palette = [accent, ...scene.extras].map((color) => mix(toRgb(color), tintRgb, amount));
     const baseRgb = toRgb(base);
 
-    const sw = Math.min(360, Math.max(32, Math.round(w / 4)));
-    const sh = Math.max(20, Math.round(sw * h / w));
-    const small = document.createElement("canvas");
-    small.width = sw;
-    small.height = sh;
-    const sctx = small.getContext("2d");
-    sctx.fillStyle = `rgb(${baseRgb.join(",")})`;
-    sctx.fillRect(0, 0, sw, sh);
-
-    const blobs = scene.sun ? 1 : 5;
-    for (let i = 0; i < blobs; i += 1) {
-      const color = palette[i % palette.length];
-      const x = scene.sun ? sw * 0.78 : rnd() * sw;
-      const y = scene.sun ? sh * 0.3 : rnd() * sh;
-      const radius = (scene.sun ? 0.55 : (i === 0 ? 0.9 : 0.45 + rnd() * 0.5)) * sw;
-      const gradient = sctx.createRadialGradient(x, y, 0, x, y, radius);
-      const alpha = scene.sun ? 0.75 : (i === 0 ? Math.min(0.9, scene.blob * 1.6) : scene.blob);
-      gradient.addColorStop(0, `rgba(${color.map(Math.round).join(",")},${alpha})`);
-      gradient.addColorStop(1, `rgba(${color.map(Math.round).join(",")},0)`);
-      sctx.fillStyle = gradient;
-      sctx.fillRect(0, 0, sw, sh);
-    }
-
-    const image = sctx.getImageData(0, 0, sw, sh);
-    const data = image.data;
-    const noise = scene.noise;
-    const stops = noise ? noise.stops.filter((index) => index < palette.length) : [];
-    for (let py = 0; py < sh; py += 1) {
-      for (let px = 0; px < sw; px += 1) {
-        const at = (py * sw + px) * 4;
-        const x = px / sw;
-        const y = py / sw;
-        let r = data[at];
-        let g = data[at + 1];
-        let b = data[at + 2];
-        if (noise && stops.length > 1) {
-          const n = sample(noise.kind, field, x, y, noise.scale);
-          const edge = Math.min(1, Math.max(0, (n - 0.25) / 0.65));
-          const a = noise.alpha * edge * edge * (3 - 2 * edge);
-          const [nr, ng, nb] = paletteColor(palette, stops, n);
-          r += (nr - r) * a;
-          g += (ng - g) * a;
-          b += (nb - b) * a;
-        }
-        if (scene.vignette) {
-          const dx = px / sw - 0.5;
-          const dy = py / sh - 0.5;
-          const shade = 1 - scene.vignette * Math.min(1, (dx * dx + dy * dy) * 3);
-          r *= shade;
-          g *= shade;
-          b *= shade;
-        }
-        data[at] = r;
-        data[at + 1] = g;
-        data[at + 2] = b;
-      }
-    }
-    sctx.putImageData(image, 0, 0);
-
     const canvas = document.createElement("canvas");
     canvas.width = w;
     canvas.height = h;
     const ctx = canvas.getContext("2d");
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
-    ctx.drawImage(small, 0, 0, w, h);
+    ctx.fillStyle = `rgb(${baseRgb.join(",")})`;
+    ctx.fillRect(0, 0, w, h);
 
-    if (scene.sparkles) {
-      // Scintille dorate con alone: ci sono anche di giorno, ma più discrete.
-      const count = Math.round(w * h * scene.sparkles);
-      const gold = mode === "day" ? "230,170,40" : "255,226,140";
-      for (let i = 0; i < count; i += 1) {
-        const x = rnd() * w;
-        const y = rnd() * h;
-        const radius = (6 + rnd() * 22) * Math.max(1, w / 1200);
-        const peak = (mode === "day" ? 0.4 : 0.75) * (0.4 + rnd() * 0.6);
-        const glow = ctx.createRadialGradient(x, y, 0, x, y, radius);
-        glow.addColorStop(0, `rgba(${gold},${peak.toFixed(2)})`);
-        glow.addColorStop(0.2, `rgba(${gold},${(peak * 0.35).toFixed(2)})`);
-        glow.addColorStop(1, `rgba(${gold},0)`);
-        ctx.fillStyle = glow;
-        ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
-        if (radius > 14) {
-          ctx.fillStyle = `rgba(255,255,255,${(peak * 0.8).toFixed(2)})`;
-          ctx.fillRect(x - radius * 0.7, y - 0.5, radius * 1.4, 1);
-          ctx.fillRect(x - 0.5, y - radius * 0.7, 1, radius * 1.4);
-        }
-      }
+    const blobs = scene.sun ? 1 : 5;
+    for (let i = 0; i < blobs; i += 1) {
+      const color = palette[i % palette.length];
+      const x = scene.sun ? w * 0.78 : rnd() * w;
+      const y = scene.sun ? h * 0.3 : rnd() * h;
+      const radius = (scene.sun ? 0.55 : (i === 0 ? 0.9 : 0.45 + rnd() * 0.5)) * w;
+      const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+      const alpha = scene.sun ? 0.75 : (i === 0 ? Math.min(0.9, scene.blob * 1.6) : scene.blob);
+      gradient.addColorStop(0, `rgba(${color.map(Math.round).join(",")},${alpha})`);
+      gradient.addColorStop(1, `rgba(${color.map(Math.round).join(",")},0)`);
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, w, h);
     }
-
-    if (scene.stars && mode !== "day") {
-      const count = Math.round(w * h * scene.stars);
-      for (let i = 0; i < count; i += 1) {
-        ctx.fillStyle = `rgba(255,255,255,${(0.25 + rnd() * 0.6).toFixed(2)})`;
-        const size = rnd() < 0.08 ? 2 : 1;
-        ctx.fillRect(Math.floor(rnd() * w), Math.floor(rnd() * h), size, size);
-      }
-    }
-
-    if (scene.grain && w >= 200) {
-      const grain = ctx.getImageData(0, 0, w, h);
-      const px = grain.data;
-      const rowBias = scene.rows ? Float32Array.from({ length: h }, () => (rnd() - 0.5) * scene.grain * 3) : null;
-      for (let y = 0; y < h; y += 1) {
-        for (let x = 0; x < w; x += 1) {
-          const at = (y * w + x) * 4;
-          const delta = (rnd() - 0.5) * scene.grain * 2 + (rowBias ? rowBias[y] : 0);
-          px[at] += delta;
-          px[at + 1] += delta;
-          px[at + 2] += delta;
-        }
-      }
-      ctx.putImageData(grain, 0, 0);
-    }
-    return canvas.toDataURL("image/jpeg", w > 1000 ? 0.88 : 0.82);
+    return canvas.toDataURL("image/png");
   }
 
   function readPrefs() {
@@ -483,7 +324,7 @@
 
     const hint = document.createElement("p");
     hint.className = "cp-settings-hint";
-    hint.textContent = "Ogni tema ha il suo sfondo, fatto di sfumature e texture nei colori della variante scelta e adattato a ogni menu. Puoi usare anche una tua immagine: viene ridotta e salvata solo su questo dispositivo, sotto un velo che mantiene il testo leggibile.";
+    hint.textContent = "Ogni tema ha il suo sfondo, fatto di sfumature morbide nei colori della variante scelta e adattato a ogni menu. Puoi usare anche una tua immagine: viene ridotta e salvata solo su questo dispositivo, sotto un velo che mantiene il testo leggibile.";
 
     const fileInput = document.createElement("input");
     fileInput.type = "file";

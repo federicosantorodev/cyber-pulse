@@ -325,11 +325,11 @@
       .mu-radar-reason { color: var(--text-muted); font-size: 12px; }
       .mu-dialog { width: min(600px, calc(100vw - 24px)); max-height: calc(100vh - 24px); padding: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); }
       .mu-dialog::backdrop { background: rgba(0, 0, 0, .55); }
-      .mu-dialog form { display: grid; gap: 14px; padding: 22px; }
+      .mu-dialog form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 22px; }
       .mu-dialog h2 { margin: 0; font-size: 20px; }
       .mu-dialog p { margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
       .mu-bubbles { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; padding: 6px 0; }
-      .mu-bubble { min-height: 44px; padding: 0 20px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-muted); color: var(--text); cursor: pointer; font: inherit; font-size: 14px; animation: mu-float 4.5s ease-in-out infinite; transition: transform .15s, background .15s; }
+      .mu-bubble { max-width: 100%; min-height: 44px; padding: 0 20px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-muted); color: var(--text); cursor: pointer; font: inherit; font-size: 14px; overflow-wrap: anywhere; animation: mu-float 4.5s ease-in-out infinite; transition: transform .15s, background .15s; }
       .mu-bubble:nth-child(3n) { min-height: 56px; padding: 0 26px; font-size: 16px; animation-duration: 5.5s; animation-delay: -1.2s; }
       .mu-bubble:nth-child(3n+1) { animation-delay: -2.4s; }
       .mu-bubble:nth-child(4n) { min-height: 38px; padding: 0 16px; font-size: 13px; animation-duration: 3.8s; }
@@ -338,8 +338,9 @@
       @keyframes mu-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
       .mu-add { display: flex; gap: 8px; }
       .mu-add input { flex: 1; min-width: 0; min-height: 42px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-muted); color: var(--text); font: inherit; font-size: 14px; }
-      .mu-actions { display: flex; justify-content: space-between; gap: 8px; }
-      .mu-error { min-height: 1.4em; color: #d93025; font-size: 13px; }
+      .mu-actions { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin: 0 -22px -22px; padding: 12px 22px 18px; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) var(--bd-win-alpha, 100%), transparent); backdrop-filter: blur(var(--bd-win-blur, 0px)); }
+      .mu-dialog .mu-error { flex-basis: 100%; margin: 0; color: #d93025; font-size: 13px; }
+      .mu-error:empty { display: none; }
       .mu-step { color: var(--text-muted); font-size: 12px; font-weight: 600; }
       @media (prefers-reduced-motion: reduce) { .mu-eq span, .mu-bubble { animation: none; } .mu-eq span { transform: scaleY(.6); } }
       @media (max-width: 700px) {
@@ -869,8 +870,8 @@
         document.querySelector("#music-preferences-section")?.remove();
         if (state.active) loadTab("dashboard");
       });
-      actions.append(back, next);
-      parts.push(error, actions);
+      actions.append(error, back, next);
+      parts.push(actions);
       form.replaceChildren(...parts);
       bubbles.firstChild?.focus();
     }

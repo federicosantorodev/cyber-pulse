@@ -8,6 +8,9 @@
   let dialog = null;
   let categoryList = null;
   let sourceContainer = null;
+  let sourceSummary = null;
+  let sourceEmpty = null;
+  const sourceFilter = { query: "", lang: "all" };
   const announcers = [];
   let nav = null;
   let detail = null;
@@ -196,6 +199,17 @@
       .cp-source-items { display: grid; gap: 2px; padding: 4px 8px 10px; }
       .cp-source-row { display: flex; min-height: 40px; align-items: center; gap: 10px; padding: 4px 8px; border-radius: 8px; font-size: 14px; }
       .cp-source-row:hover { background: var(--surface-muted); }
+      .cp-source-row[hidden], .cp-source-group[hidden] { display: none; }
+      .cp-source-label { display: grid; min-width: 0; gap: 1px; }
+      .cp-source-site { overflow: hidden; color: var(--text-muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+      .cp-source-tools { display: grid; gap: 10px; margin-bottom: 12px; }
+      .cp-source-summary { margin: 0; color: var(--text-muted); font-size: 13px; }
+      .cp-source-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+      .cp-source-search, .cp-source-lang-filter { min-height: 40px; padding: 0 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--text); font: inherit; font-size: 14px; }
+      .cp-source-search { flex: 1 1 200px; min-width: 0; }
+      .cp-source-actions { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 4px; }
+      .cp-source-action { min-height: 32px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); font: inherit; font-size: 12px; cursor: pointer; }
+      .cp-source-action:hover { background: var(--accent-soft); color: var(--accent); }
       .cp-source-row input { width: 18px; height: 18px; flex: 0 0 auto; accent-color: var(--accent); }
       .cp-source-row.unavailable { color: var(--text-muted); }
       .cp-source-lang { margin-left: auto; color: var(--text-muted); font-size: 11px; white-space: nowrap; }
@@ -331,15 +345,45 @@
     return { enabled: sources.filter((source) => source.active && api().isSourceEnabled(source)).length, total: sources.length };
   }
 
+  function sourceSite(source) {
+    try { return new URL(source.siteUrl || source.feedUrl).hostname.replace(/^www\./, ""); } catch { return ""; }
+  }
+
+  function sourceMatches(source) {
+    const { query, lang } = sourceFilter;
+    if (lang === "it" && source.lang !== "it") return false;
+    if (lang === "int" && source.lang === "it") return false;
+    if (!query) return true;
+    return `${source.name} ${sourceSite(source)}`.toLowerCase().includes(query);
+  }
+
+  function updateSourceSummary() {
+    if (!sourceSummary || !api()) return;
+    let enabled = 0;
+    let total = 0;
+    for (const category of api().getCategories()) {
+      const counts = countEnabled(category);
+      enabled += counts.enabled;
+      total += counts.total;
+    }
+    sourceSummary.textContent = `${enabled} fonti attive su ${total}`;
+  }
+
   function updateGroupCount(group, category) {
     const { enabled, total } = countEnabled(category);
-    group.querySelector(".cp-source-count").textContent = `${enabled} attive su ${total}`;
+    const filtering = sourceFilter.query || sourceFilter.lang !== "all";
+    const shown = filtering ? group.querySelectorAll(".cp-source-row:not([hidden])").length : 0;
+    group.querySelector(".cp-source-count").textContent = filtering && group.querySelector(".cp-source-items")
+      ? `${shown} trovate · ${enabled} attive su ${total}`
+      : `${enabled} attive su ${total}`;
+    updateSourceSummary();
   }
 
   function fillSources(group, category) {
     const rows = api().getCategorySources(category.id).map((source) => {
       const row = document.createElement("label");
       row.className = "cp-source-row";
+      row.dataset.sourceId = source.id;
 
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -351,8 +395,18 @@
         updateGroupCount(group, category);
       });
 
+      const label = document.createElement("span");
+      label.className = "cp-source-label";
       const name = document.createElement("span");
       name.textContent = source.name;
+      label.append(name);
+      const site = sourceSite(source);
+      if (site) {
+        const host = document.createElement("small");
+        host.className = "cp-source-site";
+        host.textContent = site;
+        label.append(host);
+      }
 
       const note = document.createElement("span");
       note.className = "cp-source-lang";
@@ -361,7 +415,8 @@
         : "Non ancora disponibile";
 
       if (!source.active) row.classList.add("unavailable");
-      row.append(checkbox, name, note);
+      row.append(checkbox, label, note);
+      row.hidden = !sourceMatches(source);
       return row;
     });
     const items = document.createElement("div");
@@ -370,10 +425,89 @@
     group.append(items);
   }
 
+  // Applica una scelta a tutte le fonti disponibili del gruppo che passano il filtro corrente.
+  function bulkSources(group, category, value) {
+    const targets = api().getCategorySources(category.id).filter((source) => (value === null || source.active) && sourceMatches(source));
+    if (!targets.length) return;
+    api().setSourcesEnabled(targets.map((source) => source.id), value);
+    group.querySelector(".cp-source-items")?.remove();
+    fillSources(group, category);
+    updateGroupCount(group, category);
+    announce(value === null ? "Fonti ripristinate ai valori predefiniti." : value ? "Fonti attivate." : "Fonti disattivate.");
+  }
+
+  function applySourceFilter() {
+    const filtering = Boolean(sourceFilter.query) || sourceFilter.lang !== "all";
+    let found = 0;
+    for (const group of sourceContainer.querySelectorAll(".cp-source-group")) {
+      const category = api().getCategories().find((item) => item.id === group.dataset.categoryId);
+      if (filtering && !group.querySelector(".cp-source-items")) fillSources(group, category);
+      const rows = group.querySelectorAll(".cp-source-row");
+      let visible = 0;
+      const sources = new Map(api().getCategorySources(category.id).map((source) => [source.id, source]));
+      rows.forEach((row) => {
+        row.hidden = !sourceMatches(sources.get(row.dataset.sourceId));
+        if (!row.hidden) visible += 1;
+      });
+      group.hidden = filtering && visible === 0;
+      if (filtering) group.open = visible > 0;
+      found += visible;
+      updateGroupCount(group, category);
+    }
+    sourceEmpty.hidden = !filtering || found > 0;
+  }
+
+  function buildSourceTools() {
+    const tools = document.createElement("div");
+    tools.className = "cp-source-tools";
+
+    sourceSummary = document.createElement("p");
+    sourceSummary.className = "cp-source-summary";
+    sourceSummary.setAttribute("role", "status");
+
+    const search = document.createElement("input");
+    search.type = "search";
+    search.className = "cp-source-search";
+    search.placeholder = "Cerca una fonte o un sito";
+    search.setAttribute("aria-label", "Cerca tra le fonti");
+    search.autocomplete = "off";
+    search.addEventListener("input", () => {
+      sourceFilter.query = search.value.trim().toLowerCase();
+      applySourceFilter();
+    });
+
+    const lang = document.createElement("select");
+    lang.className = "cp-source-lang-filter";
+    lang.setAttribute("aria-label", "Filtra le fonti per lingua");
+    [["all", "Tutte le lingue"], ["it", "Solo italiane"], ["int", "Solo internazionali"]].forEach(([value, label]) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      lang.append(option);
+    });
+    lang.addEventListener("change", () => {
+      sourceFilter.lang = lang.value;
+      applySourceFilter();
+    });
+
+    const controls = document.createElement("div");
+    controls.className = "cp-source-controls";
+    controls.append(search, lang);
+
+    sourceEmpty = document.createElement("p");
+    sourceEmpty.className = "cp-settings-hint";
+    sourceEmpty.textContent = "Nessuna fonte corrisponde alla ricerca.";
+    sourceEmpty.hidden = true;
+
+    tools.append(sourceSummary, controls, sourceEmpty);
+    return tools;
+  }
+
   function renderSources() {
     const groups = api().getCategories().map((category) => {
       const group = document.createElement("details");
       group.className = "cp-source-group";
+      group.dataset.categoryId = category.id;
 
       const summary = document.createElement("summary");
       const title = document.createElement("span");
@@ -381,7 +515,18 @@
       const count = document.createElement("span");
       count.className = "cp-source-count";
       summary.append(title, count);
-      group.append(summary);
+
+      const actions = document.createElement("div");
+      actions.className = "cp-source-actions";
+      [["Attiva tutte", true], ["Disattiva tutte", false], ["Predefinite", null]].forEach(([label, value]) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "cp-source-action";
+        button.textContent = label;
+        button.addEventListener("click", () => bulkSources(group, category, value));
+        actions.append(button);
+      });
+      group.append(summary, actions);
       updateGroupCount(group, category);
 
       // L'elenco completo (600 fonti) viene creato solo all'apertura del gruppo.
@@ -391,6 +536,8 @@
       return group;
     });
     sourceContainer.replaceChildren(...groups);
+    updateSourceSummary();
+    if (sourceFilter.query || sourceFilter.lang !== "all") applySourceFilter();
   }
 
   function renderAll() {
@@ -571,9 +718,9 @@
     sourceSection.innerHTML = "<h3>Fonti</h3>";
     const sourceHint = document.createElement("p");
     sourceHint.className = "cp-settings-hint";
-    sourceHint.textContent = "Disattiva le fonti che non vuoi vedere. Le fonti segnate come non ancora disponibili non sono ancora aggiornate dal server.";
+    sourceHint.textContent = "Scegli da quali fonti arrivano le notizie. Le fonti segnate come non ancora disponibili non sono ancora aggiornate dal server.";
     sourceContainer = document.createElement("div");
-    sourceSection.append(sourceHint, sourceContainer);
+    sourceSection.append(sourceHint, buildSourceTools(), sourceContainer);
 
     const readingSection = window.CyberPulseCards?.buildSettingsSection();
     builtin = [

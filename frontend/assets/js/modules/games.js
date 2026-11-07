@@ -1035,7 +1035,7 @@
       .gm-select { min-height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: 19px; background: var(--surface); color: var(--text); font: inherit; font-size: 13px; }
       .gm-note { max-width: 70ch; margin: 16px 0 0; color: var(--text-muted); font-size: 12px; line-height: 1.6; }
       .gm-board, .gm-ghost {
-        --cw: clamp(40px, calc((100vw - 40px) / 7.6), 100px);
+        --cw: clamp(28px, calc((100vw - 72px) / 7.84), 100px);
         --ch: calc(var(--cw) * 1.4);
         --gap: calc(var(--cw) * .14);
       }

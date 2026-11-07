@@ -183,6 +183,8 @@ function doGet(e) {
         return json_({ ok: true, data: getFrontPage_(params) });
       case "music":
         return json_({ ok: true, data: getMusicData_(params) });
+      case "sbn-isbn":
+        return json_({ ok: true, data: lookupSbnIsbn_(params.isbn) });
       case "status":
         return json_({ ok: true, data: getStatus_() });
       default:
@@ -193,11 +195,93 @@ function doGet(e) {
   }
 }
 
+function lookupSbnIsbn_(input) {
+  const isbn = String(input || "").toUpperCase();
+  if (!/^(?:97[89]\d{10}|\d{9}[\dX])$/.test(isbn)) throw new ApiError("BAD_REQUEST", "ISBN non valido.");
+  let valid = false;
+  if (isbn.length === 13) {
+    let sum = 0;
+    for (let i = 0; i < 12; i++) sum += Number(isbn[i]) * (i % 2 ? 3 : 1);
+    valid = (10 - sum % 10) % 10 === Number(isbn[12]);
+  } else {
+    let sum = 0;
+    for (let i = 0; i < 9; i++) sum += Number(isbn[i]) * (10 - i);
+    sum += isbn[9] === "X" ? 10 : Number(isbn[9]);
+    valid = sum % 11 === 0;
+  }
+  if (!valid) throw new ApiError("BAD_REQUEST", "Cifra di controllo ISBN non valida.");
+
+  const variants = [isbn];
+  if (isbn.length === 13 && isbn.startsWith("978")) {
+    const base = isbn.slice(3, 12);
+    let sum = 0;
+    for (let i = 0; i < 9; i++) sum += Number(base[i]) * (10 - i);
+    const check = (11 - sum % 11) % 11;
+    variants.push(base + (check === 10 ? "X" : String(check)));
+  } else if (isbn.length === 10) {
+    const base = "978" + isbn.slice(0, 9);
+    let sum = 0;
+    for (let i = 0; i < 12; i++) sum += Number(base[i]) * (i % 2 ? 3 : 1);
+    variants.push(base + String((10 - sum % 10) % 10));
+  }
+  const query = [
+    "PREFIX bf: <http://id.loc.gov/ontologies/bibframe/>",
+    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+    "SELECT DISTINCT ?instance ?title ?author ?publisher ?date WHERE {",
+    "VALUES ?isbn { " + variants.map((value) => '"' + value + '"').join(" ") + " }",
+    "?instance bf:identifiedBy [ a bf:Isbn; rdf:value ?isbn ]; bf:title/bf:mainTitle ?title .",
+    "OPTIONAL { ?instance bf:responsibilityStatement ?author }",
+    "OPTIONAL { ?instance bf:provisionActivity ?publication .",
+    "OPTIONAL { ?publication bf:agent/rdfs:label ?publisher }",
+    "OPTIONAL { ?publication bf:date ?date } }",
+    "} LIMIT 100",
+  ].join("\n");
+  let response;
+  try {
+    response = UrlFetchApp.fetch("https://triplestore.iccu.sbn.it/sparql?format=" +
+      encodeURIComponent("application/sparql-results+json") + "&query=" + encodeURIComponent(query), {
+      muteHttpExceptions: true,
+      headers: { Accept: "application/sparql-results+json" },
+    });
+  } catch (error) {
+    throw new ApiError("SBN_UNAVAILABLE", "Catalogo SBN non raggiungibile.");
+  }
+  if (response.getResponseCode() !== 200) throw new ApiError("SBN_UNAVAILABLE", "Catalogo SBN non disponibile (HTTP " + response.getResponseCode() + ").");
+  let data;
+  try {
+    data = JSON.parse(response.getContentText());
+  } catch (error) {
+    throw new ApiError("SBN_BAD_RESPONSE", "Risposta SBN non leggibile.");
+  }
+  const rows = data && data.results && data.results.bindings;
+  if (!Array.isArray(rows)) throw new ApiError("SBN_BAD_RESPONSE", "Risposta SBN non valida.");
+  const editions = {};
+  rows.forEach((row) => {
+    const value = (key) => row[key] && typeof row[key].value === "string" ? row[key].value.trim() : "";
+    const id = value("instance");
+    const title = value("title");
+    if (!id || !title) return;
+    if (!editions[id]) editions[id] = { title, author: "", publisher: "", year: "" };
+    const edition = editions[id];
+    if (!edition.author) edition.author = value("author");
+    if (!edition.publisher) edition.publisher = value("publisher");
+    if (!edition.year) {
+      const year = value("date").match(/\b(?:1[0-9]{3}|20[0-9]{2})\b/);
+      if (year) edition.year = year[0];
+    }
+  });
+  if (rows.length >= 100) throw new ApiError("SBN_AMBIGUOUS", "Troppi risultati SBN per questo ISBN: controlla il catalogo SBN.");
+  return { editions: Object.keys(editions).map((id) => editions[id]) };
+}
+
 // Richieste che richiedono l'accesso: corpo JSON {action, idToken}, inviato come testo semplice.
 function doPost(e) {
   try {
     const raw = (e && e.postData && e.postData.contents) || "";
-    if (raw.length === 0 || raw.length > AUTH.MAX_BODY_CHARS) throw new ApiError("BAD_REQUEST", "Richiesta non valida.");
+    if (raw.length === 0 || raw.length > AUTH.MAX_AI_IMAGE_BODY_CHARS) {
+      throw new ApiError("BAD_REQUEST", "Richiesta troppo grande o non valida.");
+    }
     let body = null;
     try {
       body = JSON.parse(raw);
@@ -205,6 +289,9 @@ function doPost(e) {
       throw new ApiError("BAD_REQUEST", "Richiesta non valida.");
     }
     if (!body || typeof body !== "object") throw new ApiError("BAD_REQUEST", "Richiesta non valida.");
+    if (!(body.action === "ai" && body.image) && raw.length > AUTH.MAX_BODY_CHARS) {
+      throw new ApiError("BAD_REQUEST", "Richiesta troppo grande o non valida.");
+    }
 
     switch (body.action) {
       case "me":

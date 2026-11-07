@@ -117,7 +117,17 @@
     if (!data.front || !Array.isArray(data.front.stories) || !Array.isArray(data.front.headlines)) {
       throw new ApiError("BAD_RESPONSE", "Il backend ha restituito un pacchetto Musica non valido.");
     }
+
     return data;
+  }
+
+  async function fetchSbnIsbn(isbn, signal) {
+    const data = await request({ action: "sbn-isbn", isbn }, signal);
+    if (!Array.isArray(data.editions) || !data.editions.every((edition) => edition && typeof edition.title === "string"
+      && typeof edition.author === "string" && typeof edition.publisher === "string" && typeof edition.year === "string")) {
+      throw new ApiError("BAD_RESPONSE", "Risposta SBN non valida.");
+    }
+    return data.editions;
   }
 
   // Pacchetto Arena aggregato dal backend Cyber Pulse, senza chiamate dal browser a provider sportivi.
@@ -155,10 +165,10 @@
   }
 
   // Compiti AI: chiave Gemini e gettone viaggiano solo nel corpo della richiesta HTTPS.
-  async function runAi({ task, text, title, context, targetLanguage, apiKey, idToken, signal }) {
-    const timeout = task === "frontpage" ? 150000 : TIMEOUT_MS;
-    return request({}, signal, { action: "ai", task, text, title, context, targetLanguage, apiKey, idToken }, timeout);
+  async function runAi({ task, text, title, context, targetLanguage, image, apiKey, idToken, signal }) {
+    const timeout = task === "frontpage" ? 150000 : task === "library-metadata" ? 75000 : TIMEOUT_MS;
+    return request({}, signal, { action: "ai", task, text, title, context, targetLanguage, image, apiKey, idToken }, timeout);
   }
 
-  window.CyberPulseApi = Object.freeze({ isConfigured, fetchNews, fetchFront, fetchMusic, fetchArenaData, registerUser, runAi, ApiError });
+  window.CyberPulseApi = Object.freeze({ isConfigured, fetchNews, fetchFront, fetchMusic, fetchArenaData, fetchSbnIsbn, registerUser, runAi, ApiError });
 })();

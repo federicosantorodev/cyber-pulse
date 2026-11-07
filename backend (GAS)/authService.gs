@@ -15,6 +15,7 @@ const AUTH = Object.freeze({
   CACHE_SECONDS: 300,
   MAX_TOKEN_CHARS: 4096,
   MAX_BODY_CHARS: 30000,
+  MAX_AI_IMAGE_BODY_CHARS: 1300000,
   DEFAULT_LEVEL: "standard",
 });
 

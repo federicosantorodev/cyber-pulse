@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "v71";
+const CACHE_VERSION = "v128";
 const CACHE_NAME = `cyber-pulse-shell-${CACHE_VERSION}`;
 const VENDOR_CACHE = "cyber-pulse-vendor-v1";
 
@@ -9,6 +9,7 @@ const SHELL_FILES = [
   "./index.html",
   "./manifest.webmanifest",
   "./assets/css/themes_styles.css",
+  "./assets/css/material-ui.css",
   "./assets/js/backdrops.js",
   "./assets/js/ui.js",
   "./assets/js/onboarding.js",
@@ -19,6 +20,20 @@ const SHELL_FILES = [
   "./assets/js/modules/games-more.js",
   "./assets/js/modules/games.js",
   "./assets/js/modules/library.js",
+  "./assets/js/vendor/pdfjs/pdf.mjs",
+  "./assets/js/vendor/pdfjs/pdf.worker.mjs",
+  "./assets/js/vendor/pdfjs/wasm/openjpeg.wasm",
+  "./assets/js/vendor/pdfjs/wasm/jbig2.wasm",
+  "./assets/js/vendor/pdfjs/wasm/qcms_bg.wasm",
+  "./assets/js/vendor/pdfjs/LICENSE",
+  "./assets/js/vendor/tesseract/tesseract.min.js",
+  "./assets/js/vendor/tesseract/worker.min.js",
+  "./assets/js/vendor/tesseract/core/tesseract-core.wasm.js",
+  "./assets/js/vendor/tesseract/core/tesseract-core-simd.wasm.js",
+  "./assets/js/vendor/tesseract/core/tesseract-core-lstm.wasm.js",
+  "./assets/js/vendor/tesseract/core/tesseract-core-simd-lstm.wasm.js",
+  "./assets/js/vendor/tesseract/lang/ita.traineddata.gz",
+  "./assets/js/vendor/tesseract/lang/eng.traineddata.gz",
   "./assets/js/modules/sports.js",
   "./assets/js/modules/arena.js",
   "./assets/js/modules/music.js",
